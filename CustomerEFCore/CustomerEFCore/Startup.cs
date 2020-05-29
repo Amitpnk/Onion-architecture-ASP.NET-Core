@@ -1,4 +1,8 @@
+using AutoMapper;
 using CustomerEFCore.Data;
+using CustomerEFCore.Mapping;
+using CustomerEFCore.Repository;
+using CustomerEFCore.Repository.Contract;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +32,15 @@ namespace CustomerEFCore
                       .EnableSensitiveDataLogging()
                 );
 
+            // Auto Mapper Configurations  
+            var mappingConfig = new MapperConfiguration(mc => {
+                mc.AddProfile(new CustomerProfile());
+            });
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
+            // Configure and register for customer repository 
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
