@@ -10,7 +10,7 @@ namespace CustomerEFCore.Repository.Contract
     public interface ICustomerRepository
     {
         // General 
-        Task<bool> SaveChangesAsync();
+        bool SaveChangesAsync();
 
 
         // Customer

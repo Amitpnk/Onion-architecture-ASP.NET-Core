@@ -39,11 +39,11 @@ namespace CustomerEFCore.Controllers
         }
 
         [Route("{customerName}", Name = "GetCustomer")]
+        [HttpGet]
         public async Task<ActionResult> Get(string customerName, bool includeOrders = false)
         {
             try
             {
-                // Decoupling dal
                 var result = await _customerRepo.GetCustomerAsync(customerName, includeOrders);
 
                 if (result == null)
@@ -59,8 +59,10 @@ namespace CustomerEFCore.Controllers
             }
         }
 
+
         [Route("")]
-        public async Task<ActionResult> Post(CustomerModel model)
+        [HttpPost]
+        public async Task<ActionResult<CustomerModel>> Post([FromBody] CustomerModel model)
         {
             try
             {
@@ -71,21 +73,17 @@ namespace CustomerEFCore.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    // Mapping CampModel to Camp
                     var customer = _mapper.Map<Customer>(model);
 
-                    // Insert to DB
                     _customerRepo.AddCustomer(customer);
 
-                    // Commit to DB
-                    if (await _customerRepo.SaveChangesAsync())
+                    if (_customerRepo.SaveChangesAsync())
                     {
-                        // Get the inserted CampModel
+                        // Get the inserted CustomerModel 
                         var newModel = _mapper.Map<CustomerModel>(customer);
 
-                        // Pass to Route with new value
                         return CreatedAtRoute("GetCustomer",
-                            new { CustomerName = newModel.CustomerName }, newModel);
+                            new { newModel.CustomerName }, newModel);
                     }
                 }
             }

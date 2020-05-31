@@ -1,0 +1,5 @@
+[API] --> [Repository]
+[Repository] --:> [Repository.Contract]
+[Repository.Contract] --:> [Data]
+[Data] --:> [Domain]
+

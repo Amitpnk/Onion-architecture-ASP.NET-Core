@@ -8,7 +8,7 @@ namespace CustomerEFCore.Mapping
     {
         public CustomerProfile()
         {
-            CreateMap<Customer, CustomerModel>();
+            CreateMap<Customer, CustomerModel>().ReverseMap();
         }
     }
 }

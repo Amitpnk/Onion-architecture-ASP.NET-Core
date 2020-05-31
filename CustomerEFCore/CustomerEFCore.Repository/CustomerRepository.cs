@@ -59,9 +59,9 @@ namespace CustomerEFCore.Repository
             return await query.FirstOrDefaultAsync();
         }
 
-        public async Task<bool> SaveChangesAsync()
+        public bool SaveChangesAsync()
         {
-            return (await _context.SaveChangesAsync()) > 0;
+            return _context.SaveChanges() > 0;
         }
     }
 }
