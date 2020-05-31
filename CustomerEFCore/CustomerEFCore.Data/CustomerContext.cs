@@ -10,7 +10,7 @@ namespace CustomerEFCore.Data
         {
 
         }
-      
+
         public CustomerContext(DbContextOptions<CustomerContext> options)
             : base(options)
         {

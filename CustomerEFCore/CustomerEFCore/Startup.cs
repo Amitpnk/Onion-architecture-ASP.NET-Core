@@ -33,7 +33,8 @@ namespace CustomerEFCore
                 );
 
             // Auto Mapper Configurations  
-            var mappingConfig = new MapperConfiguration(mc => {
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
                 mc.AddProfile(new CustomerProfile());
             });
             IMapper mapper = mappingConfig.CreateMapper();
