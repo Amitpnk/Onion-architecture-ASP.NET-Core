@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "46b1de7d-0ad6-4b9e-b6db-9697a1b92c9e",
+		"name": "CustomerEFCore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Get All Customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:51837/api/customer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "51837",
+							"path": [
+								"api",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get customer name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:51837/api/customer/Amazon",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "51837",
+							"path": [
+								"api",
+								"customer",
+								"Amazon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Customer entry",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n    {\n    \t\n        \"CustomerName\": \"Amazon\",\n        \"ContactName\": \"Swetha\",\n        \"ContactTitle\": \"Check product\",\n        \"Address\": \"Bangalore\",\n        \"City\": \"Bangalore\",\n        \"Region\": \"Bangalore\",\n        \"PostalCode\": \"560091\",\n        \"Country\": \"India\",\n        \"Phone\": \"000\",\n        \"Fax\": \"000\"\n    }\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:51837/api/customer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "51837",
+							"path": [
+								"api",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
