@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.IO;
 
 namespace CustomerEFCore
 {
@@ -26,11 +27,22 @@ namespace CustomerEFCore
         {
             services.AddControllers();
 
-            // Configure connection string in dbcontext
+            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");
+            var config = builder.Build();
+
             services.AddDbContext<CustomerContext>(opt =>
-                   opt.UseSqlServer(Configuration.GetConnectionString("CustomerConnx"))
-                      .EnableSensitiveDataLogging()
+                   opt.UseSqlServer(config["ConnectionStrings:CustomerConnx"])
+                   .EnableSensitiveDataLogging()
                 );
+
+            // Configure connection string in dbcontext
+            //services.AddDbContext<CustomerContext>(opt =>
+            //       //opt.UseSqlServer("Data Source=(local)\\SQLexpress;Initial Catalog=CustomerEFCoreDB;Integrated Security=True")
+            //       opt.UseSqlServer(Configuration.GetConnectionString("CustomerConnx"))
+            //       //opt.UseSqlServer(Configuration["ConnectionStrings:CustomerConnx"].ConnectionString)
+
+            //          .EnableSensitiveDataLogging()
+            //    );
 
             // Auto Mapper Configurations  
             var mappingConfig = new MapperConfiguration(mc =>

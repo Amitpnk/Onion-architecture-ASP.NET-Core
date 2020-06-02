@@ -19,17 +19,10 @@ namespace CustomerEFCore.Test
         {
             customerRepositoryMock = new Mock<ICustomerRepository>();
 
-
-
             builder = new DbContextOptionsBuilder();
             builder.UseInMemoryDatabase("InMemoryCustomerDB");
-
             customerMock = new Mock<Customer>();
-
-
-
         }
-
 
         [Test]
         public void CheckCustomerRepositoryAddCustomer()
@@ -46,10 +39,7 @@ namespace CustomerEFCore.Test
                 customerRepository.AddCustomer(customer);
                 var result = context.SaveChanges();
                 Assert.AreEqual(1, result);
-
             }
-
-
         }
     }
 }
