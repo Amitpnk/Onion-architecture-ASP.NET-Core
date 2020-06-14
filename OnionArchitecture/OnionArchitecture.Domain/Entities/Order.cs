@@ -3,9 +3,8 @@ using System.Collections.Generic;
 
 namespace OnionArchitecture.Domain.Entities
 {
-    public class Order
+    public class Order : BaseEntity
     {
-        public int OrderId { get; set; }
         public Customer Customers { get; set; }
         public int CustomerId { get; set; }
         public int EmployeeId { get; set; }

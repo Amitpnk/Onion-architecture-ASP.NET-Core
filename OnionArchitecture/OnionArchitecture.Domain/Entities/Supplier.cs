@@ -2,9 +2,8 @@
 
 namespace OnionArchitecture.Domain.Entities
 {
-    public class Supplier
+    public class Supplier : BaseEntity
     {
-        public int Id { get; set; }
         public string SupplierName { get; set; }
         public List<Product> Products { get; set; }
     }
