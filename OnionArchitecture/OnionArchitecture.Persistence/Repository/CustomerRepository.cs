@@ -33,10 +33,10 @@ namespace OnionArchitecture.Persistence.Repository
             if (includeOrders)
             {
                 query = query
-                  .Include(c => c.Orders.Select(t => new { t.OrderId, t.OrderDate }));
+                  .Include(c => c.Orders.Select(t => new { t.Id, t.OrderDate }));
             }
 
-            query = query.OrderByDescending(c => c.CustomerId);
+            query = query.OrderByDescending(c => c.Id);
 
             return await query.ToArrayAsync();
         }
@@ -48,7 +48,7 @@ namespace OnionArchitecture.Persistence.Repository
 
             if (includeOrders)
             {
-                query = query.Include(c => c.Orders.Select(t => new { t.OrderId, t.OrderDate }));
+                query = query.Include(c => c.Orders.Select(t => new { t.Id, t.OrderDate }));
             }
 
             query = query.Where(c => c.CustomerName == customerName);

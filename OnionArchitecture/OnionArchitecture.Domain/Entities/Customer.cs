@@ -2,7 +2,7 @@
 
 namespace OnionArchitecture.Domain.Entities
 {
-    public class Customer
+    public class Customer: BaseEntity
     {
         public Customer()
         {

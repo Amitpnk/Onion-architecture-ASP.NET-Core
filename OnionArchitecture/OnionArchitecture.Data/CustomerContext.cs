@@ -31,7 +31,7 @@ namespace OnionArchitecture.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<OrderDetail>().HasKey(o => new { o.OrderId, o.ProductId });
+            modelBuilder.Entity<OrderDetail>().HasKey(o => new { o.Id, o.ProductId });
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
