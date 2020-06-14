@@ -10,12 +10,18 @@ namespace CustomerEFCore.Data
         {
 
         }
-      
-        public CustomerContext(DbContextOptions<CustomerContext> options)
-            : base(options)
+        public CustomerContext(DbContextOptions options)
+      : base(options)
         {
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
+
+
+        //public CustomerContext(DbContextOptions<CustomerContext> options)
+        //    : base(options)
+        //{
+        //    ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+        //}
 
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Order> Orders { get; set; }
@@ -28,12 +34,15 @@ namespace CustomerEFCore.Data
             modelBuilder.Entity<OrderDetail>().HasKey(o => new { o.OrderId, o.ProductId });
         }
 
-        // Uncomment below line incase if you want to create/modify dgml file
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder
-        //        .UseSqlServer("Data Source=(local)\\SQLexpress;Initial Catalog=CustomerEFCoreDB;Integrated Security=True");
-        //}
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder
+                .UseSqlServer("DataSource=app.db");
+            }
+
+        }
 
     }
 }

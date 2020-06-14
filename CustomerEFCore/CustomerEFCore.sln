@@ -5,13 +5,15 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerEFCore", "CustomerEFCore\CustomerEFCore.csproj", "{055ECABF-64B9-4EA3-A4BC-B6A129AC1AB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerEFCore.Data", "CustomerEFCore.Data\CustomerEFCore.Data.csproj", "{18756B2A-65EF-4405-A1E3-984402B7E3F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerEFCore.Data", "CustomerEFCore.Data\CustomerEFCore.Data.csproj", "{18756B2A-65EF-4405-A1E3-984402B7E3F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerEFCore.Domain", "CustomerEFCore.Domain\CustomerEFCore.Domain.csproj", "{21A2743C-BF23-40C5-8BBD-B4793AC919E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerEFCore.Domain", "CustomerEFCore.Domain\CustomerEFCore.Domain.csproj", "{21A2743C-BF23-40C5-8BBD-B4793AC919E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerEFCore.Repository.Contract", "CustomerEFCore.Repository.Contract\CustomerEFCore.Repository.Contract.csproj", "{1CDA961A-21AB-435F-86DB-5EA13DDDEB26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerEFCore.Repository.Contract", "CustomerEFCore.Repository.Contract\CustomerEFCore.Repository.Contract.csproj", "{1CDA961A-21AB-435F-86DB-5EA13DDDEB26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerEFCore.Repository", "CustomerEFCore.Repository\CustomerEFCore.Repository.csproj", "{C46329CA-B7AC-4F9A-ADF5-AF28150AB952}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerEFCore.Repository", "CustomerEFCore.Repository\CustomerEFCore.Repository.csproj", "{C46329CA-B7AC-4F9A-ADF5-AF28150AB952}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerEFCore.Test", "CustomerEFCore.Test\CustomerEFCore.Test.csproj", "{E29D80C3-22E4-41DC-877E-BE213FE13CB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{C46329CA-B7AC-4F9A-ADF5-AF28150AB952}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C46329CA-B7AC-4F9A-ADF5-AF28150AB952}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C46329CA-B7AC-4F9A-ADF5-AF28150AB952}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E29D80C3-22E4-41DC-877E-BE213FE13CB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E29D80C3-22E4-41DC-877E-BE213FE13CB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E29D80C3-22E4-41DC-877E-BE213FE13CB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E29D80C3-22E4-41DC-877E-BE213FE13CB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
