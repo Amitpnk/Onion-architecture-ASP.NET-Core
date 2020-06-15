@@ -8,7 +8,10 @@ namespace OnionArchitecture.Mapping
     {
         public CustomerProfile()
         {
-            CreateMap<Customer, CustomerModel>().ReverseMap();
+            CreateMap<CustomerModel, Customer>()
+                .ForMember(dest => dest.Id,
+                        opt => opt.MapFrom(src => src.CustomerId)) 
+                .ReverseMap();
         }
     }
 }
