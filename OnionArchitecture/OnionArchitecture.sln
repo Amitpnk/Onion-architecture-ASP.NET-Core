@@ -7,11 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionArchitecture.Domain", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionArchitecture.Data", "OnionArchitecture.Data\OnionArchitecture.Data.csproj", "{60F1615B-9571-43BD-9F1B-BE107494034E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionArchitecture.Persistence", "OnionArchitecture.Persistence\OnionArchitecture.Persistence.csproj", "{A0AFB045-B736-4CA9-AA6B-B95FD37250DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionArchitecture.Persistence", "OnionArchitecture.Persistence\OnionArchitecture.Persistence.csproj", "{A0AFB045-B736-4CA9-AA6B-B95FD37250DB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionArchitecture.Service", "OnionArchitecture.Service\OnionArchitecture.Service.csproj", "{C71926A6-3F49-4D6C-9192-9DC12128BECA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionArchitecture", "OnionArchitecture\OnionArchitecture.csproj", "{215964E1-24FA-47E4-B375-0FB23367677D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionArchitecture", "OnionArchitecture\OnionArchitecture.csproj", "{215964E1-24FA-47E4-B375-0FB23367677D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionArchitecture.Infrastructure", "OnionArchitecture.Infrastructure\OnionArchitecture.Infrastructure.csproj", "{691D4702-DE59-4F8D-8C53-E6CBD1F9C0A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{215964E1-24FA-47E4-B375-0FB23367677D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{215964E1-24FA-47E4-B375-0FB23367677D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{215964E1-24FA-47E4-B375-0FB23367677D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{691D4702-DE59-4F8D-8C53-E6CBD1F9C0A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{691D4702-DE59-4F8D-8C53-E6CBD1F9C0A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{691D4702-DE59-4F8D-8C53-E6CBD1F9C0A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{691D4702-DE59-4F8D-8C53-E6CBD1F9C0A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
