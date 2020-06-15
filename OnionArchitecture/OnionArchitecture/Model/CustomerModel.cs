@@ -1,13 +1,8 @@
-﻿using System.Collections.Generic;
-
-namespace OnionArchitecture.Domain.Entities
+﻿namespace OnionArchitecture.Model
 {
-    public class Customer : BaseEntity
+    public class CustomerModel
     {
-        public Customer()
-        {
-            Orders = new List<Order>();
-        }
+        public int CustomerId { get; set; }
         public string CustomerName { get; set; }
         public string ContactName { get; set; }
         public string ContactTitle { get; set; }
@@ -18,7 +13,5 @@ namespace OnionArchitecture.Domain.Entities
         public string Country { get; set; }
         public string Phone { get; set; }
         public string Fax { get; set; }
-
-        public List<Order> Orders { get; set; }
     }
 }
