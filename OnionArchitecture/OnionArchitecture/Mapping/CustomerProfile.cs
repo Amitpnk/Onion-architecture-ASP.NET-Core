@@ -10,7 +10,7 @@ namespace OnionArchitecture.Mapping
         {
             CreateMap<CustomerModel, Customer>()
                 .ForMember(dest => dest.Id,
-                        opt => opt.MapFrom(src => src.CustomerId)) 
+                        opt => opt.MapFrom(src => src.CustomerId))
                 .ReverseMap();
         }
     }

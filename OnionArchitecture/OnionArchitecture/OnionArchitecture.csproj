@@ -5,6 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ConfigureContainerExtensions.cs.exclude" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="ConfigureContainerExtensions.cs.exclude" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.5">
       <PrivateAssets>all</PrivateAssets>
