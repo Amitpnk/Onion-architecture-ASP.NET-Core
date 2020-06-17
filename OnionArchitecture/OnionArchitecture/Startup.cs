@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OnionArchitecture.Extension;
+using OnionArchitecture.Middleware;
 using OnionArchitecture.Persistence.Contract;
 using OnionArchitecture.Persistence.Repository;
 
@@ -44,6 +45,9 @@ namespace OnionArchitecture
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.ConfigureCustomExceptionMiddleware();
+            
 
             app.UseEndpoints(endpoints =>
             {

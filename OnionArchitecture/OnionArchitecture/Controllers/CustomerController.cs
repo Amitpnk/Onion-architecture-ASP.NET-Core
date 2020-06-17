@@ -29,17 +29,15 @@ namespace OnionArchitecture.Controllers
         [HttpGet]
         public async Task<ActionResult> Get()
         {
-            try
-            {
-                var result = await _customerRepository.GetAllCustomersAsync();
 
-                var mappedResult = _mapper.Map<IEnumerable<Customer>>(result);
-                return Ok(mappedResult);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
-            }
+            var result = await _customerRepository.GetAllCustomersAsync();
+
+            var mappedResult = _mapper.Map<IEnumerable<Customer>>(result);
+            return Ok(mappedResult);
+
+
+
+
         }
 
 
