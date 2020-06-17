@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace OnionArchitecture.Persistence.Contract
 {
@@ -9,6 +10,6 @@ namespace OnionArchitecture.Persistence.Contract
         void Add(T obj);
         void Update(T obj);
         void Delete(object id);
-        void Save();
+        bool SaveChanges();
     }
 }

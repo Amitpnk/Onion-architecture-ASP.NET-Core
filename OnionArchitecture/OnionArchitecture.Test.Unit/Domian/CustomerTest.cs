@@ -19,7 +19,7 @@ namespace OnionArchitecture.Test.Unit.Domian
             //    CustomerName = "Shweta"
             //};
 
-            Assert.That(customer.CustomerName, )
+            //Assert.That(customer.Id, default(int));
         }
     }
 }

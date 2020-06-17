@@ -4,7 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using OnionArchitecture.Domain.Entities;
 using OnionArchitecture.Model;
 using OnionArchitecture.Persistence.Contract;
+using OnionArchitecture.Service.Interface;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace OnionArchitecture.Controllers
@@ -13,23 +15,25 @@ namespace OnionArchitecture.Controllers
     [Route("api/Customer")]
     public class CustomerController : ControllerBase
     {
-        private readonly ICustomerRepository _customerRepo;
+        private readonly ICustomerService _customerService;
+        private readonly ICustomerRepository _customerRepository;
         private readonly IMapper _mapper;
-        public CustomerController(IMapper mapper, ICustomerRepository customerRepository)
+        public CustomerController(IMapper mapper, ICustomerService customerService, ICustomerRepository customerRepository)
         {
-            _customerRepo = customerRepository;
+            _customerService = customerService;
+            _customerRepository = customerRepository;
             _mapper = mapper;
         }
 
         // GET: api/Customer
         [HttpGet]
-        public async Task<ActionResult<CustomerModel[]>> Get()
+        public async Task<ActionResult> Get()
         {
             try
             {
-                var result = await _customerRepo.GetAllCustomersAsync();
+                var result = await _customerRepository.GetAllCustomersAsync();
 
-                var mappedResult = _mapper.Map<CustomerModel[]>(result);
+                var mappedResult = _mapper.Map<IEnumerable<Customer>>(result);
                 return Ok(mappedResult);
             }
             catch (Exception ex)
@@ -38,13 +42,15 @@ namespace OnionArchitecture.Controllers
             }
         }
 
-        [Route("{customerName}", Name = "GetCustomer")]
+
+        // GET: api/Customer/name
         [HttpGet]
+        [Route("{customerName}", Name = "GetCustomer")]
         public async Task<ActionResult> Get(string customerName, bool includeOrders = false)
         {
             try
             {
-                var result = await _customerRepo.GetCustomerAsync(customerName, includeOrders);
+                var result = await _customerRepository.GetCustomerAsync(customerName, includeOrders);
 
                 if (result == null)
                 {
@@ -66,7 +72,7 @@ namespace OnionArchitecture.Controllers
         {
             try
             {
-                if (await _customerRepo.GetCustomerAsync(model.CustomerName) != null)
+                if (await _customerRepository.GetCustomerAsync(model.CustomerName) != null)
                 {
                     ModelState.AddModelError("CustomerName", "Customer Name in use");
                 }
@@ -75,9 +81,9 @@ namespace OnionArchitecture.Controllers
                 {
                     var customer = _mapper.Map<Customer>(model);
 
-                    _customerRepo.AddCustomer(customer);
+                    _customerService.AddCustomer(customer);
 
-                    if (_customerRepo.SaveChangesAsync())
+                    if (_customerService.SaveChangesAsync())
                     {
                         // Get the inserted CustomerModel 
                         var newModel = _mapper.Map<CustomerModel>(customer);

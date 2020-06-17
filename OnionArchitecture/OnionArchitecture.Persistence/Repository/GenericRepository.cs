@@ -11,43 +11,39 @@ namespace OnionArchitecture.Persistence.Repository
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        private DbSet<T> table = null;
-
+        private readonly DbSet<T> entities;
         private readonly CustomerContext _context;
-        public GenericRepository()
-        {
-            _context = new CustomerContext();
-            table = _context.Set<T>();
-        }
+      
         public GenericRepository(CustomerContext context)
         {
             _context = context;
-            table = _context.Set<T>();
+            entities = _context.Set<T>();
         }
         public IEnumerable<T> GetAll()
         {
-            return table.ToList();
+            return entities.ToList();
         }
         public T GetById(int id)
         {
-            return table.Find(id);
+            return entities.Find(id);
         }
         public void Add(T obj)
         {
-            table.Add(obj);
+            entities.Add(obj);
         }
         public void Update(T obj)
         {
-            table.Update(obj);
+            entities.Update(obj);
         }
         public void Delete(object id)
         {
-            T existing = table.Find(id);
-            table.Remove(existing);
+            T existing = entities.Find(id);
+            entities.Remove(existing);
         }
-        public void Save()
+        public bool SaveChanges()
         {
-            _context.SaveChanges();
+            return _context.SaveChanges()>0;
         }
+
     }
 }
