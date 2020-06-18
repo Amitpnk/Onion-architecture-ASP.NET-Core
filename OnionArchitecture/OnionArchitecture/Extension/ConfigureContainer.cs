@@ -5,6 +5,10 @@ using Microsoft.Extensions.DependencyInjection;
 using OnionArchitecture.Data;
 using OnionArchitecture.Mapping;
 using System.IO;
+using OnionArchitecture.Persistence.Contract;
+using OnionArchitecture.Persistence.Repository;
+using OnionArchitecture.Service.Interface;
+using OnionArchitecture.Service.ImplementationBL;
 
 namespace OnionArchitecture.Extension
 {
@@ -32,17 +36,18 @@ namespace OnionArchitecture.Extension
             serviceCollection.AddSingleton(mapper);
         }
 
-        //public static void AddRepository(this IServiceCollection serviceCollection)
-        //{
-        //    serviceCollection.AddScoped(typeof(IRepository<>), typeof(DataRepository<>));
-        //}
+        public static void AddRepository(this IServiceCollection serviceCollection)
+        {
+            serviceCollection.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            serviceCollection.AddScoped<ICustomerRepository, CustomerRepository>();
+        }
 
-        //public static void AddTransientServices(this IServiceCollection serviceCollection)
-        //{
-        //    serviceCollection.AddTransient<IBookService, BookService>();
+        public static void AddTransientServices(this IServiceCollection serviceCollection)
+        {
+            serviceCollection.AddTransient<ICustomerService, CustomerService>();
+        }
 
-        //    serviceCollection.AddTransient<IEmailSender, EmailSender>();
-        //}
+       
 
     }
 }

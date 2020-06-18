@@ -1,8 +1,11 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using OnionArchitecture.Extension;
+using OnionArchitecture.Middleware;
 using OnionArchitecture.Persistence.Contract;
 using OnionArchitecture.Persistence.Repository;
 
@@ -24,11 +27,11 @@ namespace OnionArchitecture
 
             services.AddDbContext(Configuration.GetConnectionString("OnionArchConn"));
 
-
             services.AddAutoMapper();
 
-            // Configure and register for customer repository 
-            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddRepository();
+
+            services.AddTransientServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +45,9 @@ namespace OnionArchitecture
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.ConfigureCustomExceptionMiddleware();
+            
 
             app.UseEndpoints(endpoints =>
             {

@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionArchitecture", "OnionA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionArchitecture.Infrastructure", "OnionArchitecture.Infrastructure\OnionArchitecture.Infrastructure.csproj", "{691D4702-DE59-4F8D-8C53-E6CBD1F9C0A6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionArchitecture.Test.Unit", "OnionArchitecture.Test.Unit\OnionArchitecture.Test.Unit.csproj", "{6DCB8CB9-C919-434E-88D8-785537EDA37D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{691D4702-DE59-4F8D-8C53-E6CBD1F9C0A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{691D4702-DE59-4F8D-8C53-E6CBD1F9C0A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{691D4702-DE59-4F8D-8C53-E6CBD1F9C0A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DCB8CB9-C919-434E-88D8-785537EDA37D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DCB8CB9-C919-434E-88D8-785537EDA37D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DCB8CB9-C919-434E-88D8-785537EDA37D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DCB8CB9-C919-434E-88D8-785537EDA37D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

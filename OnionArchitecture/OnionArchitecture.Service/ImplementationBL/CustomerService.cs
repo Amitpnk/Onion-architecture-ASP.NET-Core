@@ -1,36 +1,44 @@
 ﻿using OnionArchitecture.Domain.Entities;
 using OnionArchitecture.Persistence.Contract;
 using OnionArchitecture.Service.Interface;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace OnionArchitecture.Service.ImplementationBL
 {
-    public class CustomerService : ICustomerService
+    public class CustomerService : ICustomerService //, ICustomerRepository
     {
-        private readonly ICustomerRepository _customerRepo;
+        private readonly IGenericRepository<Customer> _repo;
+        private readonly ICustomerRepository _customerRepository;
 
-        public CustomerService(ICustomerRepository customerRepository)
+        public CustomerService(IGenericRepository<Customer> repo, ICustomerRepository customerRepository)
         {
-            _customerRepo = customerRepository;
+            _repo = repo;
+            _customerRepository = customerRepository;
         }
         public void AddCustomer(Customer customer)
         {
-            _customerRepo.AddCustomer(customer);
+            _repo.Add(customer);
         }
 
         public void DeleteCustomer(Customer customer)
         {
-            _customerRepo.DeleteCustomer(customer);
+            _repo.Delete(customer);
         }
 
-        public async Task<Customer[]> GetAllCustomers(bool includeOrders = false)
+        //public Task<Customer> GetCustomerAsync(string customerName, bool includeOrders = false)
+        //{
+        //    throw new System.NotImplementedException();
+        //}
+
+        public bool SaveChangesAsync()
         {
-            return await _customerRepo.GetAllCustomersAsync();
+            return _repo.SaveChanges();
         }
 
-        public async Task<Customer> GetCustomer(string customerName, bool includeOrders = false)
-        {
-            return await _customerRepo.GetCustomerAsync(customerName, includeOrders);
-        }
+        //public Task<IEnumerable<Customer>> GetAllCustomersAsync(bool includeOrders = false)
+        //{
+        //    return _customerRepository.GetAllCustomersAsync();
+        //}
     }
 }
