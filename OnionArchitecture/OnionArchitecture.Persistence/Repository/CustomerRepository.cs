@@ -47,9 +47,5 @@ namespace OnionArchitecture.Persistence.Repository
             return await query.FirstOrDefaultAsync();
         }
 
-        public bool SaveChangesAsync()
-        {
-            return _context.SaveChanges() > 0;
-        }
     }
 }
