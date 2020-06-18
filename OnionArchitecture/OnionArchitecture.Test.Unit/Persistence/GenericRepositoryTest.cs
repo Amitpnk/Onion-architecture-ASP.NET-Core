@@ -5,11 +5,7 @@ using OnionArchitecture.Data;
 using OnionArchitecture.Domain.Entities;
 using OnionArchitecture.Persistence.Contract;
 using OnionArchitecture.Persistence.Repository;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnionArchitecture.Test.Unit.Persistence
 {
@@ -31,10 +27,10 @@ namespace OnionArchitecture.Test.Unit.Persistence
             customerMock = new Mock<Customer>();
 
             customer = new Customer
-                {
-                    CustomerName = "Shweta Naik",
-                    Address = "Bangalore"
-                };
+            {
+                CustomerName = "Shweta Naik",
+                Address = "Bangalore"
+            };
         }
 
         [Test]

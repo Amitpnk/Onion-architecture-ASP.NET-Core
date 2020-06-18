@@ -2,11 +2,6 @@
 using NUnit.Framework;
 using OnionArchitecture.Data;
 using OnionArchitecture.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnionArchitecture.Test.Unit.Data
 {
@@ -16,7 +11,7 @@ namespace OnionArchitecture.Test.Unit.Data
         [Test]
         public void CanInsertCustomerIntoDatabasee()
         {
-          
+
             using (var context = new CustomerContext())
             {
                 var customer = new Customer();

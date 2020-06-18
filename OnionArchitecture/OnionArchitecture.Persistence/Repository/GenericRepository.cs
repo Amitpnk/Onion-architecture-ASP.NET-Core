@@ -1,11 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnionArchitecture.Data;
 using OnionArchitecture.Persistence.Contract;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnionArchitecture.Persistence.Repository
 {
@@ -13,7 +10,7 @@ namespace OnionArchitecture.Persistence.Repository
     {
         private readonly DbSet<T> entities;
         private readonly CustomerContext _context;
-      
+
         public GenericRepository(CustomerContext context)
         {
             _context = context;
@@ -42,7 +39,7 @@ namespace OnionArchitecture.Persistence.Repository
         }
         public bool SaveChanges()
         {
-            return _context.SaveChanges()>0;
+            return _context.SaveChanges() > 0;
         }
 
     }

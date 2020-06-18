@@ -1,8 +1,6 @@
 ﻿using OnionArchitecture.Domain.Entities;
 using OnionArchitecture.Persistence.Contract;
 using OnionArchitecture.Service.Interface;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace OnionArchitecture.Service.ImplementationBL
 {
