@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="Database" Category="Database" Bounds="5.33936925947972,77.5297358730629,492.601607333334,255.049117583333" Group="Expanded" Label="OnionArchitecture Database schema" />
+    <Node Id="dbo" Category="Schema" Bounds="25.2541074052896,117.529935873063,452.593533333334,195" Group="Expanded" Label="dbo" />
+    <Node Id="dbo.Categories" Category="Table" Bounds="195.383927092813,267.578653456396,120.176666666667,25" Group="Collapsed" Label="dbo.Categories" />
+    <Node Id="dbo.Categories_CategoryName" Category="Field Optional" Description="ntext" Label="CategoryName" />
+    <Node Id="dbo.Categories_Description" Category="Field Optional" Description="ntext" Label="Description" />
+    <Node Id="dbo.Categories_Id" Category="Field Primary" Description="int" Label="Id" />
+    <Node Id="dbo.Customers" Category="Table" Bounds="45.3393692594798,267.578653456396,120.04,25" Group="Collapsed" Label="dbo.Customers" />
+    <Node Id="dbo.Customers_Address" Category="Field Optional" Description="ntext" Label="Address" />
+    <Node Id="dbo.Customers_City" Category="Field Optional" Description="ntext" Label="City" />
+    <Node Id="dbo.Customers_ContactName" Category="Field Optional" Description="ntext" Label="ContactName" />
+    <Node Id="dbo.Customers_ContactTitle" Category="Field Optional" Description="ntext" Label="ContactTitle" />
+    <Node Id="dbo.Customers_Country" Category="Field Optional" Description="ntext" Label="Country" />
+    <Node Id="dbo.Customers_CustomerName" Category="Field Optional" Description="ntext" Label="CustomerName" />
+    <Node Id="dbo.Customers_Fax" Category="Field Optional" Description="ntext" Label="Fax" />
+    <Node Id="dbo.Customers_Id" Category="Field Primary" Description="int" Label="Id" />
+    <Node Id="dbo.Customers_Phone" Category="Field Optional" Description="ntext" Label="Phone" />
+    <Node Id="dbo.Customers_PostalCode" Category="Field Optional" Description="ntext" Label="PostalCode" />
+    <Node Id="dbo.Customers_Region" Category="Field Optional" Description="ntext" Label="Region" />
+    <Node Id="dbo.OrderDetail" Category="Table" Bounds="181.902866236236,157.529935873063,125.163333333333,25" Group="Collapsed" Label="dbo.OrderDetail" UseManualLocation="True" />
+    <Node Id="dbo.OrderDetail_OrderId" Category="Field Primary" Bounds="237.439654847266,90.4066145865123,60.9966666666667,25.96" Description="int" Label="OrderId" UseManualLocation="True" />
+    <Node Id="dbo.OrderDetail_ProductId" Category="Field Primary" Bounds="237.501478243345,146.313302539712,71.6500000000001,25.96" Description="int" Label="ProductId" UseManualLocation="True" />
+    <Node Id="dbo.Orders" Category="Table" Bounds="124.930441282157,212.529935873063,99.5799999999999,25" Group="Collapsed" Label="dbo.Orders" />
+    <Node Id="dbo.Orders_CustomerId" Category="Field Foreign" Bounds="283.6375,144.519971428596,81.4566666666666,25.96" Description="int" Label="CustomerId" UseManualLocation="True" />
+    <Node Id="dbo.Orders_EmployeeId" Category="Field" Bounds="395.094166666667,144.519971428596,82.0166666666667,25.96" Description="int" Label="EmployeeId" UseManualLocation="True" />
+    <Node Id="dbo.Orders_Id" Category="Field Primary" Bounds="283.6375,88.5599714285958,50,25.96" Description="int" Label="Id" UseManualLocation="True" />
+    <Node Id="dbo.Orders_OrderDate" Category="Field" Bounds="363.6375,88.5599714285958,75.6,25.96" Description="datetime" Label="OrderDate" UseManualLocation="True" />
+    <Node Id="dbo.Orders_RequiredDate" Category="Field" Bounds="283.6375,200.479971428596,92.2466666666667,25.96" Description="datetime" Label="RequiredDate" UseManualLocation="True" />
+    <Node Id="dbo.Products" Category="Table" Bounds="264.32127305914,212.529935873063,110.233333333333,25" Group="Collapsed" Label="dbo.Products" />
+    <Node Id="dbo.Products_CategoryId" Category="Field Foreign" Description="int" Label="CategoryId" />
+    <Node Id="dbo.Products_Id" Category="Field Primary" Description="int" Label="Id" />
+    <Node Id="dbo.Products_ProductName" Category="Field Optional" Description="ntext" Label="ProductName" />
+    <Node Id="dbo.Products_SupplierId" Category="Field Foreign" Description="int" Label="SupplierId" />
+    <Node Id="dbo.Products_UnitPrice" Category="Field" Description="money" Label="UnitPrice" />
+    <Node Id="dbo.Suppliers" Category="Table" Bounds="345.564309926147,267.578652706396,112.376666666667,25" Group="Collapsed" Label="dbo.Suppliers" />
+    <Node Id="dbo.Suppliers_Id" Category="Field Primary" Description="int" Label="Id" />
+    <Node Id="dbo.Suppliers_SupplierName" Category="Field Optional" Description="ntext" Label="SupplierName" />
+  </Nodes>
+  <Links>
+    <Link Source="Database" Target="dbo" Category="Contains" />
+    <Link Source="dbo" Target="dbo.Categories" Category="Contains" />
+    <Link Source="dbo" Target="dbo.Customers" Category="Contains" />
+    <Link Source="dbo" Target="dbo.OrderDetail" Category="Contains" />
+    <Link Source="dbo" Target="dbo.Orders" Category="Contains" />
+    <Link Source="dbo" Target="dbo.Products" Category="Contains" />
+    <Link Source="dbo" Target="dbo.Suppliers" Category="Contains" />
+    <Link Source="dbo.Categories" Target="dbo.Categories_CategoryName" Category="Contains" />
+    <Link Source="dbo.Categories" Target="dbo.Categories_Description" Category="Contains" />
+    <Link Source="dbo.Categories" Target="dbo.Categories_Id" Category="Contains" />
+    <Link Source="dbo.Customers" Target="dbo.Customers_Address" Category="Contains" />
+    <Link Source="dbo.Customers" Target="dbo.Customers_City" Category="Contains" />
+    <Link Source="dbo.Customers" Target="dbo.Customers_ContactName" Category="Contains" />
+    <Link Source="dbo.Customers" Target="dbo.Customers_ContactTitle" Category="Contains" />
+    <Link Source="dbo.Customers" Target="dbo.Customers_Country" Category="Contains" />
+    <Link Source="dbo.Customers" Target="dbo.Customers_CustomerName" Category="Contains" />
+    <Link Source="dbo.Customers" Target="dbo.Customers_Fax" Category="Contains" />
+    <Link Source="dbo.Customers" Target="dbo.Customers_Id" Category="Contains" />
+    <Link Source="dbo.Customers" Target="dbo.Customers_Phone" Category="Contains" />
+    <Link Source="dbo.Customers" Target="dbo.Customers_PostalCode" Category="Contains" />
+    <Link Source="dbo.Customers" Target="dbo.Customers_Region" Category="Contains" />
+    <Link Source="dbo.OrderDetail" Target="dbo.OrderDetail_OrderId" Category="Contains" />
+    <Link Source="dbo.OrderDetail" Target="dbo.OrderDetail_ProductId" Category="Contains" />
+    <Link Source="dbo.OrderDetail_OrderId" Target="dbo.Orders_Id" Category="Foreign Key" Label="FK_OrderDetail_Orders_OrderId" />
+    <Link Source="dbo.OrderDetail_ProductId" Target="dbo.Products_Id" Category="Foreign Key" Label="FK_OrderDetail_Products_ProductId" />
+    <Link Source="dbo.Orders" Target="dbo.Orders_CustomerId" Category="Contains" />
+    <Link Source="dbo.Orders" Target="dbo.Orders_EmployeeId" Category="Contains" />
+    <Link Source="dbo.Orders" Target="dbo.Orders_Id" Category="Contains" />
+    <Link Source="dbo.Orders" Target="dbo.Orders_OrderDate" Category="Contains" />
+    <Link Source="dbo.Orders" Target="dbo.Orders_RequiredDate" Category="Contains" />
+    <Link Source="dbo.Orders_CustomerId" Target="dbo.Customers_Id" Category="Foreign Key" Label="FK_Orders_Customers_CustomerId" />
+    <Link Source="dbo.Products" Target="dbo.Products_CategoryId" Category="Contains" />
+    <Link Source="dbo.Products" Target="dbo.Products_Id" Category="Contains" />
+    <Link Source="dbo.Products" Target="dbo.Products_ProductName" Category="Contains" />
+    <Link Source="dbo.Products" Target="dbo.Products_SupplierId" Category="Contains" />
+    <Link Source="dbo.Products" Target="dbo.Products_UnitPrice" Category="Contains" />
+    <Link Source="dbo.Products_CategoryId" Target="dbo.Categories_Id" Category="Foreign Key" Label="FK_Products_Categories_CategoryId" />
+    <Link Source="dbo.Products_SupplierId" Target="dbo.Suppliers_Id" Category="Foreign Key" Label="FK_Products_Suppliers_SupplierId" />
+    <Link Source="dbo.Suppliers" Target="dbo.Suppliers_Id" Category="Contains" />
+    <Link Source="dbo.Suppliers" Target="dbo.Suppliers_SupplierName" Category="Contains" />
+  </Links>
+  <Categories>
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+    <Category Id="Database" />
+    <Category Id="Field" />
+    <Category Id="Field Foreign" />
+    <Category Id="Field Optional" />
+    <Category Id="Field Primary" />
+    <Category Id="Foreign Key" />
+    <Category Id="Schema" />
+    <Category Id="Table" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="Description" Label="Description" Description="Description" DataType="System.String" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+  </Properties>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Table" ValueLabel="True">
+      <Condition Expression="HasCategory('Table')" />
+      <Setter Property="Background" Value="#FFC0C0C0" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Schema" ValueLabel="True">
+      <Condition Expression="HasCategory('Schema')" />
+      <Setter Property="Background" Value="#FF7F9169" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Primary" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Primary')" />
+      <Setter Property="Background" Value="#FF008000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Optional" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Optional')" />
+      <Setter Property="Background" Value="#FF808040" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Foreign" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Foreign')" />
+      <Setter Property="Background" Value="#FF8080FF" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field" ValueLabel="True">
+      <Condition Expression="HasCategory('Field')" />
+      <Setter Property="Background" Value="#FFC0A000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Database" ValueLabel="True">
+      <Condition Expression="HasCategory('Database')" />
+      <Setter Property="Background" Value="#FFFFFFFF" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Comment" ValueLabel="Has comment">
+      <Condition Expression="HasCategory('Comment')" />
+      <Setter Property="Background" Value="#FFFFFACD" />
+      <Setter Property="Stroke" Value="#FFE5C365" />
+      <Setter Property="StrokeThickness" Value="1" />
+      <Setter Property="NodeRadius" Value="2" />
+      <Setter Property="MaxWidth" Value="250" />
+    </Style>
+  </Styles>
+</DirectedGraph>
