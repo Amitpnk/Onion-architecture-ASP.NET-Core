@@ -11,20 +11,16 @@ namespace OnionArchitecture.Test.Unit.Persistence
 {
     public class GenericRepositoryTest
     {
-        private Mock<IGenericRepository<Customer>> customerRepositoryMock;
         private DbContextOptionsBuilder builder;
-        private Mock<Customer> customerMock;
 
         Customer customer;
 
         [SetUp]
         public void Setup()
         {
-            customerRepositoryMock = new Mock<IGenericRepository<Customer>>();
 
             builder = new DbContextOptionsBuilder();
             builder.UseInMemoryDatabase("InMemoryCustomerDB");
-            customerMock = new Mock<Customer>();
 
             customer = new Customer
             {
