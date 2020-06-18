@@ -34,10 +34,6 @@ namespace OnionArchitecture.Controllers
 
             var mappedResult = _mapper.Map<IEnumerable<Customer>>(result);
             return Ok(mappedResult);
-
-
-
-
         }
 
 
@@ -62,7 +58,6 @@ namespace OnionArchitecture.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
-
 
         [Route("")]
         [HttpPost]
