@@ -17,9 +17,9 @@ namespace OnionArchitecture.Service.ImplementationBL
             _repo.Add(customer);
         }
 
-        public void DeleteCustomer(Customer customer)
+        public void DeleteCustomer(int id)
         {
-            _repo.Delete(customer);
+            _repo.Delete(id);
         }
 
         public bool SaveChangesAsync()

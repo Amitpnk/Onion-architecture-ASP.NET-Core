@@ -6,6 +6,6 @@ namespace OnionArchitecture.Service.Interface
     {
         bool SaveChangesAsync();
         void AddCustomer(Customer customer);
-        void DeleteCustomer(Customer customer);
+        void DeleteCustomer(int customerId);
     }
 }

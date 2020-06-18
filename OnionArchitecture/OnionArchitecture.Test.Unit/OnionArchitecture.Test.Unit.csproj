@@ -18,6 +18,7 @@
     <ProjectReference Include="..\OnionArchitecture.Data\OnionArchitecture.Data.csproj" />
     <ProjectReference Include="..\OnionArchitecture.Domain\OnionArchitecture.Domain.csproj" />
     <ProjectReference Include="..\OnionArchitecture.Persistence\OnionArchitecture.Persistence.csproj" />
+    <ProjectReference Include="..\OnionArchitecture.Service\OnionArchitecture.Service.csproj" />
   </ItemGroup>
 
 </Project>
