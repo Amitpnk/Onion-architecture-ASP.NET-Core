@@ -10,15 +10,9 @@ namespace OnionArchitecture.Data
         {
 
         }
-        public CustomerContext(DbContextOptions options)
-      : base(options)
+        public CustomerContext(DbContextOptions options) : base(options)
         {
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
-        }
-
-        public CustomerContext(DbContextOptions<CustomerContext> options)
-            : base(options)
-        {
         }
 
         public DbSet<Customer> Customers { get; set; }
@@ -41,8 +35,5 @@ namespace OnionArchitecture.Data
             }
 
         }
-
-
-
     }
 }
