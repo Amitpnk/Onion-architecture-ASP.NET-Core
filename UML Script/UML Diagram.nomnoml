@@ -1,5 +1,5 @@
-[API] --> [Repository]
-[Repository] --:> [Repository.Contract]
-[Repository.Contract] --:> [Data]
+[API] --> [Service]
+[API] --> [Persistence]
+[Service] --:> [Persistence]
+[Persistence] --:> [Data]
 [Data] --:> [Domain]
-
