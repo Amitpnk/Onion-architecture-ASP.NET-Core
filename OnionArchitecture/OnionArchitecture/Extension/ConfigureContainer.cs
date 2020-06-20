@@ -1,14 +1,14 @@
-﻿using Microsoft.Extensions.Configuration;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OnionArchitecture.Data;
 using OnionArchitecture.Mapping;
-using System.IO;
 using OnionArchitecture.Persistence.Contract;
 using OnionArchitecture.Persistence.Repository;
-using OnionArchitecture.Service.Interface;
 using OnionArchitecture.Service.ImplementationBL;
+using OnionArchitecture.Service.Interface;
+using System.IO;
 
 namespace OnionArchitecture.Extension
 {
@@ -47,7 +47,7 @@ namespace OnionArchitecture.Extension
             serviceCollection.AddTransient<ICustomerService, CustomerService>();
         }
 
-       
+
 
     }
 }

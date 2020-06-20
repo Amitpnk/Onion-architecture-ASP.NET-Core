@@ -1,44 +1,31 @@
 ﻿using OnionArchitecture.Domain.Entities;
 using OnionArchitecture.Persistence.Contract;
 using OnionArchitecture.Service.Interface;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace OnionArchitecture.Service.ImplementationBL
 {
-    public class CustomerService : ICustomerService //, ICustomerRepository
+    public class CustomerService : ICustomerService  
     {
         private readonly IGenericRepository<Customer> _repo;
-        private readonly ICustomerRepository _customerRepository;
 
-        public CustomerService(IGenericRepository<Customer> repo, ICustomerRepository customerRepository)
+        public CustomerService(IGenericRepository<Customer> repo)
         {
             _repo = repo;
-            _customerRepository = customerRepository;
         }
         public void AddCustomer(Customer customer)
         {
             _repo.Add(customer);
         }
 
-        public void DeleteCustomer(Customer customer)
+        public void DeleteCustomer(int id)
         {
-            _repo.Delete(customer);
+            _repo.Delete(id);
         }
-
-        //public Task<Customer> GetCustomerAsync(string customerName, bool includeOrders = false)
-        //{
-        //    throw new System.NotImplementedException();
-        //}
 
         public bool SaveChangesAsync()
         {
             return _repo.SaveChanges();
         }
-
-        //public Task<IEnumerable<Customer>> GetAllCustomersAsync(bool includeOrders = false)
-        //{
-        //    return _customerRepository.GetAllCustomersAsync();
-        //}
+ 
     }
 }

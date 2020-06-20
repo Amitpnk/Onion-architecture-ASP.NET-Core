@@ -16,16 +16,6 @@ namespace OnionArchitecture.Persistence.Repository
             _context = context;
         }
 
-        //public void AddCustomer(Customer customer)
-        //{
-        //    _context.Customers.Add(customer);
-        //}
-
-        //public void DeleteCustomer(Customer customer)
-        //{
-        //    _context.Customers.Remove(customer);
-        //}
-
         public async Task<IEnumerable<Customer>> GetAllCustomersAsync(bool includeOrders = false)
         {
             IQueryable<Customer> query = _context.Customers
@@ -57,9 +47,5 @@ namespace OnionArchitecture.Persistence.Repository
             return await query.FirstOrDefaultAsync();
         }
 
-        public bool SaveChangesAsync()
-        {
-            return _context.SaveChanges() > 0;
-        }
     }
 }
