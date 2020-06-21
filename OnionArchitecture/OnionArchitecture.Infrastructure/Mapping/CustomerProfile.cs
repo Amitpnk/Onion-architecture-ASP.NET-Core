@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using OnionArchitecture.Domain.Entities;
-using OnionArchitecture.Model;
+using OnionArchitecture.Infrastructure.Model;
 
-namespace OnionArchitecture.Mapping
+namespace OnionArchitecture.Infrastructure.Mapping
 {
     public class CustomerProfile : Profile
     {

@@ -4,25 +4,28 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using OnionArchitecture.Extension;
+using System.IO;
+using OnionArchitecture.Infrastructure.Extension;
 
 namespace OnionArchitecture
 {
     public class Startup
     {
+        private readonly IConfigurationRoot configRoot;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            IConfigurationBuilder builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");
+            configRoot = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
 
-            services.AddDbContext(Configuration.GetConnectionString("OnionArchConn"));
+            services.AddDbContext(Configuration, configRoot);
 
             services.AddAutoMapper();
 
