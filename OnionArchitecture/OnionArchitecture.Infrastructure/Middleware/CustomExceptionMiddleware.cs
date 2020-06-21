@@ -4,7 +4,8 @@ using System;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace OnionArchitecture.Middleware
+
+namespace OnionArchitecture.Infrastructure.Middleware
 {
     public class CustomExceptionMiddleware
     {
@@ -30,6 +31,7 @@ namespace OnionArchitecture.Middleware
         {
             var code = HttpStatusCode.InternalServerError; // 500 if unexpected
 
+            // TODO - Need to implement other exception
             //if (ex is MyNotFoundException) code = HttpStatusCode.NotFound;
             ////else if (ex is MyUnauthorizedException) code = HttpStatusCode.Unauthorized;
             //else if (ex is MyException) code = HttpStatusCode.BadRequest;

@@ -8,7 +8,7 @@ namespace OnionArchitecture.Test.Integration
     public class ApiCustomerTest
     {
         [TestCase("Get", "api/Customer")]
-        [TestCase("Get", "api/Customer/Shweta")]
+        [TestCase("Get", "api/Customer/Amazon")]
         public async Task GetAllCustomerTestAsync(string method, string URL )
         {
             using (var client = new TestClientProvider().Client)
