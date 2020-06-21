@@ -6,6 +6,7 @@ using OnionArchitecture.Controllers;
 using OnionArchitecture.Domain.Entities;
 using OnionArchitecture.Model;
 using OnionArchitecture.Persistence.Contract;
+using OnionArchitecture.Service.Contract;
 using System.Threading.Tasks;
 
 namespace OnionArchitecture.Test.Unit.Controller
@@ -16,8 +17,6 @@ namespace OnionArchitecture.Test.Unit.Controller
         private Mock<ICustomerRepository> customerRepositoryMock;
         private Mock<IMapper> mapperMock;
         private Mock<ICustomerService> customerServiceMock;
-
-
 
         [SetUp]
         public void Setup()
@@ -36,8 +35,6 @@ namespace OnionArchitecture.Test.Unit.Controller
             { CustomerName = "Shweta Naik", Address = "Bangalore" };
 
             mapperMock.Setup(x => x.Map<CustomerModel>(customer)).Returns(customerModel);
-
-
         }
 
         [Test]
