@@ -5,15 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="ConfigureContainerExtensions.cs.exclude" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="ConfigureContainerExtensions.cs.exclude" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.5" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
 </Project>
