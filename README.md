@@ -17,3 +17,6 @@ If you have found this project helpful, either as a library that you use or as a
 ## Onion architecture
 
 ![image](Assert/Onion.png)
+
+## White app
+
