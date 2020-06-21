@@ -1,9 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Moq;
 using NUnit.Framework;
 using OnionArchitecture.Data;
 using OnionArchitecture.Domain.Entities;
-using OnionArchitecture.Persistence.Contract;
 using OnionArchitecture.Persistence.Repository;
 using System.Linq;
 

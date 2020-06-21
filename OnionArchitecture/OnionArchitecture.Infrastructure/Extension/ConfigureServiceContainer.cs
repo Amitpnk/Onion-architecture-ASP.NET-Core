@@ -6,13 +6,8 @@ using OnionArchitecture.Data;
 using OnionArchitecture.Infrastructure.Mapping;
 using OnionArchitecture.Persistence.Contract;
 using OnionArchitecture.Persistence.Repository;
-using OnionArchitecture.Service.ImplementationBL;
 using OnionArchitecture.Service.Contract;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Threading.Tasks;
+using OnionArchitecture.Service.ImplementationBL;
 
 namespace OnionArchitecture.Infrastructure.Extension
 {

@@ -1,15 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualBasic;
-using Moq;
 using NUnit.Framework;
 using OnionArchitecture.Data;
 using OnionArchitecture.Domain.Entities;
-using OnionArchitecture.Persistence.Contract;
 using OnionArchitecture.Persistence.Repository;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace OnionArchitecture.Test.Unit.Persistence
