@@ -7,7 +7,6 @@
 
 See the contents of the LICENSE file for details
 
-
 ## Support This Project
 
 If you have found this project helpful, either as a library that you use or as a learning tool, please consider buying me a coffee:
@@ -18,13 +17,20 @@ If you have found this project helpful, either as a library that you use or as a
 
 ![image](Assert/Onion.png)
 
-## White app
+## Whiteapp Onion architecture with ASP.NET Core API 
 
 This is default white application for ASP.NET Core API development
 
-This whiteapp contains following features
+This whiteapp contains following features, uncheck feature need to implement yet
 
+- [x] Application is implemented on Onion architecture
 - [x] API
 - [x] Entityframework Core
-- [x] Built on Onion architecture
-- [ ] Expection handling
+- [x] Expection handling
+- [x] Automapper
+- [ ] Versioning
+- [ ] Swagger
+- [ ] JWT authentication
+- [ ] React-redux for UI
+- [x] Unit testing via NUnit
+- [x] Integration testing via NUnit
