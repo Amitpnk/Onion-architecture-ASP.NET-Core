@@ -21,7 +21,7 @@ If you have found this project helpful, either as a library that you use or as a
 
 This is default white application for ASP.NET Core API development
 
-This whiteapp contains following features, uncheck feature need to implement yet
+This whiteapp contains following features, uncheck feature need to implement yet. Features will be implemented in infrastructure layer. You can plug and play based on your project.
 
 - [x] Application is implemented on Onion architecture
 - [x] API
@@ -39,3 +39,6 @@ This whiteapp contains following features, uncheck feature need to implement yet
 - [ ] SignalR
 - [ ] Fluent validations
 - [ ] Hangfire
+- [ ] Email
+- [ ] Advanced Pagination
+- [ ] CQRS Pattern 
