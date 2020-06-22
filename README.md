@@ -20,3 +20,11 @@ If you have found this project helpful, either as a library that you use or as a
 
 ## White app
 
+This is default white application for ASP.NET Core API development
+
+This whiteapp contains following features
+
+[x] API
+[x] Entityframework Core
+[x] Built on Onion architecture
+[ ] Expection handling
