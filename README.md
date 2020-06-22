@@ -28,9 +28,14 @@ This whiteapp contains following features, uncheck feature need to implement yet
 - [x] Entityframework Core
 - [x] Expection handling
 - [x] Automapper
+- [x] Unit testing via NUnit
+- [x] Integration testing via NUnit
 - [ ] Versioning
 - [ ] Swagger
 - [ ] JWT authentication
+- [ ] Loggings - seriLog
 - [ ] React-redux for UI
-- [x] Unit testing via NUnit
-- [x] Integration testing via NUnit
+- [ ] Health checks
+- [ ] SignalR
+- [ ] Fluent validations
+- [ ] Hangfire
