@@ -3,11 +3,6 @@ using NUnit.Framework;
 using OnionArchitecture.Domain.Entities;
 using OnionArchitecture.Persistence.Contract;
 using OnionArchitecture.Service.ImplementationBL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnionArchitecture.Test.Unit.Service
 {

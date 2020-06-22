@@ -1,10 +1,10 @@
 ﻿using OnionArchitecture.Domain.Entities;
 using OnionArchitecture.Persistence.Contract;
-using OnionArchitecture.Service.Interface;
+using OnionArchitecture.Service.Contract;
 
 namespace OnionArchitecture.Service.ImplementationBL
 {
-    public class CustomerService : ICustomerService  
+    public class CustomerService : ICustomerService
     {
         private readonly IGenericRepository<Customer> _repo;
 
@@ -26,6 +26,6 @@ namespace OnionArchitecture.Service.ImplementationBL
         {
             return _repo.SaveChanges();
         }
- 
+
     }
 }

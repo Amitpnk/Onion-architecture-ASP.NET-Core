@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using OnionArchitecture.Infrastructure.Middleware;
 
-namespace OnionArchitecture.Extension
+namespace OnionArchitecture.Infrastructure.Extension
 {
     public static class ConfigureContainer
     {
@@ -10,6 +10,4 @@ namespace OnionArchitecture.Extension
             app.UseMiddleware<CustomExceptionMiddleware>();
         }
     }
-
-
 }

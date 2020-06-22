@@ -1,19 +1,12 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
-using Newtonsoft.Json;
 using NUnit.Framework;
 using OnionArchitecture.Controllers;
 using OnionArchitecture.Domain.Entities;
 using OnionArchitecture.Model;
 using OnionArchitecture.Persistence.Contract;
-using OnionArchitecture.Service.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Text;
+using OnionArchitecture.Service.Contract;
 using System.Threading.Tasks;
 
 namespace OnionArchitecture.Test.Unit.Controller
@@ -24,8 +17,6 @@ namespace OnionArchitecture.Test.Unit.Controller
         private Mock<ICustomerRepository> customerRepositoryMock;
         private Mock<IMapper> mapperMock;
         private Mock<ICustomerService> customerServiceMock;
-
-
 
         [SetUp]
         public void Setup()
@@ -44,8 +35,6 @@ namespace OnionArchitecture.Test.Unit.Controller
             { CustomerName = "Shweta Naik", Address = "Bangalore" };
 
             mapperMock.Setup(x => x.Map<CustomerModel>(customer)).Returns(customerModel);
-            
-
         }
 
         [Test]

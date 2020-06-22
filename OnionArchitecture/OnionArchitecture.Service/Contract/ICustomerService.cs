@@ -1,6 +1,6 @@
 ﻿using OnionArchitecture.Domain.Entities;
 
-namespace OnionArchitecture.Service.Interface
+namespace OnionArchitecture.Service.Contract
 {
     public interface ICustomerService
     {

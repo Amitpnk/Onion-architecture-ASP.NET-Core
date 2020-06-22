@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using OnionArchitecture.Domain.Entities;
 using OnionArchitecture.Model;
 using OnionArchitecture.Persistence.Contract;
-using OnionArchitecture.Service.Interface;
+using OnionArchitecture.Service.Contract;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -93,6 +93,6 @@ namespace OnionArchitecture.Controllers
             }
             return BadRequest(ModelState);
         }
-        
+
     }
 }
