@@ -24,7 +24,7 @@ This is default white application for ASP.NET Core API development
 
 This whiteapp contains following features
 
-[x] API
-[x] Entityframework Core
-[x] Built on Onion architecture
-[ ] Expection handling
+- [x] API
+- [x] Entityframework Core
+- [x] Built on Onion architecture
+- [ ] Expection handling
