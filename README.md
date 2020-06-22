@@ -21,7 +21,7 @@ If you have found this project helpful, either as a library that you use or as a
 
 This is default white application for ASP.NET Core API development
 
-This whiteapp contains following features, uncheck feature need to implement yet. Features will be implemented in infrastructure layer. You can plug and play based on your project.
+This whiteapp contains following features, uncheck feature need to implement yet. 
 
 - [x] Application is implemented on Onion architecture
 - [x] API
@@ -32,8 +32,11 @@ This whiteapp contains following features, uncheck feature need to implement yet
 - [x] Integration testing via NUnit
 - [ ] Versioning
 - [ ] Swagger
-- [ ] JWT authentication
 - [ ] Loggings - seriLog
+
+Below features will be implemented in infrastructure layer. You can plug and play based on your project.
+
+- [ ] JWT authentication
 - [ ] React-redux for UI
 - [ ] Health checks
 - [ ] SignalR
