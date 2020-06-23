@@ -32,6 +32,8 @@ namespace OnionArchitecture
             services.AddRepository();
 
             services.AddTransientServices();
+
+            services.AddSwaggerOpenAPI();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +50,7 @@ namespace OnionArchitecture
 
             app.ConfigureCustomExceptionMiddleware();
 
+            app.ConfigureSwagger();
 
             app.UseEndpoints(endpoints =>
             {
