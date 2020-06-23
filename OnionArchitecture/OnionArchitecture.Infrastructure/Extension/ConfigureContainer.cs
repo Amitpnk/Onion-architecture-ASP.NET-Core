@@ -9,5 +9,17 @@ namespace OnionArchitecture.Infrastructure.Extension
         {
             app.UseMiddleware<CustomExceptionMiddleware>();
         }
+
+        public static void ConfigureSwagger(this IApplicationBuilder app)
+        {
+            app.UseSwagger();
+
+            app.UseSwaggerUI(setupAction =>
+            {
+                setupAction.SwaggerEndpoint("/swagger/OpenAPISpecification/swagger.json", "Onion Architecture API");
+                setupAction.RoutePrefix = string.Empty;
+            });
+        }
+
     }
 }

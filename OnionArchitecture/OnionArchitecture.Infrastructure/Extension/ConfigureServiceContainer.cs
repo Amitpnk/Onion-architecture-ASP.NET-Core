@@ -8,6 +8,9 @@ using OnionArchitecture.Persistence.Contract;
 using OnionArchitecture.Persistence.Repository;
 using OnionArchitecture.Service.Contract;
 using OnionArchitecture.Service.ImplementationBL;
+using System;
+using System.IO;
+using System.Reflection;
 
 namespace OnionArchitecture.Infrastructure.Extension
 {
@@ -40,6 +43,37 @@ namespace OnionArchitecture.Infrastructure.Extension
         public static void AddTransientServices(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddTransient<ICustomerService, CustomerService>();
+        }
+
+        public static void AddSwaggerOpenAPI(this IServiceCollection serviceCollection)
+        {
+            serviceCollection.AddSwaggerGen(setupAction =>
+            {
+                setupAction.SwaggerDoc(
+                    "OpenAPISpecification",
+                    new Microsoft.OpenApi.Models.OpenApiInfo()
+                    {
+                        Title = "Customer API",
+                        Version = "1",
+                        Description = "Through this API you can access customer details",
+                        Contact = new Microsoft.OpenApi.Models.OpenApiContact()
+                        {
+                            Email = "amit.naik8103@gmail.com",
+                            Name = "Amit Naik",
+                            Url = new Uri("https://amitpnk.github.io/")
+                        },
+                        License = new Microsoft.OpenApi.Models.OpenApiLicense()
+                        {
+                            Name = "MIT License",
+                            Url = new Uri("https://opensource.org/licenses/MIT")
+                        }
+                    });
+
+                var xmlCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentsFile);
+                setupAction.IncludeXmlComments(xmlCommentsFullPath);
+            });
+
         }
 
     }
