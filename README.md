@@ -31,7 +31,7 @@ This whiteapp contains following features, uncheck feature need to implement yet
 - [x] Unit testing via NUnit
 - [x] Integration testing via NUnit
 - [ ] Versioning
-- [ ] Swagger
+- [x] Swagger
 - [ ] Loggings - seriLog
 
 Below features will be implemented in infrastructure layer. You can plug and play based on your project.
