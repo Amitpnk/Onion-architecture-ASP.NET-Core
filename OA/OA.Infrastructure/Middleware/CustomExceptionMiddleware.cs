@@ -32,9 +32,9 @@ namespace OA.Infrastructure.Middleware
             var code = HttpStatusCode.InternalServerError; // 500 if unexpected
 
             // TODO - Need to implement other exception
-            //if (ex is MyNotFoundException) code = HttpStatusCode.NotFound;
-            ////else if (ex is MyUnauthorizedException) code = HttpStatusCode.Unauthorized;
-            //else if (ex is MyException) code = HttpStatusCode.BadRequest;
+            // if (ex is MyNotFoundException) code = HttpStatusCode.NotFound;
+            // //else if (ex is MyUnauthorizedException) code = HttpStatusCode.Unauthorized;
+            // else if (ex is MyException) code = HttpStatusCode.BadRequest;
 
             var result = JsonConvert.SerializeObject(new { error = ex.Message });
             context.Response.ContentType = "application/json";
