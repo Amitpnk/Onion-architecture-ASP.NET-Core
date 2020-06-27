@@ -10,6 +10,7 @@ namespace OA.Infrastructure.Extension
             app.UseMiddleware<CustomExceptionMiddleware>();
         }
 
+       
         public static void ConfigureSwagger(this IApplicationBuilder app)
         {
             app.UseSwagger();
@@ -17,7 +18,7 @@ namespace OA.Infrastructure.Extension
             app.UseSwaggerUI(setupAction =>
             {
                 setupAction.SwaggerEndpoint("/swagger/OpenAPISpecification/swagger.json", "Onion Architecture API");
-                setupAction.RoutePrefix = string.Empty;
+                setupAction.RoutePrefix = "OpenAPI";
             });
         }
 

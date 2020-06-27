@@ -48,6 +48,10 @@ namespace OA
 
             app.UseAuthorization();
 
+            app.ConfigureCustomExceptionMiddleware();
+
+            app.ConfigureSwagger();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
