@@ -29,9 +29,7 @@ namespace OA.Controllers
         [HttpGet]
         public async Task<ActionResult> Get()
         {
-
             var result = await _customerRepository.GetAllCustomersAsync();
-
             var mappedResult = _mapper.Map<IEnumerable<Customer>>(result);
             return Ok(mappedResult);
         }
@@ -42,54 +40,38 @@ namespace OA.Controllers
         [Route("{customerName}", Name = "GetCustomer")]
         public async Task<ActionResult> Get(string customerName, bool includeOrders = false)
         {
-            try
+            var result = await _customerRepository.GetCustomerAsync(customerName, includeOrders);
+            if (result == null)
             {
-                var result = await _customerRepository.GetCustomerAsync(customerName, includeOrders);
-
-                if (result == null)
-                {
-                    return NotFound();
-                }
-                return Ok(_mapper.Map<CustomerModel>(result));
+                return NotFound();
             }
-            catch (Exception ex)
-            {
-                // TODO Add logging
-                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
-            }
+            return Ok(_mapper.Map<CustomerModel>(result));
         }
 
         [Route("")]
         [HttpPost]
         public async Task<ActionResult<CustomerModel>> Post([FromBody] CustomerModel model)
         {
-            try
+
+            if (await _customerRepository.GetCustomerAsync(model.CustomerName) != null)
             {
-                if (await _customerRepository.GetCustomerAsync(model.CustomerName) != null)
-                {
-                    ModelState.AddModelError("CustomerName", "Customer Name in use");
-                }
-
-                if (ModelState.IsValid)
-                {
-                    var customer = _mapper.Map<Customer>(model);
-
-                    _customerService.AddCustomer(customer);
-
-                    if (_customerService.SaveChangesAsync())
-                    {
-                        // Get the inserted CustomerModel 
-                        var newModel = _mapper.Map<CustomerModel>(customer);
-
-                        return CreatedAtRoute("GetCustomer",
-                            new { newModel.CustomerName }, newModel);
-                    }
-                }
+                ModelState.AddModelError("CustomerName", "Customer Name in use");
             }
-            catch (Exception ex)
+
+            if (ModelState.IsValid)
             {
-                // TODO Add logging
-                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+                var customer = _mapper.Map<Customer>(model);
+
+                _customerService.AddCustomer(customer);
+
+                if (_customerService.SaveChangesAsync())
+                {
+                    // Get the inserted CustomerModel 
+                    var newModel = _mapper.Map<CustomerModel>(customer);
+
+                    return CreatedAtRoute("GetCustomer",
+                        new { newModel.CustomerName }, newModel);
+                }
             }
             return BadRequest(ModelState);
         }
