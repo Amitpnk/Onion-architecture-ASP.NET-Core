@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using OA.Domain.Entities;
-using OA.Infrastructure.Model;
+using OA.Infrastructure.ViewModel;
 
 namespace OA.Infrastructure.Mapping
 {

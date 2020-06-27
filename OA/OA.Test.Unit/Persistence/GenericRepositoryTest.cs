@@ -30,74 +30,63 @@ namespace OA.Test.Unit.Persistence
         [Test]
         public void CheckGenenricRepositoryAddCustomer()
         {
-            using (var context = new CustomerContext(builder.Options))
-            {
-                var customerRepository = new GenericRepository<Customer>(context);
-                customerRepository.Add(customer);
-                var result = customerRepository.SaveChanges();
-                Assert.IsTrue(result);
-            }
+            using var context = new CustomerContext(builder.Options);
+            var customerRepository = new GenericRepository<Customer>(context);
+            customerRepository.Add(customer);
+            var result = customerRepository.SaveChanges();
+            Assert.IsTrue(result);
         }
 
         [Test]
         public void CheckGenenricRepositoryUpdateCustomer()
         {
-            using (var context = new CustomerContext(builder.Options))
-            {
-                var customerRepository = new GenericRepository<Customer>(context);
-                customerRepository.Update(customer);
-                var result = customerRepository.SaveChanges();
-                Assert.IsTrue(result);
-            }
+            using var context = new CustomerContext(builder.Options);
+            var customerRepository = new GenericRepository<Customer>(context);
+            customerRepository.Update(customer);
+            var result = customerRepository.SaveChanges();
+            Assert.IsTrue(result);
         }
 
         [Test]
         public void CheckGenenricRepositoryDeleteCustomer()
         {
-            using (var context = new CustomerContext(builder.Options))
-            {
-                var customerRepository = new GenericRepository<Customer>(context);
+            using var context = new CustomerContext(builder.Options);
+            var customerRepository = new GenericRepository<Customer>(context);
 
-                customerRepository.Add(customer);
-                customerRepository.SaveChanges();
+            customerRepository.Add(customer);
+            customerRepository.SaveChanges();
 
-                customerRepository.Delete(customer.Id);
-                var result = customerRepository.SaveChanges();
-                Assert.IsTrue(result);
-            }
+            customerRepository.Delete(customer.Id);
+            var result = customerRepository.SaveChanges();
+            Assert.IsTrue(result);
         }
 
         [Test]
         public void CheckGenenricRepositoryGetCustomer()
         {
-            using (var context = new CustomerContext(builder.Options))
-            {
+            using var context = new CustomerContext(builder.Options);
+            var customerRepository = new GenericRepository<Customer>(context);
+            customerRepository.Add(new Customer { CustomerName = "Shweta Naik", Address = "Bangalore" });
+            customerRepository.Add(new Customer { CustomerName = "Amit Naik", Address = "Bangalore" });
+            customerRepository.SaveChanges();
 
-                var customerRepository = new GenericRepository<Customer>(context);
-                customerRepository.Add(new Customer { CustomerName = "Shweta Naik", Address = "Bangalore" });
-                customerRepository.Add(new Customer { CustomerName = "Amit Naik", Address = "Bangalore" });
-                customerRepository.SaveChanges();
+            var cust = customerRepository.GetAll();
 
-                var cust = customerRepository.GetAll();
-
-                Assert.LessOrEqual(2, cust.Count());
-            }
+            Assert.LessOrEqual(2, cust.Count());
         }
 
         [Test]
         public void CheckGenenricRepositoryGetByIdCustomer()
         {
-            using (var context = new CustomerContext(builder.Options))
-            {
-                var customerRepository = new GenericRepository<Customer>(context);
-                customerRepository.Add(new Customer { CustomerName = "Shweta Naik", Address = "Bangalore" });
-                customerRepository.Add(new Customer { CustomerName = "Amit Naik", Address = "Bangalore" });
-                customerRepository.SaveChanges();
+            using var context = new CustomerContext(builder.Options);
+            var customerRepository = new GenericRepository<Customer>(context);
+            customerRepository.Add(new Customer { CustomerName = "Shweta Naik", Address = "Bangalore" });
+            customerRepository.Add(new Customer { CustomerName = "Amit Naik", Address = "Bangalore" });
+            customerRepository.SaveChanges();
 
-                var cust = customerRepository.GetById(1);
+            var cust = customerRepository.GetById(1);
 
-                Assert.AreEqual(1, cust.Id);
-            }
+            Assert.AreEqual(1, cust.Id);
         }
 
     }

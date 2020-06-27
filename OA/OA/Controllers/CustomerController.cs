@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OA.Domain.Entities;
-using OA.Infrastructure.Model;
+using OA.Infrastructure.ViewModel;
 using OA.Persistence.Contract;
 using OA.Service.Contract;
 using System;

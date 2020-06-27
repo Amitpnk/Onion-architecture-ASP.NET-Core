@@ -17,9 +17,9 @@ namespace OA.Service.Implementation
             _repo.Add(customer);
         }
 
-        public void DeleteCustomer(int id)
+        public void DeleteCustomer(int customerId)
         {
-            _repo.Delete(id);
+            _repo.Delete(customerId);
         }
 
         public bool SaveChangesAsync()

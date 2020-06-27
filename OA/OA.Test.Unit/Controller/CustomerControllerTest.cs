@@ -4,7 +4,7 @@ using Moq;
 using NUnit.Framework;
 using OA.Controllers;
 using OA.Domain.Entities;
-using OA.Infrastructure.Model;
+using OA.Infrastructure.ViewModel;
 using OA.Persistence.Contract;
 using OA.Service.Contract;
 using System.Threading.Tasks;

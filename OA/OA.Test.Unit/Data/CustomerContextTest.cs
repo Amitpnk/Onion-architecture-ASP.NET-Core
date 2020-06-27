@@ -12,12 +12,10 @@ namespace OA.Test.Unit.Data
         public void CanInsertCustomerIntoDatabasee()
         {
 
-            using (var context = new CustomerContext())
-            {
-                var customer = new Customer();
-                context.Customers.Add(customer);
-                Assert.AreEqual(EntityState.Added, context.Entry(customer).State);
-            }
+            using var context = new CustomerContext();
+            var customer = new Customer();
+            context.Customers.Add(customer);
+            Assert.AreEqual(EntityState.Added, context.Entry(customer).State);
         }
     }
 }

@@ -12,15 +12,13 @@ namespace OA.Test.Integration
         [TestCase("Get", "api/Customer/Amazon")]
         public async Task GetAllCustomerTestAsync(string method, string URL)
         {
-            using (var client = new TestClientProvider().Client)
-            {
-                var request = new HttpRequestMessage(new HttpMethod(method), URL);
-                var response = await client.SendAsync(request);
+            using var client = new TestClientProvider().Client;
+            var request = new HttpRequestMessage(new HttpMethod(method), URL);
+            var response = await client.SendAsync(request);
 
-                response.EnsureSuccessStatusCode();
+            response.EnsureSuccessStatusCode();
 
-                Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
-            }
+            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         }
     }
 }

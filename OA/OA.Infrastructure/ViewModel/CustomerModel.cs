@@ -1,4 +1,4 @@
-﻿namespace OA.Infrastructure.Model
+﻿namespace OA.Infrastructure.ViewModel
 {
     public class CustomerModel
     {
