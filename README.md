@@ -16,7 +16,7 @@
   <p align="center">
     WhiteApp or QuickApp API solution template which is built on Onion Architecture with all essential feature using .NET Core!
     <br />
-    <a href="#"><strong>Explore the docs »</strong></a>
+    <a href="https://amitpnk.github.io/Onion-architecture-ASP.NET-Core/"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://marketplace.visualstudio.com/items?itemName=AmitNaik.OnionArchitecture">Download from Marketplace</a>
