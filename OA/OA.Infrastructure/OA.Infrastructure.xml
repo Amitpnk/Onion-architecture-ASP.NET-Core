@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>OnionArchitecture</name>
+        <name>OA.Infrastructure</name>
     </assembly>
     <members>
     </members>
