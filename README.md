@@ -38,10 +38,10 @@ If you like or are using this project to learn or start your solution, please gi
 * [About the Project](#about-the-project)
   <!-- * [Built With](#built-with) -->
 * [Getting Started](#getting-started)
-  <!-- * [Prerequisites](#prerequisites)
-  * [Installation](#installation) -->
 * [Features available in this project](#Features-available-in-this-project)
+* [Project description](#roadmap)
 * [Design patterns Used](#roadmap)
+* [Class diagram](#roadmap)
 * [Contributing](#contributing)
 * [Licence Used](#Licence-Used)
 * [Contact](#contact)
