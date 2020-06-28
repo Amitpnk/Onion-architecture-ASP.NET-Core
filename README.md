@@ -40,8 +40,9 @@ If you like or are using this project to learn or start your solution, please gi
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
-* [Usage](#usage)
-* [Roadmap](#roadmap)
+* [Features available in this project](#Features-available-in-this-project)
+
+* [Design patterns Used](#roadmap)
 * [Contributing](#contributing)
 * [Licence Used](#Licence-Used)
 * [Contact](#contact)
@@ -119,22 +120,7 @@ Swagger UI
 
 ![image](Assert/Step4.png)
 
-
-## Licence Used
-[![MIT License][license-shield]][license-url]
-
-See the contents of the LICENSE file for details
-
-
-## Support This Project
-
-If you have found this project helpful, either as a library that you use or as a learning tool, please consider buying me a coffee:
-
-<a href="https://www.buymeacoffee.com/amitpnaik" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important" ></a>
-
-I do coding for fun during leisure time, but I have to pay the bills, so I also work for money :P  
-
-## Whiteapp Onion architecture with ASP.NET Core API 
+## Features available in this project
 
 This is default white application for ASP.NET Core API development
 
@@ -156,13 +142,26 @@ Below features will be implemented in infrastructure layer. You can plug and pla
 - [ ] JWT authentication
 - [ ] React-redux for UI
 - [ ] Health checks
-- [ ] SignalR
 - [ ] Fluent validations
 - [ ] Hangfire
 - [ ] Email
 - [ ] Advanced Pagination
 - [ ] CQRS Pattern 
+<!-- - [ ] SignalR -->
 
+## Licence Used
+[![MIT License][license-shield]][license-url]
+
+See the contents of the LICENSE file for details
+
+
+## Support This Project
+
+If you have found this project helpful, either as a library that you use or as a learning tool, please consider buying me a coffee:
+
+<a href="https://www.buymeacoffee.com/amitpnaik" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important" ></a>
+
+I do coding for fun during leisure time, but I have to pay the bills, so I also work for money :P  
 
 [license-shield]: https://img.shields.io/badge/License-MIT-yellow.svg
 [license-url]: https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/blob/master/LICENSE.txt
