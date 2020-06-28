@@ -38,10 +38,9 @@ If you like or are using this project to learn or start your solution, please gi
 * [About the Project](#about-the-project)
   <!-- * [Built With](#built-with) -->
 * [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
+  <!-- * [Prerequisites](#prerequisites)
+  * [Installation](#installation) -->
 * [Features available in this project](#Features-available-in-this-project)
-
 * [Design patterns Used](#roadmap)
 * [Contributing](#contributing)
 * [Licence Used](#Licence-Used)
