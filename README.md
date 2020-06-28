@@ -3,10 +3,7 @@
 [![Visual Studio Marketplace ratings](https://vsmarketplacebadge.apphb.com/rating/AmitNaik.OnionArchitecture.svg)](https://marketplace.visualstudio.com/items?itemName=AmitNaik.OnionArchitecture)
 [![Visual Studio Marketplace version](https://vsmarketplacebadge.apphb.com/version/AmitNaik.OnionArchitecture.svg)](https://marketplace.visualstudio.com/items?itemName=AmitNaik.OnionArchitecture)
 
-
-
-
-# Onion architecture with ASP.NET Core 
+# WhiteApp/QuickApp Onion architecture with ASP.NET Core
 
 <br />
 <p align="center">
@@ -30,9 +27,6 @@
   </p>
 </p>
 
-
-## Now available as a [project template](https://marketplace.visualstudio.com/items?itemName=AmitNaik.OnionArchitecture) within Visual Studio Extension
-
 ## Give a Star! :star:
 If you like or are using this project to learn or start your solution, please give it a star. Thanks!
 
@@ -49,9 +43,9 @@ If you like or are using this project to learn or start your solution, please gi
 * [Usage](#usage)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
-* [License](#license)
+* [Licence Used](#Licence-Used)
 * [Contact](#contact)
-* [Acknowledgements](#acknowledgements)
+<!-- * [Acknowledgements](#acknowledgements) -->
 
 ## Onion Architecture
 
@@ -71,24 +65,12 @@ Domain in center and building layer top of it. You can call it as Domain-centric
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
 WhiteApp or QuickApp API solution template which is built on Onion Architecture with all essential feature using .NET Core.
 
 ![image](Assert/Onion.png)
-<!-- ### Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [ASP.NET Core](https://getbootstrap.com)
-* [SQL Server](https://jquery.com) -->
-
-
-
-
-## Licence Used
-[![MIT License][license-shield]][license-url]
-
-See the contents of the LICENSE file for details
 
 
 ## Getting Started
@@ -136,6 +118,13 @@ scaffold-dbcontext -provider Microsoft.EntityFrameworkCore.SqlServer -connection
 Swagger UI
 
 ![image](Assert/Step4.png)
+
+
+## Licence Used
+[![MIT License][license-shield]][license-url]
+
+See the contents of the LICENSE file for details
+
 
 ## Support This Project
 
