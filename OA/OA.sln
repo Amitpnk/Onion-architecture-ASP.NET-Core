@@ -3,21 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OA", "OA\OA.csproj", "{5CE8523B-CD37-4F3E-9F41-9A3D2DAB3D39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OA", "OA\OA.csproj", "{5CE8523B-CD37-4F3E-9F41-9A3D2DAB3D39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OA.Data", "OA.Data\OA.Data.csproj", "{FD63EE02-D0B5-421A-B64D-FFFD7E1B7276}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OA.Data", "OA.Data\OA.Data.csproj", "{FD63EE02-D0B5-421A-B64D-FFFD7E1B7276}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OA.Domain", "OA.Domain\OA.Domain.csproj", "{74D8BF98-D40C-447E-BB40-29B1BAA363AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OA.Domain", "OA.Domain\OA.Domain.csproj", "{74D8BF98-D40C-447E-BB40-29B1BAA363AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OA.Infrastructure", "OA.Infrastructure\OA.Infrastructure.csproj", "{97A14F11-44A9-443C-ADC4-CF5696BC64F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OA.Infrastructure", "OA.Infrastructure\OA.Infrastructure.csproj", "{97A14F11-44A9-443C-ADC4-CF5696BC64F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OA.Persistence", "OA.Persistence\OA.Persistence.csproj", "{5F6B0320-95CE-4D4C-82D6-7A0972243716}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OA.Persistence", "OA.Persistence\OA.Persistence.csproj", "{5F6B0320-95CE-4D4C-82D6-7A0972243716}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OA.Service", "OA.Service\OA.Service.csproj", "{B20723E2-C6FC-41B2-8807-FC1E52B012F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OA.Service", "OA.Service\OA.Service.csproj", "{B20723E2-C6FC-41B2-8807-FC1E52B012F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OA.Test.Unit", "OA.Test.Unit\OA.Test.Unit.csproj", "{FDDC1E0E-296B-448C-90C2-9364B118F5E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OA.Test.Unit", "OA.Test.Unit\OA.Test.Unit.csproj", "{FDDC1E0E-296B-448C-90C2-9364B118F5E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OA.Test.Integration", "OA.Test.Integration\OA.Test.Integration.csproj", "{4150259A-1CC5-4BB2-A0D4-891F56338028}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OA.Test.Integration", "OA.Test.Integration\OA.Test.Integration.csproj", "{4150259A-1CC5-4BB2-A0D4-891F56338028}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OATemplate", "OATemplate\OATemplate.csproj", "{A5926428-D707-4D5E-B785-82DFE8C5AC85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{4150259A-1CC5-4BB2-A0D4-891F56338028}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4150259A-1CC5-4BB2-A0D4-891F56338028}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4150259A-1CC5-4BB2-A0D4-891F56338028}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5926428-D707-4D5E-B785-82DFE8C5AC85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5926428-D707-4D5E-B785-82DFE8C5AC85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5926428-D707-4D5E-B785-82DFE8C5AC85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5926428-D707-4D5E-B785-82DFE8C5AC85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
