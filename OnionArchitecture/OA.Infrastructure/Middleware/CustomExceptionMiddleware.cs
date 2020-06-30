@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Serilog;
 using System;
 using System.Net;
 using System.Threading.Tasks;
@@ -9,34 +11,33 @@ namespace OA.Infrastructure.Middleware
 {
     public class CustomExceptionMiddleware
     {
-        private readonly RequestDelegate next;
-        public CustomExceptionMiddleware(RequestDelegate next)
+        private readonly RequestDelegate _next;
+        private readonly ILogger<CustomExceptionMiddleware> _logger;
+        public CustomExceptionMiddleware(RequestDelegate next, ILogger<CustomExceptionMiddleware> logger)
         {
-            this.next = next;
+            _next = next;
+            _logger = logger;
         }
 
-        public async Task Invoke(HttpContext context /* other dependencies */)
+        public async Task Invoke(HttpContext context)
         {
             try
             {
-                await next(context);
+                await _next(context);
             }
             catch (Exception exceptionObj)
             {
-                await HandleExceptionAsync(context, exceptionObj);
+                await HandleExceptionAsync(context, exceptionObj, _logger);
             }
         }
 
-        private static Task HandleExceptionAsync(HttpContext context, Exception ex)
+        private static Task HandleExceptionAsync(HttpContext context, Exception ex, ILogger<CustomExceptionMiddleware> logger)
         {
             var code = HttpStatusCode.InternalServerError; // 500 if unexpected
 
-            // TODO - Need to implement other exception
-            // if (ex is MyNotFoundException) code = HttpStatusCode.NotFound;
-            // //else if (ex is MyUnauthorizedException) code = HttpStatusCode.Unauthorized;
-            // else if (ex is MyException) code = HttpStatusCode.BadRequest;
+            logger.LogError(ex.Message);
 
-            var result = JsonConvert.SerializeObject(new { error = ex.Message });
+            var result = JsonConvert.SerializeObject(new { StatusCode = (int)code, ErrorMessage = ex.Message });
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)code;
             return context.Response.WriteAsync(result);

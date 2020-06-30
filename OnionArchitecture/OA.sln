@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OA.Test.Integration", "OA.T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OATemplate", "OATemplate\OATemplate.csproj", "{A5926428-D707-4D5E-B785-82DFE8C5AC85}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OA.CrossCutting", "OA.CrossCutting\OA.CrossCutting.csproj", "{7841B774-DEC1-4F7C-B3B2-A1BA871759E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{A5926428-D707-4D5E-B785-82DFE8C5AC85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5926428-D707-4D5E-B785-82DFE8C5AC85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5926428-D707-4D5E-B785-82DFE8C5AC85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7841B774-DEC1-4F7C-B3B2-A1BA871759E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7841B774-DEC1-4F7C-B3B2-A1BA871759E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7841B774-DEC1-4F7C-B3B2-A1BA871759E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7841B774-DEC1-4F7C-B3B2-A1BA871759E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
