@@ -8,7 +8,7 @@ using OA.Data;
 
 namespace OA.Data.Migrations
 {
-    [DbContext(typeof(CustomerContext))]
+    [DbContext(typeof(ApplicationContext))]
     partial class CustomerContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

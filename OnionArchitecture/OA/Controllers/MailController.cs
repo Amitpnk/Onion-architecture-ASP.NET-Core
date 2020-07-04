@@ -21,10 +21,5 @@ namespace OA.Controllers
             return Ok();
         }
 
-        [HttpGet]
-        public async Task<ActionResult> Get()
-        {
-            return Ok();
-        }
     }
 }

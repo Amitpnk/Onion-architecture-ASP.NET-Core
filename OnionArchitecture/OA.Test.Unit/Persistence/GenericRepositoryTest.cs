@@ -30,7 +30,7 @@ namespace OA.Test.Unit.Persistence
         [Test]
         public void CheckGenenricRepositoryAddCustomer()
         {
-            using var context = new CustomerContext(builder.Options);
+            using var context = new ApplicationContext(builder.Options);
             var customerRepository = new GenericRepository<Customer>(context);
             customerRepository.Add(customer);
             var result = customerRepository.SaveChanges();
@@ -40,7 +40,7 @@ namespace OA.Test.Unit.Persistence
         [Test]
         public void CheckGenenricRepositoryUpdateCustomer()
         {
-            using var context = new CustomerContext(builder.Options);
+            using var context = new ApplicationContext(builder.Options);
             var customerRepository = new GenericRepository<Customer>(context);
             customerRepository.Update(customer);
             var result = customerRepository.SaveChanges();
@@ -50,7 +50,7 @@ namespace OA.Test.Unit.Persistence
         [Test]
         public void CheckGenenricRepositoryDeleteCustomer()
         {
-            using var context = new CustomerContext(builder.Options);
+            using var context = new ApplicationContext(builder.Options);
             var customerRepository = new GenericRepository<Customer>(context);
 
             customerRepository.Add(customer);
@@ -64,7 +64,7 @@ namespace OA.Test.Unit.Persistence
         [Test]
         public void CheckGenenricRepositoryGetCustomer()
         {
-            using var context = new CustomerContext(builder.Options);
+            using var context = new ApplicationContext(builder.Options);
             var customerRepository = new GenericRepository<Customer>(context);
             customerRepository.Add(new Customer { CustomerName = "Shweta Naik", Address = "Bangalore" });
             customerRepository.Add(new Customer { CustomerName = "Amit Naik", Address = "Bangalore" });
@@ -78,7 +78,7 @@ namespace OA.Test.Unit.Persistence
         [Test]
         public void CheckGenenricRepositoryGetByIdCustomer()
         {
-            using var context = new CustomerContext(builder.Options);
+            using var context = new ApplicationContext(builder.Options);
             var customerRepository = new GenericRepository<Customer>(context);
             customerRepository.Add(new Customer { CustomerName = "Shweta Naik", Address = "Bangalore" });
             customerRepository.Add(new Customer { CustomerName = "Amit Naik", Address = "Bangalore" });

@@ -26,7 +26,7 @@ namespace OA
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddController();
 
             services.AddDbContext(Configuration, configRoot);
 
@@ -55,8 +55,6 @@ namespace OA
             app.ConfigureCustomExceptionMiddleware();
 
             app.ConfigureSwagger();
-
-            //app.ConfigureExceptionHandler((Microsoft.Extensions.Logging.ILogger)loggerFactory);
 
             loggerFactory.AddSerilog();
 

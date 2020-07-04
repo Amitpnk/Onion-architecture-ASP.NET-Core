@@ -12,7 +12,7 @@ namespace OA.Test.Unit.Persistence
     {
         private DbContextOptionsBuilder builder;
 
-        private CustomerContext context;
+        private ApplicationContext context;
 
         [SetUp]
         public void Setup()
@@ -44,7 +44,7 @@ namespace OA.Test.Unit.Persistence
         void SettingUp()
         {
             // Inserting to inmemory database
-            context = new CustomerContext(builder.Options);
+            context = new ApplicationContext(builder.Options);
             var customerRepository = new GenericRepository<Customer>(context);
             customerRepository.Add(new Customer { CustomerName = "Shweta Naik", Address = "Bangalore" });
             customerRepository.Add(new Customer { CustomerName = "Amit Naik", Address = "Bangalore" });

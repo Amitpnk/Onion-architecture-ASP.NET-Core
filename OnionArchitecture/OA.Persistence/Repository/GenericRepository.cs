@@ -9,9 +9,9 @@ namespace OA.Persistence.Repository
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly DbSet<T> entities;
-        private readonly CustomerContext _context;
+        private readonly ApplicationContext _context;
 
-        public GenericRepository(CustomerContext context)
+        public GenericRepository(ApplicationContext context)
         {
             _context = context;
             entities = _context.Set<T>();

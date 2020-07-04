@@ -12,6 +12,7 @@ using OA.Service.Implementation;
 using System;
 using System.IO;
 using System.Reflection;
+using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 
 namespace OA.Infrastructure.Extension
 {
@@ -20,7 +21,7 @@ namespace OA.Infrastructure.Extension
         public static void AddDbContext(this IServiceCollection serviceCollection,
              IConfiguration configuration, IConfigurationRoot configRoot)
         {
-            serviceCollection.AddDbContext<CustomerContext>(options =>
+            serviceCollection.AddDbContext<ApplicationContext>(options =>
                    options.UseSqlServer(configuration.GetConnectionString("OnionArchConn") ?? configRoot["ConnectionStrings:OnionArchConn"])
                 );
         }
@@ -84,6 +85,10 @@ namespace OA.Infrastructure.Extension
             serviceCollection.Configure<MailSettings>(configuration.GetSection("MailSettings"));
         }
 
+        public static void AddNewtonJson(this IServiceCollection serviceCollection)
+        {
+            serviceCollection.AddControllers().AddNewtonsoftJson();
+        }
 
     }
 }
