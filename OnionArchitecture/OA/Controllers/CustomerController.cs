@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OA.Domain.Entities;
 using OA.Infrastructure.ViewModel;
 using OA.Persistence.Contract;
 using OA.Service.Contract;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

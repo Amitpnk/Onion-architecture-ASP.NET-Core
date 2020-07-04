@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OA.Data;
+using OA.Domain;
 using OA.Infrastructure.Mapping;
 using OA.Persistence.Contract;
 using OA.Persistence.Repository;
@@ -43,6 +44,7 @@ namespace OA.Infrastructure.Extension
         public static void AddTransientServices(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddTransient<ICustomerService, CustomerService>();
+            serviceCollection.AddTransient<IMailService, MailService>();
         }
 
         public static void AddSwaggerOpenAPI(this IServiceCollection serviceCollection)
@@ -75,6 +77,13 @@ namespace OA.Infrastructure.Extension
             });
 
         }
+
+        public static void AddMailSetting(this IServiceCollection serviceCollection,
+            IConfiguration configuration)
+        {
+            serviceCollection.Configure<MailSettings>(configuration.GetSection("MailSettings"));
+        }
+
 
     }
 }

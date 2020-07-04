@@ -5,7 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using OA.Infrastructure.Extension;
-using OA.Infrastructure.Middleware;
 using Serilog;
 using System.IO;
 
@@ -38,6 +37,8 @@ namespace OA
             services.AddTransientServices();
 
             services.AddSwaggerOpenAPI();
+
+            services.AddMailSetting(Configuration);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
@@ -46,8 +47,6 @@ namespace OA
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            //app.UseHttpsRedirection();
 
             app.UseRouting();
 

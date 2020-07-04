@@ -10,7 +10,6 @@ namespace OA.Infrastructure.Extension
             app.UseMiddleware<CustomExceptionMiddleware>();
         }
 
-       
         public static void ConfigureSwagger(this IApplicationBuilder app)
         {
             app.UseSwagger();
