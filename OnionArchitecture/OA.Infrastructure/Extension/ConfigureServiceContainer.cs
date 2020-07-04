@@ -85,7 +85,7 @@ namespace OA.Infrastructure.Extension
             serviceCollection.Configure<MailSettings>(configuration.GetSection("MailSettings"));
         }
 
-        public static void AddNewtonJson(this IServiceCollection serviceCollection)
+        public static void AddController(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddControllers().AddNewtonsoftJson();
         }
