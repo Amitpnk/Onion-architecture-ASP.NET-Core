@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using OA.Infrastructure.Extension;
+using OA.Service;
 using Serilog;
 using System.IO;
 

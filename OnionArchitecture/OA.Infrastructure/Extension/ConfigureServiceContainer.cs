@@ -90,10 +90,11 @@ namespace OA.Infrastructure.Extension
             serviceCollection.AddControllers().AddNewtonsoftJson();
         }
 
-        public static void AddMediatorCQRS(this IServiceCollection services)
-        {
-            services.AddMediatR(Assembly.GetExecutingAssembly());
-        }
+        //public static void AddMediatorCQRS(this IServiceCollection services)
+        //{
+        //    //var assembly = AppDomain.CurrentDomain.Load("OA.Service");
+        //    services.AddMediatR(Assembly.GetExecutingAssembly());
+        //}
 
     }
 }

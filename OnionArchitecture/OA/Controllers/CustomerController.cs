@@ -21,6 +21,7 @@ namespace OA.Controllers
         }
 
         [HttpGet]
+        [Route("")]
         public async Task<IActionResult> GetAll()
         {
             return Ok(await Mediator.Send(new GetAllCustomerQuery()));
