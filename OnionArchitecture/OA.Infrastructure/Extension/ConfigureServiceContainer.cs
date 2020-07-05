@@ -45,7 +45,6 @@ namespace OA.Infrastructure.Extension
 
         public static void AddTransientServices(this IServiceCollection serviceCollection)
         {
-            //serviceCollection.AddTransient<ICustomerService, CustomerService>();
             serviceCollection.AddTransient<IMailService, MailService>();
         }
 
