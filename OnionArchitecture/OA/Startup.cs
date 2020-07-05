@@ -34,7 +34,7 @@ namespace OA
 
             services.AddAutoMapper();
 
-            services.AddRepository();
+            services.AddAddScopedServices();
 
             services.AddTransientServices();
 
@@ -44,7 +44,7 @@ namespace OA
 
             services.AddApplication();
 
-            services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
+            
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)

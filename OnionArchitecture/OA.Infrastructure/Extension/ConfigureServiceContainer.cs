@@ -36,10 +36,11 @@ namespace OA.Infrastructure.Extension
             serviceCollection.AddSingleton(mapper);
         }
 
-        public static void AddRepository(this IServiceCollection serviceCollection)
+        public static void AddAddScopedServices(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             serviceCollection.AddScoped<ICustomerRepository, CustomerRepository>();
+            serviceCollection.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
         }
 
         public static void AddTransientServices(this IServiceCollection serviceCollection)
