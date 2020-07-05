@@ -21,7 +21,7 @@ namespace OA.Infrastructure.Extension
         public static void AddDbContext(this IServiceCollection serviceCollection,
              IConfiguration configuration, IConfigurationRoot configRoot)
         {
-            serviceCollection.AddDbContext<ApplicationContext>(options =>
+            serviceCollection.AddDbContext<ApplicationDbContext>(options =>
                    options.UseSqlServer(configuration.GetConnectionString("OnionArchConn") ?? configRoot["ConnectionStrings:OnionArchConn"])
                 );
         }
@@ -44,7 +44,7 @@ namespace OA.Infrastructure.Extension
 
         public static void AddTransientServices(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddTransient<ICustomerService, CustomerService>();
+            //serviceCollection.AddTransient<ICustomerService, CustomerService>();
             serviceCollection.AddTransient<IMailService, MailService>();
         }
 

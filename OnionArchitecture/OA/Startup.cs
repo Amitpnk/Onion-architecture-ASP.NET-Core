@@ -4,7 +4,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using OA.Data;
 using OA.Infrastructure.Extension;
+using OA.Service;
 using Serilog;
 using System.IO;
 
@@ -39,6 +41,10 @@ namespace OA
             services.AddSwaggerOpenAPI();
 
             services.AddMailSetting(Configuration);
+
+            services.AddApplication();
+
+            services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)

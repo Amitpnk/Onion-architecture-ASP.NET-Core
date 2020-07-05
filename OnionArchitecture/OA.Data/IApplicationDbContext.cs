@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace OA.Data
 {
-    public interface IApplicationContext
+    public interface IApplicationDbContext
     {
         DbSet<Category> Categories { get; set; }
         DbSet<Customer> Customers { get; set; }

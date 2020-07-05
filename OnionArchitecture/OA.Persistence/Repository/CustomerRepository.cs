@@ -10,8 +10,8 @@ namespace OA.Persistence.Repository
 {
     public class CustomerRepository : ICustomerRepository
     {
-        private readonly ApplicationContext _context;
-        public CustomerRepository(ApplicationContext context)
+        private readonly ApplicationDbContext _context;
+        public CustomerRepository(ApplicationDbContext context)
         {
             _context = context;
         }
