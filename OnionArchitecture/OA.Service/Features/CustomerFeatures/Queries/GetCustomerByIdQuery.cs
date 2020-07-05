@@ -5,15 +5,15 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Application.Features.ProductFeatures.Queries
+namespace OA.Service.Features.CustomerFeatures.Queries
 {
     public class GetCustomerByIdQuery : IRequest<Customer>
     {
         public int Id { get; set; }
-        public class GetProductByIdQueryHandler : IRequestHandler<GetCustomerByIdQuery, Customer>
+        public class GetCustomerByIdQueryHandler : IRequestHandler<GetCustomerByIdQuery, Customer>
         {
             private readonly IApplicationDbContext _context;
-            public GetProductByIdQueryHandler(IApplicationDbContext context)
+            public GetCustomerByIdQueryHandler(IApplicationDbContext context)
             {
                 _context = context;
             }

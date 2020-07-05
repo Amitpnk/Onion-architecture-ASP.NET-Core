@@ -6,15 +6,15 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Application.Features.ProductFeatures.Queries
+namespace OA.Service.Features.CustomerFeatures.Queries
 {
     public class GetAllCustomerQuery : IRequest<IEnumerable<Customer>>
     {
 
-        public class GetAllProductsQueryHandler : IRequestHandler<GetAllCustomerQuery, IEnumerable<Customer>>
+        public class GetAllCustomerQueryHandler : IRequestHandler<GetAllCustomerQuery, IEnumerable<Customer>>
         {
             private readonly IApplicationDbContext _context;
-            public GetAllProductsQueryHandler(IApplicationDbContext context)
+            public GetAllCustomerQueryHandler(IApplicationDbContext context)
             {
                 _context = context;
             }

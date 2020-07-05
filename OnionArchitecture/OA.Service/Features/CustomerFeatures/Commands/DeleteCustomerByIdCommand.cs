@@ -5,15 +5,15 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Application.Features.ProductFeatures.Commands
+namespace OA.Service.Features.CustomerFeatures.Commands
 {
     public class DeleteCustomerByIdCommand : IRequest<int>
     {
         public int Id { get; set; }
-        public class DeleteProductByIdCommandHandler : IRequestHandler<DeleteCustomerByIdCommand, int>
+        public class DeleteCustomerByIdCommandHandler : IRequestHandler<DeleteCustomerByIdCommand, int>
         {
             private readonly IApplicationDbContext _context;
-            public DeleteProductByIdCommandHandler(IApplicationDbContext context)
+            public DeleteCustomerByIdCommandHandler(IApplicationDbContext context)
             {
                 _context = context;
             }

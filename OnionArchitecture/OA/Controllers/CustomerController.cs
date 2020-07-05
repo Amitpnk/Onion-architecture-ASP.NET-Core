@@ -1,5 +1,5 @@
-﻿using Application.Features.ProductFeatures.Commands;
-using Application.Features.ProductFeatures.Queries;
+﻿using OA.Service.Features.CustomerFeatures.Commands;
+using OA.Service.Features.CustomerFeatures.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;

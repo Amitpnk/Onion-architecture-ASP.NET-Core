@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Application.Features.ProductFeatures.Commands
+namespace OA.Service.Features.CustomerFeatures.Commands
 {
     public class UpdateCustomerCommand : IRequest<int>
     {
@@ -20,18 +20,18 @@ namespace Application.Features.ProductFeatures.Commands
         public string Country { get; set; }
         public string Phone { get; set; }
         public string Fax { get; set; }
-        public class UpdateProductCommandHandler : IRequestHandler<UpdateCustomerCommand, int>
+        public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommand, int>
         {
             private readonly IApplicationDbContext _context;
-            public UpdateProductCommandHandler(IApplicationDbContext context)
+            public UpdateCustomerCommandHandler(IApplicationDbContext context)
             {
                 _context = context;
             }
             public async Task<int> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
             {
-                var product = _context.Products.Where(a => a.Id == request.Id).FirstOrDefault();
+                var cust = _context.Customers.Where(a => a.Id == request.Id).FirstOrDefault();
 
-                if (product == null)
+                if (cust == null)
                 {
                     return default;
                 }
@@ -41,7 +41,7 @@ namespace Application.Features.ProductFeatures.Commands
                     customer.CustomerName = request.CustomerName;
                     customer.ContactName = request.ContactName;
                     await _context.SaveChangesAsync();
-                    return product.Id;
+                    return cust.Id;
                 }
             }
         }

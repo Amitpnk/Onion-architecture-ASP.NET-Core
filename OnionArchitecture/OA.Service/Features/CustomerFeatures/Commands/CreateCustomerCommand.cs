@@ -4,7 +4,7 @@ using OA.Domain.Entities;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Application.Features.ProductFeatures.Commands
+namespace OA.Service.Features.CustomerFeatures.Commands
 {
     public class CreateCustomerCommand : IRequest<int>
     {
@@ -18,10 +18,10 @@ namespace Application.Features.ProductFeatures.Commands
         public string Country { get; set; }
         public string Phone { get; set; }
         public string Fax { get; set; }
-        public class CreateProductCommandHandler : IRequestHandler<CreateCustomerCommand, int>
+        public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, int>
         {
             private readonly IApplicationDbContext _context;
-            public CreateProductCommandHandler(IApplicationDbContext context)
+            public CreateCustomerCommandHandler(IApplicationDbContext context)
             {
                 _context = context;
             }
