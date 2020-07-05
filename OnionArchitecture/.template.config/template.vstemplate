@@ -4,7 +4,7 @@
     <Name>Onion Architecture</Name>
     <Description>WhiteApp or QuickApp API solution template which is built on Onion Architecture using .NET Core</Description>
     <TemplateID>OnionArchitecture.CSharp</TemplateID>
-    <DefaultName>OA</DefaultName>
+    <DefaultName>OnionArchitecture</DefaultName>
     
     <Icon>project-icon.png</Icon>
     
