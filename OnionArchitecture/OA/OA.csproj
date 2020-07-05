@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OA.Infrastructure\OA.Infrastructure.csproj" />
+    <ProjectReference Include="..\OA.Service\OA.Service.csproj" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>

@@ -2,7 +2,6 @@
 using NUnit.Framework;
 using OA.Domain.Entities;
 using OA.Persistence.Contract;
-using OA.Service.Implementation;
 
 namespace OA.Test.Unit.Service
 {

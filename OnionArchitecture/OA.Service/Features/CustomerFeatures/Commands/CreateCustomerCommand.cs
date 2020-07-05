@@ -1,10 +1,6 @@
-﻿ 
-using MediatR;
+﻿using MediatR;
 using OA.Data;
 using OA.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -34,7 +30,7 @@ namespace Application.Features.ProductFeatures.Commands
                 var customer = new Customer();
                 customer.CustomerName = request.CustomerName;
                 customer.ContactName = request.ContactName;
-               
+
                 _context.Customers.Add(customer);
                 await _context.SaveChangesAsync();
                 return customer.Id;

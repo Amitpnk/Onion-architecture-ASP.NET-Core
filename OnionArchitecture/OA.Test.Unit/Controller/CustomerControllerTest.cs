@@ -6,7 +6,6 @@ using OA.Controllers;
 using OA.Domain.Entities;
 using OA.Infrastructure.ViewModel;
 using OA.Persistence.Contract;
-using OA.Service.Contract;
 using System.Threading.Tasks;
 
 namespace OA.Test.Unit.Controller

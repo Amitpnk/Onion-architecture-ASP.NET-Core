@@ -2,12 +2,8 @@
 using Application.Features.ProductFeatures.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
+using System.Threading.Tasks;
 
 namespace OA.Controllers
 {
@@ -23,26 +19,26 @@ namespace OA.Controllers
         {
             return Ok(await Mediator.Send(command));
         }
-        
+
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             return Ok(await Mediator.Send(new GetAllCustomerQuery()));
         }
-       
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             return Ok(await Mediator.Send(new GetCustomerByIdQuery { Id = id }));
         }
-        
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             return Ok(await Mediator.Send(new DeleteCustomerByIdCommand { Id = id }));
         }
 
-       
+
         [HttpPut("[action]")]
         public async Task<IActionResult> Update(int id, UpdateCustomerCommand command)
         {

@@ -1,11 +1,8 @@
-﻿ 
-using MediatR;
+﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using OA.Data;
 using OA.Domain.Entities;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 

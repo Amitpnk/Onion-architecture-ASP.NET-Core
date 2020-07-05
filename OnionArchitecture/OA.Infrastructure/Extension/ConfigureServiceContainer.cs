@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,7 +13,6 @@ using OA.Service.Implementation;
 using System;
 using System.IO;
 using System.Reflection;
-using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 
 namespace OA.Infrastructure.Extension
 {
@@ -88,6 +88,11 @@ namespace OA.Infrastructure.Extension
         public static void AddController(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddControllers().AddNewtonsoftJson();
+        }
+
+        public static void AddMediatorCQRS(this IServiceCollection services)
+        {
+            services.AddMediatR(Assembly.GetExecutingAssembly());
         }
 
     }
