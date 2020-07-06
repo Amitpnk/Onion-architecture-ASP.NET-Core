@@ -134,18 +134,19 @@ This whiteapp contains following features, uncheck feature need to implement yet
 - [x] Integration testing via NUnit
 - [ ] Versioning
 - [x] Swagger
-- [ ] Loggings - seriLog
+- [x] CQRS Pattern 
 
 Below features will be implemented in infrastructure layer. You can plug and play based on your project.
 
+- [x] Loggings - seriLog
+- [x] Email
 - [ ] JWT authentication
 - [ ] React-redux for UI
 - [ ] Health checks
 - [ ] Fluent validations
 - [ ] Hangfire
-- [ ] Email
 - [ ] Advanced Pagination
-- [ ] CQRS Pattern 
+
 <!-- - [ ] SignalR -->
 
 ## Licence Used

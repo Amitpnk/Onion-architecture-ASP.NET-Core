@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using OA.Infrastructure.Extension;
+using OA.Service;
 using Serilog;
 using System.IO;
 
@@ -32,16 +33,20 @@ namespace OA
 
             services.AddAutoMapper();
 
-            services.AddRepository();
+            services.AddAddScopedServices();
 
             services.AddTransientServices();
 
             services.AddSwaggerOpenAPI();
 
             services.AddMailSetting(Configuration);
+
+            services.AddMediatorCQRS();
+
+
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory log)
         {
             if (env.IsDevelopment())
             {
@@ -56,7 +61,7 @@ namespace OA
 
             app.ConfigureSwagger();
 
-            loggerFactory.AddSerilog();
+            log.AddSerilog();
 
             app.UseEndpoints(endpoints =>
             {

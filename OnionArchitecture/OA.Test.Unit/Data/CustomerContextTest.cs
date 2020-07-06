@@ -12,7 +12,7 @@ namespace OA.Test.Unit.Data
         public void CanInsertCustomerIntoDatabasee()
         {
 
-            using var context = new ApplicationContext();
+            using var context = new ApplicationDbContext();
             var customer = new Customer();
             context.Customers.Add(customer);
             Assert.AreEqual(EntityState.Added, context.Entry(customer).State);

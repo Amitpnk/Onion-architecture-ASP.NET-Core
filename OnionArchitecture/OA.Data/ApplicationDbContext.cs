@@ -4,14 +4,14 @@ using System.Threading.Tasks;
 
 namespace OA.Data
 {
-    public class ApplicationContext : DbContext, IApplicationContext
+    public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
         // This constructor is used of runit testing
-        public ApplicationContext()
+        public ApplicationDbContext()
         {
 
         }
-        public ApplicationContext(DbContextOptions options) : base(options)
+        public ApplicationDbContext(DbContextOptions options) : base(options)
         {
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }

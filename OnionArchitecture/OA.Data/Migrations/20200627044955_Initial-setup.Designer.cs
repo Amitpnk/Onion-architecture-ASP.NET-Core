@@ -9,7 +9,7 @@ using OA.Data;
 
 namespace OA.Data.Migrations
 {
-    [DbContext(typeof(ApplicationContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20200627044955_Initial-setup")]
     partial class Initialsetup
     {

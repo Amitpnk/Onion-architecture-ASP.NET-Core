@@ -8,7 +8,7 @@ namespace OA.Test.Integration
     public class ApiCustomerTest
     {
         [TestCase("Get", "api/Customer")]
-        [TestCase("Get", "api/Customer/Amazon")]
+        [TestCase("Get", "api/Customer/1")]
         public async Task GetAllCustomerTestAsync(string method, string URL)
         {
             using var client = new TestClientProvider().Client;

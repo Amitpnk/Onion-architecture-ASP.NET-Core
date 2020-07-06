@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,7 +13,6 @@ using OA.Service.Implementation;
 using System;
 using System.IO;
 using System.Reflection;
-using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 
 namespace OA.Infrastructure.Extension
 {
@@ -21,7 +21,7 @@ namespace OA.Infrastructure.Extension
         public static void AddDbContext(this IServiceCollection serviceCollection,
              IConfiguration configuration, IConfigurationRoot configRoot)
         {
-            serviceCollection.AddDbContext<ApplicationContext>(options =>
+            serviceCollection.AddDbContext<ApplicationDbContext>(options =>
                    options.UseSqlServer(configuration.GetConnectionString("OnionArchConn") ?? configRoot["ConnectionStrings:OnionArchConn"])
                 );
         }
@@ -36,15 +36,15 @@ namespace OA.Infrastructure.Extension
             serviceCollection.AddSingleton(mapper);
         }
 
-        public static void AddRepository(this IServiceCollection serviceCollection)
+        public static void AddAddScopedServices(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             serviceCollection.AddScoped<ICustomerRepository, CustomerRepository>();
+            serviceCollection.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
         }
 
         public static void AddTransientServices(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddTransient<ICustomerService, CustomerService>();
             serviceCollection.AddTransient<IMailService, MailService>();
         }
 
@@ -89,6 +89,12 @@ namespace OA.Infrastructure.Extension
         {
             serviceCollection.AddControllers().AddNewtonsoftJson();
         }
+
+        //public static void AddMediatorCQRS(this IServiceCollection services)
+        //{
+        //    //var assembly = AppDomain.CurrentDomain.Load("OA.Service");
+        //    services.AddMediatR(Assembly.GetExecutingAssembly());
+        //}
 
     }
 }
