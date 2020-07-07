@@ -1,13 +1,10 @@
 ﻿using AutoMapper;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using OA.Data;
 using OA.Domain;
 using OA.Infrastructure.Mapping;
-using OA.Persistence.Contract;
-using OA.Persistence.Repository;
+using OA.Persistence;
 using OA.Service.Contract;
 using OA.Service.Implementation;
 using System;
@@ -38,8 +35,6 @@ namespace OA.Infrastructure.Extension
 
         public static void AddAddScopedServices(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            serviceCollection.AddScoped<ICustomerRepository, CustomerRepository>();
             serviceCollection.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
         }
 

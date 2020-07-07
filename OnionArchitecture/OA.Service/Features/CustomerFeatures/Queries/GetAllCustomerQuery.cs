@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using OA.Data;
 using OA.Domain.Entities;
+using OA.Persistence;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;

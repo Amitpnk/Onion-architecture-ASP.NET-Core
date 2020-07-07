@@ -1,6 +1,6 @@
 ﻿using MediatR;
-using OA.Data;
 using OA.Domain.Entities;
+using OA.Persistence;
 using System.Threading;
 using System.Threading.Tasks;
 

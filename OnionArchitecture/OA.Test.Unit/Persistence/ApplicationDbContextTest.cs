@@ -1,13 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
-using OA.Data;
 using OA.Domain.Entities;
+using OA.Persistence;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace OA.Test.Unit.Data
+namespace OA.Test.Unit.Persistence
 {
-    public class CustomerContextTest
+    public class ApplicationDbContextTest
     {
-
         [Test]
         public void CanInsertCustomerIntoDatabasee()
         {
