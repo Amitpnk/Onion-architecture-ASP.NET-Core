@@ -1,80 +1,53 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using OA.Domain.Entities;
-using OA.Infrastructure.ViewModel;
-using OA.Persistence.Contract;
-using OA.Service.Contract;
-using System;
-using System.Collections.Generic;
+using Microsoft.Extensions.DependencyInjection;
+using OA.Service.Features.CustomerFeatures.Commands;
+using OA.Service.Features.CustomerFeatures.Queries;
 using System.Threading.Tasks;
 
 namespace OA.Controllers
 {
-    [ApiController]
     [Route("api/Customer")]
+    [ApiController]
     public class CustomerController : ControllerBase
     {
-        private readonly ICustomerService _customerService;
-        private readonly ICustomerRepository _customerRepository;
-        private readonly IMapper _mapper;
-        public CustomerController(IMapper mapper, ICustomerService customerService, ICustomerRepository customerRepository)
-        {
-            _customerService = customerService;
-            _customerRepository = customerRepository;
-            _mapper = mapper;
-        }
+        private IMediator _mediator;
+        protected IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetService<IMediator>();
 
-        // GET: api/Customer
-        [HttpGet]
-        public async Task<ActionResult> Get()
-        {
-            var result = await _customerRepository.GetAllCustomersAsync();
-            var mappedResult = _mapper.Map<IEnumerable<Customer>>(result);
-            return Ok(mappedResult);
-        }
-
-
-        // GET: api/Customer/name
-        [HttpGet]
-        [Route("{customerName}", Name = "GetCustomer")]
-        public async Task<ActionResult> Get(string customerName, bool includeOrders = false)
-        {
-            var result = await _customerRepository.GetCustomerAsync(customerName, includeOrders);
-            if (result == null)
-            {
-                return NotFound();
-            }
-            return Ok(_mapper.Map<CustomerModel>(result));
-        }
-
-        [Route("")]
         [HttpPost]
-        public async Task<ActionResult<CustomerModel>> Post([FromBody] CustomerModel model)
+        public async Task<IActionResult> Create(CreateCustomerCommand command)
         {
-
-            if (await _customerRepository.GetCustomerAsync(model.CustomerName) != null)
-            {
-                ModelState.AddModelError("CustomerName", "Customer Name in use");
-            }
-
-            if (ModelState.IsValid)
-            {
-                var customer = _mapper.Map<Customer>(model);
-
-                _customerService.AddCustomer(customer);
-
-                if (_customerService.SaveChangesAsync())
-                {
-                    // Get the inserted CustomerModel 
-                    var newModel = _mapper.Map<CustomerModel>(customer);
-
-                    return CreatedAtRoute("GetCustomer",
-                        new { newModel.CustomerName }, newModel);
-                }
-            }
-            return BadRequest(ModelState);
+            return Ok(await Mediator.Send(command));
         }
 
+        [HttpGet]
+        [Route("")]
+        public async Task<IActionResult> GetAll()
+        {
+            return Ok(await Mediator.Send(new GetAllCustomerQuery()));
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            return Ok(await Mediator.Send(new GetCustomerByIdQuery { Id = id }));
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            return Ok(await Mediator.Send(new DeleteCustomerByIdCommand { Id = id }));
+        }
+
+
+        [HttpPut("[action]")]
+        public async Task<IActionResult> Update(int id, UpdateCustomerCommand command)
+        {
+            if (id != command.Id)
+            {
+                return BadRequest();
+            }
+            return Ok(await Mediator.Send(command));
+        }
     }
 }

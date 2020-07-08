@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Logging;
 using OA.Infrastructure.Middleware;
+using Serilog;
 
 namespace OA.Infrastructure.Extension
 {
@@ -10,7 +12,6 @@ namespace OA.Infrastructure.Extension
             app.UseMiddleware<CustomExceptionMiddleware>();
         }
 
-       
         public static void ConfigureSwagger(this IApplicationBuilder app)
         {
             app.UseSwagger();
@@ -20,6 +21,11 @@ namespace OA.Infrastructure.Extension
                 setupAction.SwaggerEndpoint("/swagger/OpenAPISpecification/swagger.json", "Onion Architecture API");
                 setupAction.RoutePrefix = "OpenAPI";
             });
+        }
+
+        public static void ConfigureSwagger(this ILoggerFactory loggerFactory)
+        {
+            loggerFactory.AddSerilog();
         }
 
     }

@@ -1,5 +1,4 @@
 using NUnit.Framework;
-using OA.Test.Integration;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -9,7 +8,7 @@ namespace OA.Test.Integration
     public class ApiCustomerTest
     {
         [TestCase("Get", "api/Customer")]
-        [TestCase("Get", "api/Customer/Amazon")]
+        [TestCase("Get", "api/Customer/1")]
         public async Task GetAllCustomerTestAsync(string method, string URL)
         {
             using var client = new TestClientProvider().Client;

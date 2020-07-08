@@ -1,16 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OA.Domain.Entities;
+using System.Threading.Tasks;
 
-namespace OA.Data
+namespace OA.Persistence
 {
-    public class CustomerContext : DbContext
+    public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
         // This constructor is used of runit testing
-        public CustomerContext()
+        public ApplicationDbContext()
         {
 
         }
-        public CustomerContext(DbContextOptions options) : base(options)
+        public ApplicationDbContext(DbContextOptions options) : base(options)
         {
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
@@ -34,6 +35,11 @@ namespace OA.Data
                 .UseSqlServer("DataSource=app.db");
             }
 
+        }
+
+        public async Task<int> SaveChangesAsync()
+        {
+            return await base.SaveChangesAsync();
         }
     }
 }

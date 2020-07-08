@@ -18,9 +18,6 @@
       "path": "OA\\OA.csproj"
     },
     {
-      "path": "OA.Data\\OA.Data.csproj"
-    },
-    {
       "path": "OA.Domain\\OA.Domain.csproj"
     },
     {
