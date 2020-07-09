@@ -97,7 +97,15 @@ Select project type as API, and select Onion Architecture
 
 ![image](Assert/Step3.png)
 
-### Step 5: Create Database (Sample is for Microsoft SQL Server)
+### Step 5: Configure connection string in appsettings.json
+
+```json
+ "ConnectionStrings": {
+    "OnionArchConn": "Data Source=(local)\\SQLexpress;Initial Catalog=OnionDb;Integrated Security=True"
+  },
+```
+
+### Step 6: Create Database (Sample is for Microsoft SQL Server)
 
 ![image](Assert/Step4.png)
 
@@ -115,7 +123,7 @@ In Package Manager console in *<< ProjectName >>.Persistence*, run below command
 scaffold-dbcontext -provider Microsoft.EntityFrameworkCore.SqlServer -connection "Data Source=(local)\SQLexpress;Initial Catalog=OnionArchitectureDBS;Integrated Security=True"
 ```
 
-### Step 6: Build and run application
+### Step 7: Build and run application
 
 Swagger UI
 
