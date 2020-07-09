@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="8BA5060C-7058-4A68-AD4C-3FE2429AACBA" Version="1.1" Language="en-US" Publisher="Amit Naik" />
+        <Identity Id="8BA5060C-7058-4A68-AD4C-3FE2429AACBA" Version="1.2" Language="en-US" Publisher="Amit Naik" />
         <DisplayName>Onion Architecture</DisplayName>
         <Description xml:space="preserve">WhiteApp or QuickApp API solution template which is built on Onion Architecture with all essential feature using .NET Core</Description>
         <License>LICENSE.txt</License>
