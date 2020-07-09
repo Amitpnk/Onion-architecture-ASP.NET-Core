@@ -97,9 +97,11 @@ Select project type as API, and select Onion Architecture
 
 ![image](Assert/Step3.png)
 
-### Step 5: Create Database
+### Step 5: Create Database (Sample is for Microsoft SQL Server)
 
-For Code First approach
+![image](Assert/Step4.png)
+
+For Code First approach (To run this application, use Code First apporach)
 
 ```sh
 Update-Database
@@ -107,17 +109,17 @@ Update-Database
 
 For Database First approach
 
-In Package Manager console in *<< ProjectName >>.Data*, run below command
+In Package Manager console in *<< ProjectName >>.Persistence*, run below command
 
 ```sh
 scaffold-dbcontext -provider Microsoft.EntityFrameworkCore.SqlServer -connection "Data Source=(local)\SQLexpress;Initial Catalog=OnionArchitectureDBS;Integrated Security=True"
 ```
 
-### Step 6: Build and run application 
+### Step 6: Build and run application
 
 Swagger UI
 
-![image](Assert/Step4.png)
+![image](Assert/Step5.png)
 
 ## Features available in this project
 
