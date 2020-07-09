@@ -69,7 +69,7 @@ Domain in center and building layer top of it. You can call it as Domain-centric
 
 WhiteApp or QuickApp API solution template which is built on Onion Architecture with all essential feature using .NET Core.
 
-![image](Assert/Onion.png)
+![image](Assert/OnionArchitecture.png)
 
 
 
