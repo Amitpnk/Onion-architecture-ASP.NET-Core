@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace OA.Controllers
 {
-    [Route("api/Customer")]
     [ApiController]
+    [Route("api/v{version:apiVersion}/Customer")]
+    [ApiVersion("1.0")]
     public class CustomerController : ControllerBase
     {
         private IMediator _mediator;

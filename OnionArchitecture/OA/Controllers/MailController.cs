@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace OA.Controllers
 {
-    [Route("api/Mail")]
     [ApiController]
+    [Route("api/v{version:apiVersion}/Mail")]
+    [ApiVersion("1.0")]
     public class MailController : ControllerBase
     {
         private readonly IMailService mailService;
