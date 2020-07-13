@@ -37,9 +37,9 @@ namespace OA.Service.Features.CustomerFeatures.Commands
                 }
                 else
                 {
-                    var customer = new Customer();
-                    customer.CustomerName = request.CustomerName;
-                    customer.ContactName = request.ContactName;
+                    cust.CustomerName = request.CustomerName;
+                    cust.ContactName = request.ContactName;
+                    _context.Customers.Update(cust);
                     await _context.SaveChangesAsync();
                     return cust.Id;
                 }

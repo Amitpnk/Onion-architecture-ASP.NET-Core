@@ -41,7 +41,7 @@ namespace OA.Controllers
         }
 
 
-        [HttpPut("[action]")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, UpdateCustomerCommand command)
         {
             if (id != command.Id)
