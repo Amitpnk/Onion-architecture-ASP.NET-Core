@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 Version will be updated as it is released to Microsoft Marketplace
 
+## Version 1.3
+
+### Added API Versioning
+
+* Added API versioning
+* Fixed bug related to update 
+
 ## Version 1.2
 
 ### Fixed bug
