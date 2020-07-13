@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -90,6 +91,16 @@ namespace OA.Infrastructure.Extension
         //    //var assembly = AppDomain.CurrentDomain.Load("OA.Service");
         //    services.AddMediatR(Assembly.GetExecutingAssembly());
         //}
+        public static void AddVersion(this IServiceCollection serviceCollection)
+        {
+            serviceCollection.AddApiVersioning(config =>
+            {
+                config.DefaultApiVersion = new ApiVersion(1, 0);
+                config.AssumeDefaultVersionWhenUnspecified = true;
+                config.ReportApiVersions = true;
+            });
+        }
+
 
     }
 }
