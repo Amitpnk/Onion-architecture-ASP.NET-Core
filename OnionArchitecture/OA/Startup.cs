@@ -43,6 +43,7 @@ namespace OA
 
             services.AddMediatorCQRS();
 
+            services.AddVersion();
 
         }
 
