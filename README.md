@@ -41,7 +41,6 @@ If you like or are using this project to learn or start your solution, please gi
 * [Features available in this project](#Features-available-in-this-project)
 * [Project description](#project-description)
 * [Design patterns Used](#roadmap)
-* [Class diagram](#roadmap)
 * [Contributing](#contributing)
 * [Licence Used](#Licence-Used)
 * [Contact](#contact)
@@ -143,7 +142,7 @@ This whiteapp contains following features, uncheck feature need to implement yet
 - [x] Automapper
 - [x] Unit testing via NUnit
 - [x] Integration testing via NUnit
-- [ ] Versioning
+- [x] Versioning
 - [x] Swagger
 - [x] CQRS Pattern 
 
@@ -151,9 +150,9 @@ Below features will be implemented in infrastructure layer. You can plug and pla
 
 - [x] Loggings - seriLog
 - [x] Email
+- [ ] Health checks
 - [ ] JWT authentication
 - [ ] React-redux for UI
-- [ ] Health checks
 - [ ] Fluent validations
 - [ ] Hangfire
 - [ ] Advanced Pagination
