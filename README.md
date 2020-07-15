@@ -8,7 +8,7 @@
 <br />
 <p align="center">
   <a href="#">
-    <img src="Assert/OnionArchitecture_icon.png" alt="Logo" width="80" height="80">
+    <img src="docs/img/OnionArchitecture_icon.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Onion Architecture</h3>
@@ -69,7 +69,7 @@ Domain in center and building layer top of it. You can call it as Domain-centric
 
 WhiteApp or QuickApp API solution template which is built on Onion Architecture with all essential feature using .NET Core.
 
-![image](Assert/OnionArchitecture.png)
+![image](docs/img/OnionArchitecture.png)
 
 
 
@@ -79,23 +79,23 @@ WhiteApp or QuickApp API solution template which is built on Onion Architecture 
 
    <p> <a href="https://marketplace.visualstudio.com/items?itemName=AmitNaik.OnionArchitecture">Download from Marketplace</a></p>
 
-![image](Assert/Step.png)
+![image](docs/img/Step.png)
 
 ### Step 2: Create Project
 
 Select project type as API, and select Onion Architecture
 
-![image](Assert/Step1.png)
+![image](docs/img/Step1.png)
 
 ### Step 3: Select Onion Architecture project template
 
 Select project type as API, and select Onion Architecture
 
-![image](Assert/Step2.png)
+![image](docs/img/Step2.png)
 
 ### Step 4: Project is ready
 
-![image](Assert/Step3.png)
+![image](docs/img/Step3.png)
 
 ### Step 5: Configure connection string in appsettings.json
 
@@ -107,7 +107,7 @@ Select project type as API, and select Onion Architecture
 
 ### Step 6: Create Database (Sample is for Microsoft SQL Server)
 
-![image](Assert/Step4.png)
+![image](docs/img/Step4.png)
 
 For Code First approach (To run this application, use Code First apporach)
 
@@ -127,7 +127,7 @@ scaffold-dbcontext -provider Microsoft.EntityFrameworkCore.SqlServer -connection
 
 Swagger UI
 
-![image](Assert/Step5.png)
+![image](docs/img/Step5.png)
 
 ## Features available in this project
 
