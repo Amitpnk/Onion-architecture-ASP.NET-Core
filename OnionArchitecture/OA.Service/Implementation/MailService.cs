@@ -1,37 +1,49 @@
-﻿using Microsoft.Extensions.Options;
-using OA.Domain;
+﻿using MailKit.Security;
+using Microsoft.Extensions.Options;
+using MimeKit;
+using OA.Domain.Settings;
 using OA.Service.Contract;
-using System.Net;
-using System.Net.Mail;
+using MailKit.Net.Smtp;
 using System.Threading.Tasks;
+using OA.Service.Exceptions;
+using Microsoft.Extensions.Logging;
 
 namespace OA.Service.Implementation
 {
-    public class MailService : IMailService
+    public class MailService : IEmailService
     {
-        private readonly MailSettings _mailSettings;
-        public MailService(IOptions<MailSettings> mailSettings)
+        public MailSettings _mailSettings { get; }
+        public ILogger<MailService> _logger { get; }
+
+        public MailService(IOptions<MailSettings> mailSettings, ILogger<MailService> logger)
         {
             _mailSettings = mailSettings.Value;
+            _logger = logger;
         }
-
         public async Task SendEmailAsync(MailRequest mailRequest)
         {
-            MailMessage message = new MailMessage();
-            SmtpClient smtp = new SmtpClient();
-            message.From = new MailAddress(_mailSettings.Mail, _mailSettings.DisplayName);
-            message.To.Add(new MailAddress(mailRequest.ToEmail));
-            message.Subject = mailRequest.Subject;
+            try
+            {
+                // create message
+                var email = new MimeMessage();
+                email.Sender = MailboxAddress.Parse(mailRequest.From ?? _mailSettings.EmailFrom);
+                email.To.Add(MailboxAddress.Parse(mailRequest.ToEmail));
+                email.Subject = mailRequest.Subject;
+                var builder = new BodyBuilder();
+                builder.HtmlBody = mailRequest.Body;
+                email.Body = builder.ToMessageBody();
+                using var smtp = new SmtpClient();
+                smtp.Connect(_mailSettings.SmtpHost, _mailSettings.SmtpPort, SecureSocketOptions.StartTls);
+                smtp.Authenticate(_mailSettings.SmtpUser, _mailSettings.SmtpPass);
+                await smtp.SendAsync(email);
+                smtp.Disconnect(true);
 
-            message.IsBodyHtml = false;
-            message.Body = mailRequest.Body;
-            smtp.Port = _mailSettings.Port;
-            smtp.Host = _mailSettings.Host;
-            smtp.EnableSsl = true;
-            smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new NetworkCredential(_mailSettings.Mail, _mailSettings.Password);
-            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-            await smtp.SendMailAsync(message);
+            }
+            catch (System.Exception ex)
+            {
+                _logger.LogError(ex.Message, ex);
+                throw new ApiException(ex.Message);
+            }
         }
 
     }

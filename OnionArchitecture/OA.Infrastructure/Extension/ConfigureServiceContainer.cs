@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OA.Domain;
+using OA.Domain.Settings;
 using OA.Infrastructure.Mapping;
 using OA.Persistence;
 using OA.Service.Contract;
@@ -20,8 +21,10 @@ namespace OA.Infrastructure.Extension
              IConfiguration configuration, IConfigurationRoot configRoot)
         {
             serviceCollection.AddDbContext<ApplicationDbContext>(options =>
-                   options.UseSqlServer(configuration.GetConnectionString("OnionArchConn") ?? configRoot["ConnectionStrings:OnionArchConn"])
-                );
+                   options.UseSqlServer(configuration.GetConnectionString("OnionArchConn") ?? configRoot["ConnectionStrings:OnionArchConn"]
+                , b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
+
+
         }
 
         public static void AddAutoMapper(this IServiceCollection serviceCollection)
@@ -34,15 +37,19 @@ namespace OA.Infrastructure.Extension
             serviceCollection.AddSingleton(mapper);
         }
 
-        public static void AddAddScopedServices(this IServiceCollection serviceCollection)
+        public static void AddScopedServices(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
-        }
 
+
+        }
         public static void AddTransientServices(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddTransient<IMailService, MailService>();
+            serviceCollection.AddTransient<IDateTimeService, DateTimeService>();
+            serviceCollection.AddTransient<IAccountService, AccountService>();
         }
+
+
 
         public static void AddSwaggerOpenAPI(this IServiceCollection serviceCollection)
         {

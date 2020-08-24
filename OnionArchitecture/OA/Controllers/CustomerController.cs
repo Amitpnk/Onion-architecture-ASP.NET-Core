@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using OA.Service.Features.CustomerFeatures.Commands;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace OA.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/v{version:apiVersion}/Customer")]
     [ApiVersion("1.0")]

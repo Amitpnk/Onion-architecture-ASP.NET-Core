@@ -31,9 +31,11 @@ namespace OA
 
             services.AddDbContext(Configuration, configRoot);
 
+            services.AddIdentityService(Configuration);
+
             services.AddAutoMapper();
 
-            services.AddAddScopedServices();
+            services.AddScopedServices();
 
             services.AddTransientServices();
 
@@ -41,7 +43,7 @@ namespace OA
 
             services.AddMailSetting(Configuration);
 
-            services.AddMediatorCQRS();
+            services.AddServiceLayer();
 
             services.AddVersion();
 
@@ -54,16 +56,16 @@ namespace OA
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseRouting();
-
-            app.UseAuthorization();
-
             app.ConfigureCustomExceptionMiddleware();
 
             app.ConfigureSwagger();
 
             log.AddSerilog();
 
+            app.UseRouting();
+
+            app.UseAuthorization();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

@@ -156,6 +156,7 @@ Below features will be implemented in infrastructure layer. You can plug and pla
 - [ ] Fluent validations
 - [ ] Hangfire
 - [ ] Advanced Pagination
+- [ ] Enable CORS origin
 
 ## Project description
 

@@ -1,9 +1,10 @@
 ﻿using OA.Domain;
+using OA.Domain.Settings;
 using System.Threading.Tasks;
 
 namespace OA.Service.Contract
 {
-    public interface IMailService
+    public interface IEmailService
     {
         Task SendEmailAsync(MailRequest mailRequest);
 

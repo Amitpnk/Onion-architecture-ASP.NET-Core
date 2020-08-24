@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OA.Domain;
+using OA.Domain.Settings;
 using OA.Service.Contract;
 using System.Threading.Tasks;
 
@@ -10,8 +10,8 @@ namespace OA.Controllers
     [ApiVersion("1.0")]
     public class MailController : ControllerBase
     {
-        private readonly IMailService mailService;
-        public MailController(IMailService mailService)
+        private readonly IEmailService mailService;
+        public MailController(IEmailService mailService)
         {
             this.mailService = mailService;
         }
