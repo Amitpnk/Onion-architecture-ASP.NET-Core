@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using OA.Domain;
 using OA.Domain.Auth;
 using OA.Domain.Common;
 using OA.Domain.Settings;
@@ -17,7 +16,6 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace OA.Service.Implementation
 {

@@ -1,23 +1,41 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using OA.Domain.Auth;
 using OA.Persistence.Enum;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OA.Persistence.Seeds
 {
-    public static  class DefaultRoles
+
+    public static class DefaultRoles
     {
-        public static async Task SeedAsync(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+        public static List<IdentityRole> IdentityRoleList()
         {
-            //Seed Roles
-            await roleManager.CreateAsync(new IdentityRole(Roles.SuperAdmin.ToString()));
-            await roleManager.CreateAsync(new IdentityRole(Roles.Admin.ToString()));
-            await roleManager.CreateAsync(new IdentityRole(Roles.Moderator.ToString()));
-            await roleManager.CreateAsync(new IdentityRole(Roles.Basic.ToString()));
+            return new List<IdentityRole>()
+            {
+                new IdentityRole
+                {
+                    Id = Constants.SuperAdmin,
+                    Name = Roles.SuperAdmin.ToString(),
+                    NormalizedName = Roles.SuperAdmin.ToString()
+                },
+                new IdentityRole
+                {
+                    Id = Constants.Admin,
+                    Name = Roles.Admin.ToString(),
+                    NormalizedName = Roles.Admin.ToString()
+                },
+                new IdentityRole
+                {
+                    Id = Constants.Moderator,
+                    Name = Roles.Moderator.ToString(),
+                    NormalizedName = Roles.Moderator.ToString()
+                },
+                new IdentityRole
+                {
+                    Id = Constants.Basic,
+                    Name = Roles.Basic.ToString(),
+                    NormalizedName = Roles.Basic.ToString()
+                }
+            };
         }
     }
 }

@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using OA.Domain;
 using OA.Domain.Settings;
 using OA.Infrastructure.Mapping;
 using OA.Persistence;

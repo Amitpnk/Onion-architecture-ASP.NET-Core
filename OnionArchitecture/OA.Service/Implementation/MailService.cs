@@ -1,12 +1,12 @@
-﻿using MailKit.Security;
+﻿using MailKit.Net.Smtp;
+using MailKit.Security;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MimeKit;
 using OA.Domain.Settings;
 using OA.Service.Contract;
-using MailKit.Net.Smtp;
-using System.Threading.Tasks;
 using OA.Service.Exceptions;
-using Microsoft.Extensions.Logging;
+using System.Threading.Tasks;
 
 namespace OA.Service.Implementation
 {
