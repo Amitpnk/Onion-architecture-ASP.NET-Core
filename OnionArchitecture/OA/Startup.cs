@@ -47,6 +47,13 @@ namespace OA
 
             services.AddVersion();
 
+            services.AddHealthCheck(Configuration);
+
+            services.AddHealthChecksUI(setupSettings: setup =>
+            {
+                setup.AddHealthCheckEndpoint("Basic Health Check", $"http://localhost:44356/healthz");
+            });
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory log)
@@ -62,10 +69,14 @@ namespace OA
 
             log.AddSerilog();
 
+            app.ConfigureHealthCheck();
+
             app.UseRouting();
 
             app.UseAuthorization();
+
             app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

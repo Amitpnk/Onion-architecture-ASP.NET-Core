@@ -42,7 +42,6 @@ namespace OA.Persistence
             modelBuilder.Entity<IdentityRoleClaim<string>>(entity =>
             {
                 entity.ToTable("RoleClaims");
-
             });
 
             modelBuilder.Entity<IdentityUserToken<string>>(entity =>

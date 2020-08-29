@@ -3,12 +3,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Microsoft.OpenApi.Models;
 using OA.Domain.Settings;
 using OA.Infrastructure.Mapping;
 using OA.Persistence;
 using OA.Service.Contract;
 using OA.Service.Implementation;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
@@ -56,9 +59,9 @@ namespace OA.Infrastructure.Extension
             {
                 setupAction.SwaggerDoc(
                     "OpenAPISpecification",
-                    new Microsoft.OpenApi.Models.OpenApiInfo()
+                    new OpenApiInfo()
                     {
-                        Title = "Customer API",
+                        Title = "Onion Architecture WebAPI",
                         Version = "1",
                         Description = "Through this API you can access customer details",
                         Contact = new Microsoft.OpenApi.Models.OpenApiContact()
@@ -67,12 +70,38 @@ namespace OA.Infrastructure.Extension
                             Name = "Amit Naik",
                             Url = new Uri("https://amitpnk.github.io/")
                         },
-                        License = new Microsoft.OpenApi.Models.OpenApiLicense()
+                        License = new OpenApiLicense()
                         {
                             Name = "MIT License",
                             Url = new Uri("https://opensource.org/licenses/MIT")
                         }
                     });
+
+                setupAction.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    Description = "Input your Bearer token in this format - Bearer {your token here} to access this API",
+                });
+                setupAction.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer",
+                            },
+                            Scheme = "Bearer",
+                            Name = "Bearer",
+                            In = ParameterLocation.Header,
+                        }, new List<string>()
+                    },
+                });
 
                 var xmlCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentsFile);
@@ -106,7 +135,19 @@ namespace OA.Infrastructure.Extension
                 config.ReportApiVersions = true;
             });
         }
+        public static void AddHealthCheck(this IServiceCollection serviceCollection, IConfiguration configuration)
+        {
+            serviceCollection.AddHealthChecks()
+                 //.AddDbContextCheck<ApplicationDbContext>(name: "Application DB Context", failureStatus: HealthStatus.Degraded)
+                 .AddUrlGroup(new Uri("https://amitpnk.github.io/"), name: "My personal website", failureStatus: HealthStatus.Degraded)
+                 .AddSqlServer(configuration.GetConnectionString("OnionArchConn"));
+            //.AddSqlServer(configuration.GetConnectionString("IdentityConnection"));
 
+            serviceCollection.AddHealthChecksUI(setupSettings: setup =>
+            {
+                setup.AddHealthCheckEndpoint("Basic Health Check", $"http://localhost:44356/healthz");
+            });
+        }
 
     }
 }

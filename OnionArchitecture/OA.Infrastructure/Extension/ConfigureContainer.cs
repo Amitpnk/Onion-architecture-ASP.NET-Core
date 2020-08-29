@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Logging;
 using OA.Infrastructure.Middleware;
 using Serilog;
@@ -27,6 +31,32 @@ namespace OA.Infrastructure.Extension
         {
             loggerFactory.AddSerilog();
         }
+
+        public static void ConfigureHealthCheck(this IApplicationBuilder app)
+        {
+            app.UseHealthChecks("/healthz", new HealthCheckOptions
+            {
+                Predicate = _ => true,
+                ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse,
+                ResultStatusCodes =
+                {
+                    [HealthStatus.Healthy] = StatusCodes.Status200OK,
+                    [HealthStatus.Degraded] = StatusCodes.Status500InternalServerError,
+                    [HealthStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable,
+                },
+            })
+           .UseHealthChecksUI(setup =>
+           {
+               setup.ApiPath = "/healthcheck";
+               setup.UIPath = "/healthcheck-ui";
+               setup.AddCustomStylesheet("./Customization/custom.css");
+           });
+        }
+
+
+
+
+
 
     }
 }
