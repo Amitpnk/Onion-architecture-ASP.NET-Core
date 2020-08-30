@@ -58,7 +58,7 @@ namespace OA
             services.AddHealthChecks()
                 .AddDbContextCheck<ApplicationDbContext>(name: "Application DB Context", failureStatus: HealthStatus.Degraded)
                 .AddUrlGroup(new Uri("https://amitpnk.github.io/"), name: "My personal website", failureStatus: HealthStatus.Degraded)
-                .AddSqlServer(Configuration .GetConnectionString("OnionArchConn"));
+                .AddSqlServer(Configuration.GetConnectionString("OnionArchConn"));
             //.AddSqlServer(configuration.GetConnectionString("IdentityConnection"));
 
             services.AddHealthChecksUI(setupSettings: setup =>
@@ -77,19 +77,19 @@ namespace OA
 
             app.ConfigureCustomExceptionMiddleware();
 
-            app.ConfigureSwagger();
+
 
             log.AddSerilog();
 
             //app.ConfigureHealthCheck();
-           
+
 
             app.UseRouting();
 
             app.UseAuthentication();
 
             app.UseAuthorization();
-
+            app.ConfigureSwagger();
             app.UseHealthChecks("/healthz", new HealthCheckOptions
             {
                 Predicate = _ => true,

@@ -57,6 +57,7 @@ namespace OA.Infrastructure.Extension
         {
             serviceCollection.AddSwaggerGen(setupAction =>
             {
+
                 setupAction.SwaggerDoc(
                     "OpenAPISpecification",
                     new OpenApiInfo()
@@ -64,7 +65,7 @@ namespace OA.Infrastructure.Extension
                         Title = "Onion Architecture WebAPI",
                         Version = "1",
                         Description = "Through this API you can access customer details",
-                        Contact = new Microsoft.OpenApi.Models.OpenApiContact()
+                        Contact = new OpenApiContact()
                         {
                             Email = "amit.naik8103@gmail.com",
                             Name = "Amit Naik",
@@ -79,12 +80,10 @@ namespace OA.Infrastructure.Extension
 
                 setupAction.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
-                    Name = "Authorization",
-                    In = ParameterLocation.Header,
-                    Type = SecuritySchemeType.ApiKey,
-                    Scheme = "Bearer",
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "bearer",
                     BearerFormat = "JWT",
-                    Description = "Input your Bearer token in this format - Bearer {your token here} to access this API",
+                    Description = $"Input your Bearer token in this format - Bearer token to access this API",
                 });
                 setupAction.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
@@ -96,9 +95,6 @@ namespace OA.Infrastructure.Extension
                                 Type = ReferenceType.SecurityScheme,
                                 Id = "Bearer",
                             },
-                            Scheme = "Bearer",
-                            Name = "Bearer",
-                            In = ParameterLocation.Header,
                         }, new List<string>()
                     },
                 });
@@ -106,6 +102,7 @@ namespace OA.Infrastructure.Extension
                 var xmlCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentsFile);
                 setupAction.IncludeXmlComments(xmlCommentsFullPath);
+
             });
 
         }
