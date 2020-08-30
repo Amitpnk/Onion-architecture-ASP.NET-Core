@@ -140,7 +140,7 @@ This is default white application for ASP.NET Core API development
 This whiteapp contains following features, uncheck feature need to implement yet. 
 
 - [x] Application is implemented on Onion architecture
-- [x] API
+- [x] RESTful API
 - [x] Entityframework Core
 - [x] Expection handling
 - [x] Automapper
