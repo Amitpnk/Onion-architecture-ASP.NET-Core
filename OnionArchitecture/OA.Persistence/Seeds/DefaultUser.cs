@@ -9,8 +9,6 @@ namespace OA.Persistence.Seeds
     {
         public static List<ApplicationUser> IdentityBasicUserList()
         {
-            var hasher = new PasswordHasher<ApplicationUser>();
-
             return new List<ApplicationUser>()
             {
                 new ApplicationUser
@@ -22,7 +20,9 @@ namespace OA.Persistence.Seeds
                     LastName = "Naik",
                     EmailConfirmed = true,
                     PhoneNumberConfirmed = true,
-                    PasswordHash = hasher.HashPassword(null, "Password@123"),
+                    PasswordHash = "Password@123",
+                    NormalizedEmail= "SUPERADMIN@GMAIL.COM",
+                    NormalizedUserName="SUPERADMIN"
                 },
                 new ApplicationUser
                 {
@@ -33,8 +33,9 @@ namespace OA.Persistence.Seeds
                     LastName = "User",
                     EmailConfirmed = true,
                     PhoneNumberConfirmed = true,
-                    PasswordHash = hasher.HashPassword(null, "Password@123"),
-
+                    PasswordHash = "Password@123",
+                    NormalizedEmail= "BASICUSER@GMAIL.COM",
+                    NormalizedUserName="BASICUSER"
                 },
             };
         }

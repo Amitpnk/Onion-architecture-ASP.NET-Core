@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OA.Persistence;
 
-namespace OA.Persistence.Migrations
+namespace OA.Persistence.Migrations.Application
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200824184639_Initial-setup")]
-    partial class Initialsetup
+    [Migration("20200830095701_Initial-commit-Application")]
+    partial class InitialcommitApplication
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

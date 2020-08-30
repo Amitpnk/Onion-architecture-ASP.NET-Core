@@ -1,12 +1,18 @@
+using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using OA.Infrastructure.Extension;
+using OA.Persistence;
 using OA.Service;
 using Serilog;
+using System;
 using System.IO;
 
 namespace OA
@@ -47,7 +53,13 @@ namespace OA
 
             services.AddVersion();
 
-            services.AddHealthCheck(Configuration);
+            //services.AddHealthCheck(Configuration);
+
+            services.AddHealthChecks()
+                .AddDbContextCheck<ApplicationDbContext>(name: "Application DB Context", failureStatus: HealthStatus.Degraded)
+                .AddUrlGroup(new Uri("https://amitpnk.github.io/"), name: "My personal website", failureStatus: HealthStatus.Degraded)
+                .AddSqlServer(Configuration .GetConnectionString("OnionArchConn"));
+            //.AddSqlServer(configuration.GetConnectionString("IdentityConnection"));
 
             services.AddHealthChecksUI(setupSettings: setup =>
             {
@@ -69,13 +81,32 @@ namespace OA
 
             log.AddSerilog();
 
-            app.ConfigureHealthCheck();
+            //app.ConfigureHealthCheck();
+           
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseAuthorization();
+
+            app.UseHealthChecks("/healthz", new HealthCheckOptions
+            {
+                Predicate = _ => true,
+                ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse,
+                ResultStatusCodes =
+                {
+                    [HealthStatus.Healthy] = StatusCodes.Status200OK,
+                    [HealthStatus.Degraded] = StatusCodes.Status500InternalServerError,
+                    [HealthStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable,
+                },
+            }).UseHealthChecksUI(setup =>
+              {
+                  setup.ApiPath = "/healthcheck";
+                  setup.UIPath = "/healthcheck-ui";
+                  setup.AddCustomStylesheet("./Customization/custom.css");
+              });
+
 
             app.UseEndpoints(endpoints =>
             {

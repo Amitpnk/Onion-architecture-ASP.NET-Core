@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OA.Persistence.Migrations.Identity
 {
-    public partial class Identity : Migration
+    public partial class Identitycommit : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -196,6 +196,41 @@ namespace OA.Persistence.Migrations.Identity
                         principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                schema: "Identity",
+                table: "Role",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "545f2551-0f5c-4f97-8c7f-f2233084f4cf", "f4577308-d50e-4803-9b11-b21f80bc9d3d", "SuperAdmin", "SuperAdmin" },
+                    { "cd19a209-a3c2-4baa-9566-7fd2af88b605", "209bbe51-d6d2-49fd-b45e-fdfbce103a5c", "Admin", "Admin" },
+                    { "266ad2ad-2906-46c5-8977-d2397dc4bbf1", "69ea4e5b-e063-439b-84fa-d95e0668c652", "Moderator", "Moderator" },
+                    { "ed2dd27b-1306-44e2-9570-ab636ee1c3ac", "bb26e680-2544-4304-98b7-5c2d79af8894", "Basic", "Basic" }
+                });
+
+            migrationBuilder.InsertData(
+                schema: "Identity",
+                table: "User",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[,]
+                {
+                    { "b4668d1e-a72e-4d6d-848d-d375fb139747", 0, "aebe9c9f-6e69-4bb4-96b8-d3a903fe60f1", "superadmin@gmail.com", true, "Amit", "Naik", false, null, "SUPERADMIN@GMAIL.COM", "SUPERADMIN", "Password@123", null, true, "08f63731-8659-49ea-b6ac-9f4adbaf5699", false, "superadmin" },
+                    { "00158fac-6483-42cb-addc-ad7715ba4feb", 0, "5d098be3-175c-46d8-8d4d-c820f2be8679", "basicuser@gmail.com", true, "Basic", "User", false, null, "BASICUSER@GMAIL.COM", "BASICUSER", "Password@123", null, true, "91af7394-36ab-4bb7-b51e-ee5b74a51ef2", false, "basicuser" }
+                });
+
+            migrationBuilder.InsertData(
+                schema: "Identity",
+                table: "UserRoles",
+                columns: new[] { "UserId", "RoleId" },
+                values: new object[,]
+                {
+                    { "b4668d1e-a72e-4d6d-848d-d375fb139747", "545f2551-0f5c-4f97-8c7f-f2233084f4cf" },
+                    { "b4668d1e-a72e-4d6d-848d-d375fb139747", "cd19a209-a3c2-4baa-9566-7fd2af88b605" },
+                    { "b4668d1e-a72e-4d6d-848d-d375fb139747", "266ad2ad-2906-46c5-8977-d2397dc4bbf1" },
+                    { "b4668d1e-a72e-4d6d-848d-d375fb139747", "ed2dd27b-1306-44e2-9570-ab636ee1c3ac" },
+                    { "00158fac-6483-42cb-addc-ad7715ba4feb", "ed2dd27b-1306-44e2-9570-ab636ee1c3ac" }
                 });
 
             migrationBuilder.CreateIndex(

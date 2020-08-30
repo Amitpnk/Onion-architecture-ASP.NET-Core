@@ -112,7 +112,11 @@ Select project type as API, and select Onion Architecture
 For Code First approach (To run this application, use Code First apporach)
 
 ```sh
-Update-Database
+PM> add-migration Initial-commit-Application -Context ApplicationDbContext -o Migrations/Application
+PM> add-migration Identity-commit -Context IdentityContext -o Migrations/Identity
+
+PM> update-database -Context ApplicationDbContext 
+PM> update-database -Context IdentityContext 
 ```
 
 For Database First approach
@@ -120,7 +124,7 @@ For Database First approach
 In Package Manager console in *<< ProjectName >>.Persistence*, run below command
 
 ```sh
-scaffold-dbcontext -provider Microsoft.EntityFrameworkCore.SqlServer -connection "Data Source=(local)\SQLexpress;Initial Catalog=OnionArchitectureDBS;Integrated Security=True"
+scaffold-dbcontext -provider Microsoft.EntityFrameworkCore.SqlServer -connection "Data Source=(local)\SQLexpress;Initial Catalog=OnionArchitectureDB;Integrated Security=True"
 ```
 
 ### Step 7: Build and run application
@@ -143,20 +147,20 @@ This whiteapp contains following features, uncheck feature need to implement yet
 - [x] Unit testing via NUnit
 - [x] Integration testing via NUnit
 - [x] Versioning
-- [x] Swagger
+- [x] Swagger UI
 - [x] CQRS Pattern 
 
 Below features will be implemented in infrastructure layer. You can plug and play based on your project.
 
 - [x] Loggings - seriLog
 - [x] Email
-- [ ] Health checks
-- [ ] JWT authentication
-- [ ] React-redux for UI
-- [ ] Fluent validations
-- [ ] Hangfire
-- [ ] Advanced Pagination
-- [ ] Enable CORS origin
+- [x] Health checks UI
+- [x] JWT authentication with Microsoft Identity
+- [x] Role based Authorization
+- [x] Fluent validations
+- [x] Database Seeding
+- [x] Enable CORS origin
+
 
 ## Project description
 

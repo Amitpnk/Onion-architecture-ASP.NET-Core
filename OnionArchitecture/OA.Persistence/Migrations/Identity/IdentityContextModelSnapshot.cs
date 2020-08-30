@@ -49,29 +49,29 @@ namespace OA.Persistence.Migrations.Identity
                     b.HasData(
                         new
                         {
-                            Id = "db13a068-a146-4611-891f-934d985014b7",
-                            ConcurrencyStamp = "bd14543f-c0cd-45bd-884f-163c7504296b",
+                            Id = "545f2551-0f5c-4f97-8c7f-f2233084f4cf",
+                            ConcurrencyStamp = "f4577308-d50e-4803-9b11-b21f80bc9d3d",
                             Name = "SuperAdmin",
                             NormalizedName = "SuperAdmin"
                         },
                         new
                         {
-                            Id = "6d7e3228-8f84-4fa9-b6bc-3a7c007171fb",
-                            ConcurrencyStamp = "981f6cda-ea58-4a9b-a7cc-8fb5abd3d176",
+                            Id = "cd19a209-a3c2-4baa-9566-7fd2af88b605",
+                            ConcurrencyStamp = "209bbe51-d6d2-49fd-b45e-fdfbce103a5c",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
-                            Id = "468ae608-1cdf-4ce2-8e1b-80ffcf96e691",
-                            ConcurrencyStamp = "031dfeeb-e5e3-417f-a451-39ca91f394a5",
+                            Id = "266ad2ad-2906-46c5-8977-d2397dc4bbf1",
+                            ConcurrencyStamp = "69ea4e5b-e063-439b-84fa-d95e0668c652",
                             Name = "Moderator",
                             NormalizedName = "Moderator"
                         },
                         new
                         {
-                            Id = "b349cfba-6266-43e2-b5bc-24903ad36eae",
-                            ConcurrencyStamp = "ba4ffbed-f780-4161-a519-45089a2385e6",
+                            Id = "ed2dd27b-1306-44e2-9570-ab636ee1c3ac",
+                            ConcurrencyStamp = "bb26e680-2544-4304-98b7-5c2d79af8894",
                             Name = "Basic",
                             NormalizedName = "Basic"
                         });
@@ -164,28 +164,28 @@ namespace OA.Persistence.Migrations.Identity
                     b.HasData(
                         new
                         {
-                            UserId = "cdb76fda-e86a-4558-a597-435fc9e46bb6",
-                            RoleId = "b349cfba-6266-43e2-b5bc-24903ad36eae"
+                            UserId = "00158fac-6483-42cb-addc-ad7715ba4feb",
+                            RoleId = "ed2dd27b-1306-44e2-9570-ab636ee1c3ac"
                         },
                         new
                         {
-                            UserId = "9820b9bd-ce1d-4980-bef6-5bc4df6f1c14",
-                            RoleId = "db13a068-a146-4611-891f-934d985014b7"
+                            UserId = "b4668d1e-a72e-4d6d-848d-d375fb139747",
+                            RoleId = "545f2551-0f5c-4f97-8c7f-f2233084f4cf"
                         },
                         new
                         {
-                            UserId = "9820b9bd-ce1d-4980-bef6-5bc4df6f1c14",
-                            RoleId = "6d7e3228-8f84-4fa9-b6bc-3a7c007171fb"
+                            UserId = "b4668d1e-a72e-4d6d-848d-d375fb139747",
+                            RoleId = "cd19a209-a3c2-4baa-9566-7fd2af88b605"
                         },
                         new
                         {
-                            UserId = "9820b9bd-ce1d-4980-bef6-5bc4df6f1c14",
-                            RoleId = "468ae608-1cdf-4ce2-8e1b-80ffcf96e691"
+                            UserId = "b4668d1e-a72e-4d6d-848d-d375fb139747",
+                            RoleId = "266ad2ad-2906-46c5-8977-d2397dc4bbf1"
                         },
                         new
                         {
-                            UserId = "9820b9bd-ce1d-4980-bef6-5bc4df6f1c14",
-                            RoleId = "b349cfba-6266-43e2-b5bc-24903ad36eae"
+                            UserId = "b4668d1e-a72e-4d6d-848d-d375fb139747",
+                            RoleId = "ed2dd27b-1306-44e2-9570-ab636ee1c3ac"
                         });
                 });
 
@@ -281,33 +281,37 @@ namespace OA.Persistence.Migrations.Identity
                     b.HasData(
                         new
                         {
-                            Id = "9820b9bd-ce1d-4980-bef6-5bc4df6f1c14",
+                            Id = "b4668d1e-a72e-4d6d-848d-d375fb139747",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a3e0c9da-85e0-4d24-a947-c6b6984f662b",
+                            ConcurrencyStamp = "aebe9c9f-6e69-4bb4-96b8-d3a903fe60f1",
                             Email = "superadmin@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Amit",
                             LastName = "Naik",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEDHLzgfZnYTrv5i9YLqajV90Wgdmf7xECY3nUbOk4r8YM3m/nCPZe2sJ4UW7WWBfBg==",
+                            NormalizedEmail = "SUPERADMIN@GMAIL.COM",
+                            NormalizedUserName = "SUPERADMIN",
+                            PasswordHash = "Password@123",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "86c90357-782a-4de6-811c-7017630715bc",
+                            SecurityStamp = "08f63731-8659-49ea-b6ac-9f4adbaf5699",
                             TwoFactorEnabled = false,
                             UserName = "superadmin"
                         },
                         new
                         {
-                            Id = "cdb76fda-e86a-4558-a597-435fc9e46bb6",
+                            Id = "00158fac-6483-42cb-addc-ad7715ba4feb",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0f4a71a1-e63c-4f65-8417-cf6abd12b2df",
+                            ConcurrencyStamp = "5d098be3-175c-46d8-8d4d-c820f2be8679",
                             Email = "basicuser@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Basic",
                             LastName = "User",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEGsSwGdcvv0LGkk8yYKwJYsK6XUaiFh8sv33mJT1SeKNW1Fd1oF4GJvrixdK5QpJjQ==",
+                            NormalizedEmail = "BASICUSER@GMAIL.COM",
+                            NormalizedUserName = "BASICUSER",
+                            PasswordHash = "Password@123",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "7eb836e6-a9f2-4b2d-b08b-e3fd10f78cad",
+                            SecurityStamp = "91af7394-36ab-4bb7-b51e-ee5b74a51ef2",
                             TwoFactorEnabled = false,
                             UserName = "basicuser"
                         });

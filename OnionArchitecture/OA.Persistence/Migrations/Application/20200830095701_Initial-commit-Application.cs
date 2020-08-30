@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace OA.Persistence.Migrations
+namespace OA.Persistence.Migrations.Application
 {
-    public partial class Initialsetup : Migration
+    public partial class InitialcommitApplication : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

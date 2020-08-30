@@ -135,19 +135,19 @@ namespace OA.Infrastructure.Extension
                 config.ReportApiVersions = true;
             });
         }
-        public static void AddHealthCheck(this IServiceCollection serviceCollection, IConfiguration configuration)
-        {
-            serviceCollection.AddHealthChecks()
-                 //.AddDbContextCheck<ApplicationDbContext>(name: "Application DB Context", failureStatus: HealthStatus.Degraded)
-                 .AddUrlGroup(new Uri("https://amitpnk.github.io/"), name: "My personal website", failureStatus: HealthStatus.Degraded)
-                 .AddSqlServer(configuration.GetConnectionString("OnionArchConn"));
-            //.AddSqlServer(configuration.GetConnectionString("IdentityConnection"));
+        //public static void AddHealthCheck(this IServiceCollection serviceCollection, IConfiguration configuration)
+        //{
+        //    serviceCollection.AddHealthChecks()
+        //         //.AddDbContextCheck<ApplicationDbContext>(name: "Application DB Context", failureStatus: HealthStatus.Degraded)
+        //         .AddUrlGroup(new Uri("https://amitpnk.github.io/"), name: "My personal website", failureStatus: HealthStatus.Degraded)
+        //         .AddSqlServer(configuration.GetConnectionString("OnionArchConn"));
+        //    //.AddSqlServer(configuration.GetConnectionString("IdentityConnection"));
 
-            serviceCollection.AddHealthChecksUI(setupSettings: setup =>
-            {
-                setup.AddHealthCheckEndpoint("Basic Health Check", $"http://localhost:44356/healthz");
-            });
-        }
+        //    serviceCollection.AddHealthChecksUI(setupSettings: setup =>
+        //    {
+        //        setup.AddHealthCheckEndpoint("Basic Health Check", $"http://localhost:44356/healthz");
+        //    });
+        //}
 
     }
 }
