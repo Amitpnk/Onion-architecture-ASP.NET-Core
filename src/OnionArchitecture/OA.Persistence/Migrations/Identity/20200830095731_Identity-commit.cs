@@ -216,8 +216,8 @@ namespace OA.Persistence.Migrations.Identity
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "b4668d1e-a72e-4d6d-848d-d375fb139747", 0, "aebe9c9f-6e69-4bb4-96b8-d3a903fe60f1", "superadmin@gmail.com", true, "Amit", "Naik", false, null, "SUPERADMIN@GMAIL.COM", "SUPERADMIN", "Password@123", null, true, "08f63731-8659-49ea-b6ac-9f4adbaf5699", false, "superadmin" },
-                    { "00158fac-6483-42cb-addc-ad7715ba4feb", 0, "5d098be3-175c-46d8-8d4d-c820f2be8679", "basicuser@gmail.com", true, "Basic", "User", false, null, "BASICUSER@GMAIL.COM", "BASICUSER", "Password@123", null, true, "91af7394-36ab-4bb7-b51e-ee5b74a51ef2", false, "basicuser" }
+                    { "b4668d1e-a72e-4d6d-848d-d375fb139747", 0, "aebe9c9f-6e69-4bb4-96b8-d3a903fe60f1", "superadmin@gmail.com", true, "Amit", "Naik", false, null, "SUPERADMIN@GMAIL.COM", "SUPERADMIN", "AQAAAAEAACcQAAAAEPOIIJxXUPWU0eltioVjOjpTyctA9hA5p19fVW4mUkKO83tPE1u/Eo7+rmD6bsB1lA==", null, true, "08f63731-8659-49ea-b6ac-9f4adbaf5699", false, "superadmin" },
+                    { "00158fac-6483-42cb-addc-ad7715ba4feb", 0, "5d098be3-175c-46d8-8d4d-c820f2be8679", "basicuser@gmail.com", true, "Basic", "User", false, null, "BASICUSER@GMAIL.COM", "BASICUSER", "AQAAAAEAACcQAAAAEPOIIJxXUPWU0eltioVjOjpTyctA9hA5p19fVW4mUkKO83tPE1u/Eo7+rmD6bsB1lA==", null, true, "91af7394-36ab-4bb7-b51e-ee5b74a51ef2", false, "basicuser" }
                 });
 
             migrationBuilder.InsertData(
