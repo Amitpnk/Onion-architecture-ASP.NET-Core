@@ -15,25 +15,25 @@
   "guids": [],
   "primaryOutputs": [
     {
-      "path": "OA\\OA.csproj"
+      "path": "..\\src\\OA\\OA.csproj"
     },
     {
-      "path": "OA.Domain\\OA.Domain.csproj"
+      "path": "..\\src\\OA\\OA.Domain\\OA.Domain.csproj"
     },
     {
-      "path": "OA.Infrastructure\\OA.Infrastructure.csproj"
+      "path": "..\\src\\OA\\OA.Infrastructure\\OA.Infrastructure.csproj"
     },
     {
-      "path": "OA.Persistence\\OA.Persistence.csproj"
+      "path": "..\\src\\OA\\OA.Persistence\\OA.Persistence.csproj"
     },
     {
-      "path": "OA.Service\\OA.Service.csproj"
+      "path": "..\\src\\OA\\OA.Service\\OA.Service.csproj"
     },
     {
-      "path": "OA.Test.Integration\\OA.Test.Integration.csproj"
+      "path": "..\\src\\OA\\OA.Test.Integration\\OA.Test.Integration.csproj"
     },
     {
-      "path": "OA.Test.Unit\\OA.Test.Unit.csproj"
+      "path": "..\\src\\OA\\OA.Test.Unit\\OA.Test.Unit.csproj"
     }
   ]
 }
