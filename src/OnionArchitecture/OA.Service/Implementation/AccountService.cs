@@ -100,7 +100,7 @@ namespace OA.Service.Implementation
                 }
                 else
                 {
-                    throw new ApiException($"{result.Errors}");
+                    throw new ApiException($"{result.Errors.ToList()[0].Description}");
                 }
             }
             else
