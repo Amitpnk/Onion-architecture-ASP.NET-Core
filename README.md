@@ -3,6 +3,13 @@
 [![Visual Studio Marketplace ratings](https://vsmarketplacebadge.apphb.com/rating/AmitNaik.OnionArchitecture.svg)](https://marketplace.visualstudio.com/items?itemName=AmitNaik.OnionArchitecture)
 [![Visual Studio Marketplace version](https://vsmarketplacebadge.apphb.com/version/AmitNaik.OnionArchitecture.svg)](https://marketplace.visualstudio.com/items?itemName=AmitNaik.OnionArchitecture)
 
+----
+
+![.NET Core](https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/workflows/.NET%20Core/badge.svg)
+
+----
+
+
 # WhiteApp/QuickApp Onion architecture with ASP.NET Core
 
 <br />
@@ -29,6 +36,13 @@
 
 ## Give a Star! :star:
 If you like or are using this project to learn or start your solution, please give it a star. Thanks!
+
+## Support This Project
+
+If you have found this project helpful, either as a library that you use or as a learning tool, please consider buying me a coffee:
+
+<a href="https://www.buymeacoffee.com/amitpnaik" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important" ></a>
+s
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
@@ -71,8 +85,6 @@ WhiteApp or QuickApp API solution template which is built on Onion Architecture 
 
 ![image](docs/img/OnionArchitecture.png)
 
-
-
 ## Getting Started
 
 ### Step 1: Download extension from project template
@@ -112,7 +124,11 @@ Select project type as API, and select Onion Architecture
 For Code First approach (To run this application, use Code First apporach)
 
 ```sh
-Update-Database
+PM> add-migration Initial-commit-Application -Context ApplicationDbContext -o Migrations/Application
+PM> add-migration Identity-commit -Context IdentityContext -o Migrations/Identity
+
+PM> update-database -Context ApplicationDbContext 
+PM> update-database -Context IdentityContext 
 ```
 
 For Database First approach
@@ -120,7 +136,7 @@ For Database First approach
 In Package Manager console in *<< ProjectName >>.Persistence*, run below command
 
 ```sh
-scaffold-dbcontext -provider Microsoft.EntityFrameworkCore.SqlServer -connection "Data Source=(local)\SQLexpress;Initial Catalog=OnionArchitectureDBS;Integrated Security=True"
+scaffold-dbcontext -provider Microsoft.EntityFrameworkCore.SqlServer -connection "Data Source=(local)\SQLexpress;Initial Catalog=OnionArchitectureDB;Integrated Security=True"
 ```
 
 ### Step 7: Build and run application
@@ -136,26 +152,28 @@ This is default white application for ASP.NET Core API development
 This whiteapp contains following features, uncheck feature need to implement yet. 
 
 - [x] Application is implemented on Onion architecture
-- [x] API
+- [x] RESTful API
 - [x] Entityframework Core
 - [x] Expection handling
 - [x] Automapper
 - [x] Unit testing via NUnit
 - [x] Integration testing via NUnit
 - [x] Versioning
-- [x] Swagger
+- [x] Swagger UI
 - [x] CQRS Pattern 
 
 Below features will be implemented in infrastructure layer. You can plug and play based on your project.
 
 - [x] Loggings - seriLog
 - [x] Email
-- [ ] Health checks
-- [ ] JWT authentication
-- [ ] React-redux for UI
-- [ ] Fluent validations
-- [ ] Hangfire
-- [ ] Advanced Pagination
+- [x] Health checks UI
+- [x] JWT authentication with Microsoft Identity
+- [x] Role based Authorization
+- [x] Fluent validations
+- [x] Database Seeding
+- [x] Enable CORS origin
+- [x] Enable feature flag (Make it true when you configure your email configuration)
+
 
 ## Project description
 
@@ -206,13 +224,3 @@ See the contents of the LICENSE file for details
 
 Having any issues or troubles getting started? Drop a mail to amit.naik8103@gmail.com or [Raise a Bug or Feature Request](https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/issues/new). Always happy to help.
 
-## Support This Project
-
-If you have found this project helpful, either as a library that you use or as a learning tool, please consider buying me a coffee:
-
-<a href="https://www.buymeacoffee.com/amitpnaik" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important" ></a>
-
-I do coding for fun during leisure time, but I have to pay the bills, so I also work for money :P  
-
-[license-shield]: https://img.shields.io/badge/License-MIT-yellow.svg
-[license-url]: https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/blob/master/LICENSE.txt
