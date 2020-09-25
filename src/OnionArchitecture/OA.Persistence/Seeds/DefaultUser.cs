@@ -20,7 +20,8 @@ namespace OA.Persistence.Seeds
                     LastName = "Naik",
                     EmailConfirmed = true,
                     PhoneNumberConfirmed = true,
-                    PasswordHash = "Password@123",
+                    // Password@123
+                    PasswordHash = "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", 
                     NormalizedEmail= "SUPERADMIN@GMAIL.COM",
                     NormalizedUserName="SUPERADMIN"
                 },
@@ -33,7 +34,8 @@ namespace OA.Persistence.Seeds
                     LastName = "User",
                     EmailConfirmed = true,
                     PhoneNumberConfirmed = true,
-                    PasswordHash = "Password@123",
+                    // Password@123
+                    PasswordHash = "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==",
                     NormalizedEmail= "BASICUSER@GMAIL.COM",
                     NormalizedUserName="BASICUSER"
                 },
