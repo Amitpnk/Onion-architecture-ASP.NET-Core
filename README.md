@@ -3,6 +3,13 @@
 [![Visual Studio Marketplace ratings](https://vsmarketplacebadge.apphb.com/rating/AmitNaik.OnionArchitecture.svg)](https://marketplace.visualstudio.com/items?itemName=AmitNaik.OnionArchitecture)
 [![Visual Studio Marketplace version](https://vsmarketplacebadge.apphb.com/version/AmitNaik.OnionArchitecture.svg)](https://marketplace.visualstudio.com/items?itemName=AmitNaik.OnionArchitecture)
 
+----
+
+![.NET Core](https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/workflows/.NET%20Core/badge.svg)
+
+----
+
+
 # WhiteApp/QuickApp Onion architecture with ASP.NET Core
 
 <br />
@@ -165,6 +172,7 @@ Below features will be implemented in infrastructure layer. You can plug and pla
 - [x] Fluent validations
 - [x] Database Seeding
 - [x] Enable CORS origin
+- [x] Enable feature flag (Make it true when you configure your email configuration)
 
 
 ## Project description
