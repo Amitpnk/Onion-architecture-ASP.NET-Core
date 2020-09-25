@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Options;
+using Microsoft.FeatureManagement;
 using Microsoft.IdentityModel.Tokens;
 using OA.Domain.Auth;
 using OA.Domain.Common;
+using OA.Domain.Enum;
 using OA.Domain.Settings;
-using OA.Persistence.Enum;
 using OA.Service.Contract;
 using OA.Service.Exceptions;
 using System;
@@ -27,12 +28,14 @@ namespace OA.Service.Implementation
         private readonly IEmailService _emailService;
         private readonly JWTSettings _jwtSettings;
         private readonly IDateTimeService _dateTimeService;
+        private readonly IFeatureManager _featureManager;
         public AccountService(UserManager<ApplicationUser> userManager,
             RoleManager<IdentityRole> roleManager,
             IOptions<JWTSettings> jwtSettings,
             IDateTimeService dateTimeService,
             SignInManager<ApplicationUser> signInManager,
-            IEmailService emailService)
+            IEmailService emailService,
+            IFeatureManager featureManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -40,6 +43,7 @@ namespace OA.Service.Implementation
             _dateTimeService = dateTimeService;
             _signInManager = signInManager;
             _emailService = emailService;
+            _featureManager = featureManager;
         }
 
         public async Task<Response<AuthenticationResponse>> AuthenticateAsync(AuthenticationRequest request, string ipAddress)
@@ -94,8 +98,11 @@ namespace OA.Service.Implementation
                 {
                     await _userManager.AddToRoleAsync(user, Roles.Basic.ToString());
                     var verificationUri = await SendVerificationEmail(user, origin);
-                    //TODO: Attach Email Service here and configure it via appsettings
-                    await _emailService.SendEmailAsync(new MailRequest() { From = "amit.naik8103@gmail.com", ToEmail = user.Email, Body = $"Please confirm your account by visiting this URL {verificationUri}", Subject = "Confirm Registration" });
+
+                    if (await _featureManager.IsEnabledAsync(nameof(FeatureManagement.EnableEmailService)))
+                    {
+                        await _emailService.SendEmailAsync(new MailRequest() { From = "amit.naik8103@gmail.com", ToEmail = user.Email, Body = $"Please confirm your account by visiting this URL {verificationUri}", Subject = "Confirm Registration" });
+                    }
                     return new Response<string>(user.Id, message: $"User Registered. Please confirm your account by visiting this URL {verificationUri}");
                 }
                 else

@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.FeatureManagement;
 using OA.Infrastructure.Extension;
 using OA.Persistence;
 using OA.Service;
@@ -53,7 +54,6 @@ namespace OA
 
             services.AddVersion();
 
-            //services.AddHealthCheck(Configuration);
 
             services.AddHealthChecks()
                 .AddDbContextCheck<ApplicationDbContext>(name: "Application DB Context", failureStatus: HealthStatus.Degraded)
@@ -66,7 +66,10 @@ namespace OA
                 setup.AddHealthCheckEndpoint("Basic Health Check", $"http://localhost:44356/healthz");
             });
 
+            services.AddFeatureManagement();
         }
+
+    
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory log)
         {
