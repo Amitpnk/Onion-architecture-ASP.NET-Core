@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using OA.Domain.Auth;
+﻿using OA.Domain.Auth;
 using OA.Domain.Enum;
 using System.Collections.Generic;
 
@@ -21,7 +20,7 @@ namespace OA.Persistence.Seeds
                     EmailConfirmed = true,
                     PhoneNumberConfirmed = true,
                     // Password@123
-                    PasswordHash = "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", 
+                    PasswordHash = "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==",
                     NormalizedEmail= "SUPERADMIN@GMAIL.COM",
                     NormalizedUserName="SUPERADMIN"
                 },

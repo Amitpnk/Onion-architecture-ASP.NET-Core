@@ -69,7 +69,7 @@ namespace OA
             services.AddFeatureManagement();
         }
 
-    
+
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory log)
         {
