@@ -59,11 +59,10 @@ namespace OA
                 .AddDbContextCheck<ApplicationDbContext>(name: "Application DB Context", failureStatus: HealthStatus.Degraded)
                 .AddUrlGroup(new Uri("https://amitpnk.github.io/"), name: "My personal website", failureStatus: HealthStatus.Degraded)
                 .AddSqlServer(Configuration.GetConnectionString("OnionArchConn"));
-            //.AddSqlServer(configuration.GetConnectionString("IdentityConnection"));
 
             services.AddHealthChecksUI(setupSettings: setup =>
             {
-                setup.AddHealthCheckEndpoint("Basic Health Check", $"http://localhost:44356/healthz");
+                setup.AddHealthCheckEndpoint("Basic Health Check", $"/healthz");
             });
 
             services.AddFeatureManagement();
@@ -110,7 +109,7 @@ namespace OA
               {
                   setup.ApiPath = "/healthcheck";
                   setup.UIPath = "/healthcheck-ui";
-                  setup.AddCustomStylesheet("./Customization/custom.css");
+                  //setup.AddCustomStylesheet("Customization/custom.css");
               });
 
 
