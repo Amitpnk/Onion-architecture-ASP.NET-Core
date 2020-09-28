@@ -14,7 +14,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{EB36E600-8EA9-4F7F-B639-D156B76B3DB0}</ProjectGuid>
+    <ProjectGuid>{A5926428-D707-4D5E-B785-82DFE8C5AC85}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OATemplate</RootNamespace>
@@ -57,6 +57,14 @@
     <None Include="template\templatepack.OATemplate.proj" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="LICENSE.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="OnionArchitecture_icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="Properties\project-icon.png" />
     <Content Include="Resources\OnionArchitecture_icon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

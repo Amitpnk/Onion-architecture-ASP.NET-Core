@@ -2,7 +2,7 @@
   "author": "Amit Naik",
   "classifications": [],
   "description": "WhiteApp or QuickApp API solution template which is built on Domain-Driven Design (DDD)-based with all essential feature using .NET Core",
-  "name": "OnionArchitecture",
+  "name": "Onion Architecture",
   "defaultName": "OA",
   "identity": "OnionArchitecture.CSharp",
   "groupIdentity": "OnionArchitecture",
@@ -15,25 +15,25 @@
   "guids": [],
   "primaryOutputs": [
     {
-      "path": "..\\src\\OA\\OA.csproj"
+      "path": "OA\\OA.csproj"
     },
     {
-      "path": "..\\src\\OA.Domain\\OA.Domain.csproj"
+      "path": "OA.Domain\\OA.Domain.csproj"
     },
     {
-      "path": "..\\src\\OA.Infrastructure\\OA.Infrastructure.csproj"
+      "path": "OA.Infrastructure\\OA.Infrastructure.csproj"
     },
     {
-      "path": "..\\src\\OA.Persistence\\OA.Persistence.csproj"
+      "path": "OA.Persistence\\OA.Persistence.csproj"
     },
     {
-      "path": "..\\src\\OA.Service\\OA.Service.csproj"
+      "path": "OA.Service\\OA.Service.csproj"
     },
     {
-      "path": "..\\src\\OA.Test.Integration\\OA.Test.Integration.csproj"
+      "path": "OA.Test.Integration\\OA.Test.Integration.csproj"
     },
     {
-      "path": "..\\src\\OA.Test.Unit\\OA.Test.Unit.csproj"
+      "path": "OA.Test.Unit\\OA.Test.Unit.csproj"
     }
   ]
 }
