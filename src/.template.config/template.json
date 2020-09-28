@@ -2,7 +2,7 @@
   "author": "Amit Naik",
   "classifications": [],
   "description": "WhiteApp or QuickApp API solution template which is built on Domain-Driven Design (DDD)-based with all essential feature using .NET Core",
-  "name": "OnionArchitecture",
+  "name": "Onion Architecture",
   "defaultName": "OA",
   "identity": "OnionArchitecture.CSharp",
   "groupIdentity": "OnionArchitecture",

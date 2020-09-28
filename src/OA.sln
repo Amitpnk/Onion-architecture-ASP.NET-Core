@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OA.Test.Unit", "OA.Test.Uni
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OA.Test.Integration", "OA.Test.Integration\OA.Test.Integration.csproj", "{4150259A-1CC5-4BB2-A0D4-891F56338028}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OA.VsixProject", "OA.VsixProject\OA.VsixProject.csproj", "{942F5838-A934-42CB-9E61-A31CFD718114}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OATemplate", "OATemplate\OATemplate.csproj", "{A5926428-D707-4D5E-B785-82DFE8C5AC85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,10 +53,10 @@ Global
 		{4150259A-1CC5-4BB2-A0D4-891F56338028}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4150259A-1CC5-4BB2-A0D4-891F56338028}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4150259A-1CC5-4BB2-A0D4-891F56338028}.Release|Any CPU.Build.0 = Release|Any CPU
-		{942F5838-A934-42CB-9E61-A31CFD718114}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{942F5838-A934-42CB-9E61-A31CFD718114}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{942F5838-A934-42CB-9E61-A31CFD718114}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{942F5838-A934-42CB-9E61-A31CFD718114}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5926428-D707-4D5E-B785-82DFE8C5AC85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5926428-D707-4D5E-B785-82DFE8C5AC85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5926428-D707-4D5E-B785-82DFE8C5AC85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5926428-D707-4D5E-B785-82DFE8C5AC85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
