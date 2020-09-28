@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="8BA5060C-7058-4A68-AD4C-3FE2429AACBA" Version="1.4" Language="en-US" Publisher="Amit Naik" />
+        <Identity Id="8BA5060C-7058-4A68-AD4C-3FE2429AACBA" Version="1.8" Language="en-US" Publisher="Amit Naik" />
         <DisplayName>Onion Architecture</DisplayName>
         <Description xml:space="preserve">WhiteApp or QuickApp API solution template which is built on Onion Architecture with all essential feature using .NET Core</Description>
-        <License>LICENSE.txt</License>
         <GettingStartedGuide>https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/blob/master/README.md</GettingStartedGuide>
         <Icon>Resources\OnionArchitecture_icon.png</Icon>
         <PreviewImage>Resources\OnionArchitecture_icon.png</PreviewImage>
     </Metadata>
     <Installation>
-        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0, 17.0)" />
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0]" />
     </Installation>
     <Dependencies>
         <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
     </Dependencies>
     <Prerequisites>
-        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,)" DisplayName="Visual Studio core editor" />
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,16.0)" DisplayName="Visual Studio core editor" />
     </Prerequisites>
     <Assets>
         <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
