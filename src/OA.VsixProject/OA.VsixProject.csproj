@@ -57,6 +57,14 @@
     <None Include="template\templatepack.OA.VsixProject.proj" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="LICENSE.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="OnionArchitecture_icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="Properties\project-icon.png" />
     <Content Include="stylesheet.css" />
     <Content Include="template.pkgdef">
