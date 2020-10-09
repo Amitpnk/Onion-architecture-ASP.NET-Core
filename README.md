@@ -13,7 +13,7 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Amitpnk_Onion-architecture-ASP.NET-Core&metric=alert_status)](https://sonarcloud.io/dashboard?id=Amitpnk_Onion-architecture-ASP.NET-Core)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Amitpnk_Onion-architecture-ASP.NET-Core&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=Amitpnk_Onion-architecture-ASP.NET-Core)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Amitpnk_Onion-architecture-ASP.NET-Core&metric=security_rating)](https://sonarcloud.io/dashboard?id=Amitpnk_Onion-architecture-ASP.NET-Core)
-
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/blob/develop/LICENSE)
 ----
 
 
@@ -49,7 +49,7 @@ If you like or are using this project to learn or start your solution, please gi
 If you have found this project helpful, either as a library that you use or as a learning tool, please consider buying me a coffee:
 
 <a href="https://www.buymeacoffee.com/amitpnaik" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important" ></a>
-s
+
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
@@ -118,25 +118,65 @@ Select project type as API, and select Onion Architecture
 
 ### Step 5: Configure connection string in appsettings.json
 
+Make sure to connect proper database
+
 ```json
- "ConnectionStrings": {
-    "OnionArchConn": "Data Source=(local)\\SQLexpress;Initial Catalog=OnionDb;Integrated Security=True"
+  "ConnectionStrings": {
+    "OnionArchConn": "Data Source=(local)\\sqlexpress01;Initial Catalog=OnionDb;Integrated Security=True",
+    "IdentityConnection": "Data Source=(local)\\sqlexpress01;Initial Catalog=OnionDb;Integrated Security=True"
+  }, 
+```
+
+and connect to logging in DB or proer path
+
+```json
+  "Serilog": {
+        //...  
+        "Args": {
+          "pathFormat": "D:\\Logs\\log-{Date}.log",
+        }
+      },
+      {
+        //...  
+        "Name": "MSSqlServer",
+        "Args": {
+          "connectionString": "Data Source=(local)\\sqlexpress01;Initial Catalog=OnionDb;Integrated Security=True",
+          // ...  
+        }
+      }
+    ],
   },
+
 ```
 
 ### Step 6: Create Database (Sample is for Microsoft SQL Server)
 
-![image](docs/img/Step4.png)
-
 For Code First approach (To run this application, use Code First apporach)
 
-```sh
-PM> add-migration Initial-commit-Application -Context ApplicationDbContext -o Migrations/Application
-PM> add-migration Identity-commit -Context IdentityContext -o Migrations/Identity
+- For running migration:
+ 
+  + Option 1: Using Package Manager Console:
+    + Open Package Manager Console, select *<< ProjectName >>.Persistence* as Default Project
+    + Run these commands:
+      ```sh
+      PM> add-migration Initial-commit-Application -Context ApplicationDbContext -o Migrations/Application
+      PM> add-migration Identity-commit -Context IdentityContext -o Migrations/Identity
 
-PM> update-database -Context ApplicationDbContext 
-PM> update-database -Context IdentityContext 
-```
+      PM> update-database -Context ApplicationDbContext 
+      PM> update-database -Context IdentityContext 
+      ```
+ + Option 2: Using dotnet cli:
+    + Install **dotnet-ef** cli:
+      ```
+      dotnet tool install --global dotnet-ef --version="3.1"
+      ```
+    + Navigate to [(project-name)](https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/tree/develop/src/OA/) and run these commands:
+      ```
+      $ dotnet ef migrations add Initial-commit-Application --context ApplicationDbContext -o Migrations/Application
+      $ dotnet ef migrations add Identity-commit-Identity --context IdentityContext -o Migrations/Identity
+      $ dotnet ef database update --context ApplicationDbContext 
+      $ dotnet ef database update --context IdentityContext 
+      ```
 
 For Database First approach
 
@@ -148,7 +188,19 @@ scaffold-dbcontext -provider Microsoft.EntityFrameworkCore.SqlServer -connection
 
 ### Step 7: Build and run application
 
-Swagger UI
+#### Health check UI
+
+Navigate to Health Checks UI https://localhost:44356/healthcheck-ui and make sure everything is green.
+
+** Change port number according to your application
+
+![image](docs/img/Step6.png)
+
+#### Swagger UI
+
+Swagger UI https://localhost:44356/OpenAPI/index.html
+
+** Change port number according to your application
 
 ![image](docs/img/Step5.png)
 
@@ -222,10 +274,10 @@ we can see that all the Layers are dependent only on the Core Layers
 </details>
 
 ## Licence Used
-[![MIT License][license-shield]][license-url]
+
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/blob/develop/LICENSE)
 
 See the contents of the LICENSE file for details
-
 
 ## Contact
 
