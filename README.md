@@ -48,7 +48,7 @@ If you like or are using this project to learn or start your solution, please gi
 
 If you have found this project helpful, either as a library that you use or as a learning tool, please consider buying me a coffee:
 
-<a href="https://www.buymeacoffee.com/amitpnaik" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important" ></a>
+<a href="https://www.buymeacoffee.com/codewithamit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important" ></a>
 
 
 <!-- TABLE OF CONTENTS -->
@@ -165,12 +165,15 @@ For Code First approach (To run this application, use Code First apporach)
       PM> update-database -Context ApplicationDbContext 
       PM> update-database -Context IdentityContext 
       ```
+
+    ![Migration](docs/img/step4.png)
+
  + Option 2: Using dotnet cli:
     + Install **dotnet-ef** cli:
       ```
       dotnet tool install --global dotnet-ef --version="3.1"
       ```
-    + Navigate to [(project-name)](https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/tree/develop/src/OA/) and run these commands:
+    + Navigate to [OA](https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/tree/develop/src/OA/) and run these commands:
       ```
       $ dotnet ef migrations add Initial-commit-Application --context ApplicationDbContext -o Migrations/Application
       $ dotnet ef migrations add Identity-commit-Identity --context IdentityContext -o Migrations/Identity
