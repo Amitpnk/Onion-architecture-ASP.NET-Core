@@ -129,24 +129,34 @@ Make sure to connect proper database
 
 and connect to logging in DB or proer path
 
-```json
+```diff
   "Serilog": {
-        //...  
+    "MinimumLevel": "Information",
+    "WriteTo": [
+      {
+        "Name": "RollingFile",
         "Args": {
-          "pathFormat": "D:\\Logs\\log-{Date}.log",
+++          "pathFormat": "D:\\Logs\\log-{Date}.log",
+          "outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level}] {Message}{NewLine}{Exception}"
         }
       },
       {
-        //...  
         "Name": "MSSqlServer",
         "Args": {
-          "connectionString": "Data Source=(local)\\sqlexpress01;Initial Catalog=OnionDb;Integrated Security=True",
-          // ...  
+++          "connectionString": "Data Source=(local)\\sqlexpress01;Initial Catalog=OnionDb3;Integrated Security=True",
+          "sinkOptionsSection": {
+            "tableName": "Logs",
+            "schemaName": "EventLogging",
+            "autoCreateSqlTable": true
+          },
+          "restrictedToMinimumLevel": "Warning"
         }
       }
     ],
+    "Properties": {
+      "Application": "Onion Architecture application"
+    }
   },
-
 ```
 
 ### Step 6: Create Database (Sample is for Microsoft SQL Server)
