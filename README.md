@@ -282,7 +282,6 @@ we can see that all the Layers are dependent only on the Core Layers
   <summary><b>Presentation Layer</b></summary>
   <p>
     This can be WebApi or UI.
-
   </p>
 </details>
 
@@ -291,6 +290,8 @@ we can see that all the Layers are dependent only on the Core Layers
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/blob/develop/LICENSE)
 
 See the contents of the LICENSE file for details
+
+=======
 
 ## Contact
 
