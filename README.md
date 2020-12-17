@@ -291,9 +291,6 @@ we can see that all the Layers are dependent only on the Core Layers
 
 See the contents of the LICENSE file for details
 
-=======
-
 ## Contact
 
 Having any issues or troubles getting started? Drop a mail to amit.naik8103@gmail.com or [Raise a Bug or Feature Request](https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/issues/new). Always happy to help.
-
