@@ -3,6 +3,20 @@
 [![Visual Studio Marketplace ratings](https://vsmarketplacebadge.apphb.com/rating/AmitNaik.OnionArchitecture.svg)](https://marketplace.visualstudio.com/items?itemName=AmitNaik.OnionArchitecture)
 [![Visual Studio Marketplace version](https://vsmarketplacebadge.apphb.com/version/AmitNaik.OnionArchitecture.svg)](https://marketplace.visualstudio.com/items?itemName=AmitNaik.OnionArchitecture)
 
+----
+
+![.NET Core](https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/workflows/.NET%20Core/badge.svg)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Amitpnk_Onion-architecture-ASP.NET-Core&metric=bugs)](https://sonarcloud.io/dashboard?id=Amitpnk_Onion-architecture-ASP.NET-Core)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Amitpnk_Onion-architecture-ASP.NET-Core&metric=code_smells)](https://sonarcloud.io/dashboard?id=Amitpnk_Onion-architecture-ASP.NET-Core)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=Amitpnk_Onion-architecture-ASP.NET-Core&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=Amitpnk_Onion-architecture-ASP.NET-Core)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Amitpnk_Onion-architecture-ASP.NET-Core&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Amitpnk_Onion-architecture-ASP.NET-Core)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Amitpnk_Onion-architecture-ASP.NET-Core&metric=alert_status)](https://sonarcloud.io/dashboard?id=Amitpnk_Onion-architecture-ASP.NET-Core)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Amitpnk_Onion-architecture-ASP.NET-Core&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=Amitpnk_Onion-architecture-ASP.NET-Core)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Amitpnk_Onion-architecture-ASP.NET-Core&metric=security_rating)](https://sonarcloud.io/dashboard?id=Amitpnk_Onion-architecture-ASP.NET-Core)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/blob/develop/LICENSE)
+----
+
+
 # WhiteApp/QuickApp Onion architecture with ASP.NET Core
 
 <br />
@@ -29,6 +43,13 @@
 
 ## Give a Star! :star:
 If you like or are using this project to learn or start your solution, please give it a star. Thanks!
+
+## Support This Project
+
+If you have found this project helpful, either as a library that you use or as a learning tool, please consider buying me a coffee:
+
+<a href="https://www.buymeacoffee.com/codewithamit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important" ></a>
+
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
@@ -71,8 +92,6 @@ WhiteApp or QuickApp API solution template which is built on Onion Architecture 
 
 ![image](docs/img/OnionArchitecture.png)
 
-
-
 ## Getting Started
 
 ### Step 1: Download extension from project template
@@ -99,33 +118,102 @@ Select project type as API, and select Onion Architecture
 
 ### Step 5: Configure connection string in appsettings.json
 
+Make sure to connect proper database
+
 ```json
- "ConnectionStrings": {
-    "OnionArchConn": "Data Source=(local)\\SQLexpress;Initial Catalog=OnionDb;Integrated Security=True"
+  "ConnectionStrings": {
+    "OnionArchConn": "Data Source=(local)\\sqlexpress01;Initial Catalog=OnionDb;Integrated Security=True",
+    "IdentityConnection": "Data Source=(local)\\sqlexpress01;Initial Catalog=OnionDb;Integrated Security=True"
+  }, 
+```
+
+and connect to logging in DB or proer path
+
+```diff
+  "Serilog": {
+    "MinimumLevel": "Information",
+    "WriteTo": [
+      {
+        "Name": "RollingFile",
+        "Args": {
+++          "pathFormat": "D:\\Logs\\log-{Date}.log",
+          "outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level}] {Message}{NewLine}{Exception}"
+        }
+      },
+      {
+        "Name": "MSSqlServer",
+        "Args": {
+++          "connectionString": "Data Source=(local)\\sqlexpress01;Initial Catalog=OnionDb3;Integrated Security=True",
+          "sinkOptionsSection": {
+            "tableName": "Logs",
+            "schemaName": "EventLogging",
+            "autoCreateSqlTable": true
+          },
+          "restrictedToMinimumLevel": "Warning"
+        }
+      }
+    ],
+    "Properties": {
+      "Application": "Onion Architecture application"
+    }
   },
 ```
 
 ### Step 6: Create Database (Sample is for Microsoft SQL Server)
 
-![image](docs/img/Step4.png)
-
 For Code First approach (To run this application, use Code First apporach)
 
-```sh
-Update-Database
-```
+- For running migration:
+ 
+  + Option 1: Using Package Manager Console:
+    + Open Package Manager Console, select *<< ProjectName >>.Persistence* as Default Project
+    + Run these commands:
+      ```sh
+      PM> add-migration Initial-commit-Application -Context ApplicationDbContext -o Migrations/Application
+      PM> add-migration Identity-commit -Context IdentityContext -o Migrations/Identity
+
+      PM> update-database -Context ApplicationDbContext 
+      PM> update-database -Context IdentityContext 
+      ```
+
+    ![Migration](docs/img/step4.png)
+
+ + Option 2: Using dotnet cli:
+    + Install **dotnet-ef** cli:
+      ```
+      dotnet tool install --global dotnet-ef --version="3.1"
+      ```
+    + Navigate to [OA](https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/tree/develop/src/OA/) and run these commands:
+      ```
+      $ dotnet ef migrations add Initial-commit-Application --context ApplicationDbContext -o Migrations/Application
+      $ dotnet ef migrations add Identity-commit-Identity --context IdentityContext -o Migrations/Identity
+      $ dotnet ef database update --context ApplicationDbContext 
+      $ dotnet ef database update --context IdentityContext 
+      ```
 
 For Database First approach
 
 In Package Manager console in *<< ProjectName >>.Persistence*, run below command
 
 ```sh
-scaffold-dbcontext -provider Microsoft.EntityFrameworkCore.SqlServer -connection "Data Source=(local)\SQLexpress;Initial Catalog=OnionArchitectureDBS;Integrated Security=True"
+scaffold-dbcontext -provider Microsoft.EntityFrameworkCore.SqlServer -connection "Data Source=(local)\SQLexpress;Initial Catalog=OnionArchitectureDB;Integrated Security=True"
 ```
 
 ### Step 7: Build and run application
 
-Swagger UI
+#### Health check UI
+
+Navigate to Health Checks UI https://localhost:44356/healthcheck-ui and make sure everything is green.
+
+** Change port number according to your application
+
+![image](docs/img/Step6.png)
+
+#### Swagger UI
+
+Swagger UI https://localhost:44356/OpenAPI/index.html
+
+** Change port number according to your application
 
 ![image](docs/img/Step5.png)
 
@@ -136,26 +224,28 @@ This is default white application for ASP.NET Core API development
 This whiteapp contains following features, uncheck feature need to implement yet. 
 
 - [x] Application is implemented on Onion architecture
-- [x] API
+- [x] RESTful API
 - [x] Entityframework Core
 - [x] Expection handling
 - [x] Automapper
 - [x] Unit testing via NUnit
 - [x] Integration testing via NUnit
 - [x] Versioning
-- [x] Swagger
+- [x] Swagger UI
 - [x] CQRS Pattern 
 
 Below features will be implemented in infrastructure layer. You can plug and play based on your project.
 
 - [x] Loggings - seriLog
 - [x] Email
-- [ ] Health checks
-- [ ] JWT authentication
-- [ ] React-redux for UI
-- [ ] Fluent validations
-- [ ] Hangfire
-- [ ] Advanced Pagination
+- [x] Health checks UI
+- [x] JWT authentication with Microsoft Identity
+- [x] Role based Authorization
+- [x] Fluent validations
+- [x] Database Seeding
+- [x] Enable CORS origin
+- [x] Enable feature flag (Make it true when you configure your email configuration)
+
 
 ## Project description
 
@@ -192,27 +282,15 @@ we can see that all the Layers are dependent only on the Core Layers
   <summary><b>Presentation Layer</b></summary>
   <p>
     This can be WebApi or UI.
-
   </p>
 </details>
 
 ## Licence Used
-[![MIT License][license-shield]][license-url]
+
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/blob/develop/LICENSE)
 
 See the contents of the LICENSE file for details
 
 ## Contact
 
 Having any issues or troubles getting started? Drop a mail to amit.naik8103@gmail.com or [Raise a Bug or Feature Request](https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/issues/new). Always happy to help.
-
-## Support This Project
-
-If you have found this project helpful, either as a library that you use or as a learning tool, please consider buying me a coffee:
-
-<a href="https://www.buymeacoffee.com/amitpnaik" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important" ></a>
-
-I do coding for fun during leisure time, but I have to pay the bills, so I also work for money :P  
-
-[license-shield]: https://img.shields.io/badge/License-MIT-yellow.svg
-[license-url]: https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/blob/master/LICENSE.txt
-
