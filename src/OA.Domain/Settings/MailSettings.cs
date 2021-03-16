@@ -2,7 +2,6 @@
 {
     public class MailSettings
     {
-
         public string EmailFrom { get; set; }
         public string SmtpHost { get; set; }
         public int SmtpPort { get; set; }
