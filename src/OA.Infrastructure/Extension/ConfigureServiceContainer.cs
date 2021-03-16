@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.OpenApi.Models;
 using OA.Domain.Settings;
 using OA.Infrastructure.Mapping;
@@ -11,6 +12,7 @@ using OA.Service.Contract;
 using OA.Service.Implementation;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Reflection;
 
@@ -97,11 +99,6 @@ namespace OA.Infrastructure.Extension
                         }, new List<string>()
                     },
                 });
-
-                var xmlCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentsFile);
-                setupAction.IncludeXmlComments(xmlCommentsFullPath);
-
             });
 
         }
@@ -117,11 +114,6 @@ namespace OA.Infrastructure.Extension
             serviceCollection.AddControllers().AddNewtonsoftJson();
         }
 
-        //public static void AddMediatorCQRS(this IServiceCollection services)
-        //{
-        //    //var assembly = AppDomain.CurrentDomain.Load("OA.Service");
-        //    services.AddMediatR(Assembly.GetExecutingAssembly());
-        //}
         public static void AddVersion(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddApiVersioning(config =>
@@ -131,19 +123,20 @@ namespace OA.Infrastructure.Extension
                 config.ReportApiVersions = true;
             });
         }
-        //public static void AddHealthCheck(this IServiceCollection serviceCollection, IConfiguration configuration)
-        //{
-        //    serviceCollection.AddHealthChecks()
-        //         //.AddDbContextCheck<ApplicationDbContext>(name: "Application DB Context", failureStatus: HealthStatus.Degraded)
-        //         .AddUrlGroup(new Uri("https://amitpnk.github.io/"), name: "My personal website", failureStatus: HealthStatus.Degraded)
-        //         .AddSqlServer(configuration.GetConnectionString("OnionArchConn"));
-        //    //.AddSqlServer(configuration.GetConnectionString("IdentityConnection"));
 
-        //    serviceCollection.AddHealthChecksUI(setupSettings: setup =>
-        //    {
-        //        setup.AddHealthCheckEndpoint("Basic Health Check", $"http://localhost:44356/healthz");
-        //    });
-        //}
+        public static void AddHealthCheck(this IServiceCollection serviceCollection, AppSettings appSettings, IConfiguration configuration)
+        {
+            serviceCollection.AddHealthChecks()
+                .AddDbContextCheck<ApplicationDbContext>(name: "Application DB Context", failureStatus: HealthStatus.Degraded)
+                .AddUrlGroup(new Uri(appSettings.ApplicationDetail.ContactWebsite), name: "My personal website", failureStatus: HealthStatus.Degraded)
+                .AddSqlServer(configuration.GetConnectionString("OnionArchConn"));
+            
+            serviceCollection.AddHealthChecksUI(setupSettings: setup =>
+            {
+                setup.AddHealthCheckEndpoint("Basic Health Check", $"/healthz");
+            }).AddInMemoryStorage();
+        }
+
 
     }
 }

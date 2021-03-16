@@ -9,6 +9,7 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.FeatureManagement;
+using OA.Domain.Settings;
 using OA.Infrastructure.Extension;
 using OA.Persistence;
 using OA.Service;
@@ -21,6 +22,8 @@ namespace OA
     public class Startup
     {
         private readonly IConfigurationRoot configRoot;
+        private AppSettings AppSettings { get; set; }
+
         public Startup(IConfiguration configuration)
         {
             Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(configuration).CreateLogger();
@@ -28,6 +31,9 @@ namespace OA
 
             IConfigurationBuilder builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");
             configRoot = builder.Build();
+
+            AppSettings = new AppSettings();
+            Configuration.Bind(AppSettings);
         }
 
         public IConfiguration Configuration { get; }
@@ -54,16 +60,7 @@ namespace OA
 
             services.AddVersion();
 
-
-            services.AddHealthChecks()
-                .AddDbContextCheck<ApplicationDbContext>(name: "Application DB Context", failureStatus: HealthStatus.Degraded)
-                .AddUrlGroup(new Uri("https://amitpnk.github.io/"), name: "My personal website", failureStatus: HealthStatus.Degraded)
-                .AddSqlServer(Configuration.GetConnectionString("OnionArchConn"));
-
-            services.AddHealthChecksUI(setupSettings: setup =>
-            {
-                setup.AddHealthCheckEndpoint("Basic Health Check", $"/healthz");
-            });
+            services.AddHealthCheck(AppSettings, Configuration);
 
             services.AddFeatureManagement();
         }
