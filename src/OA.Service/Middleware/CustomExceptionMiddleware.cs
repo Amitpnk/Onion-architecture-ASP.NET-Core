@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using OA.Service.Exceptions;
 using System;
 using System.Net;
 using System.Threading.Tasks;
@@ -29,16 +30,38 @@ namespace OA.Service.Middleware
             }
         }
 
-        private static Task HandleExceptionAsync(HttpContext context, Exception ex, ILogger<CustomExceptionMiddleware> logger)
+        private static Task HandleExceptionAsync(HttpContext context, Exception exception, ILogger<CustomExceptionMiddleware> logger)
         {
-            var code = HttpStatusCode.InternalServerError; // 500 if unexpected
+            int code;
+            var result = exception.Message;
 
-            logger.LogError(ex.Message);
+            switch (exception)
+            {
+                case ValidationException validationException:
+                    code = (int)HttpStatusCode.BadRequest;
+                    result = JsonConvert.SerializeObject(validationException.Failures);
+                    break;
+                case BadRequestException badRequestException:
+                    code = (int)HttpStatusCode.BadRequest;
+                    result = badRequestException.Message;
+                    break;
+                case DeleteFailureException deleteFailureException:
+                    code = (int)HttpStatusCode.BadRequest;
+                    result = deleteFailureException.Message;
+                    break;
+                case NotFoundException _:
+                    code = (int)HttpStatusCode.NotFound;
+                    break;
+                default:
+                    code = (int)HttpStatusCode.InternalServerError;
+                    break;
+            }
 
-            var result = JsonConvert.SerializeObject(new { StatusCode = (int)code, ErrorMessage = ex.Message });
+            logger.LogError(result);
+
             context.Response.ContentType = "application/json";
-            context.Response.StatusCode = (int)code;
-            return context.Response.WriteAsync(result);
+            context.Response.StatusCode = code;
+            return context.Response.WriteAsync(JsonConvert.SerializeObject(new { StatusCode = code, ErrorMessage = exception.Message }));
         }
     }
 

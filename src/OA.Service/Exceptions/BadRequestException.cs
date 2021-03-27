@@ -1,7 +1,20 @@
-﻿namespace OA.Service.Exceptions
+﻿using System;
+using System.Runtime.Serialization;
+
+namespace OA.Service.Exceptions
 {
-    public class BadRequestException
+    [Serializable]
+    public class BadRequestException : Exception
     {
+        public BadRequestException(string message)
+            : base(message)
+        {
+        }
+
+        protected BadRequestException(SerializationInfo info, StreamingContext context)
+           : base(info, context)
+        {
+        }
 
     }
 }
