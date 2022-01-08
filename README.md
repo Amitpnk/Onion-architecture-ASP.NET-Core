@@ -176,7 +176,7 @@ For Code First approach (To run this application, use Code First apporach)
       PM> update-database -Context IdentityContext 
       ```
 
-    ![Migration](docs/img/step4.png)
+    ![Migration](docs/img/Step4.png)
 
  + Option 2: Using dotnet cli:
     + Install **dotnet-ef** cli:
