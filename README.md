@@ -181,7 +181,7 @@ For Code First approach (To run this application, use Code First apporach)
  + Option 2: Using dotnet cli:
     + Install **dotnet-ef** cli:
       ```
-      dotnet tool install --global dotnet-ef --version="3.1"
+      dotnet tool install --global dotnet-ef --version="10.*"
       ```
     + Navigate to [OA](https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/tree/develop/src/OA/) and run these commands:
       ```
@@ -190,6 +190,10 @@ For Code First approach (To run this application, use Code First apporach)
       $ dotnet ef database update --context ApplicationDbContext 
       $ dotnet ef database update --context IdentityContext 
       ```
+
+> **Quick start (Development):** `appsettings.Development.json` sets `"InitializeDatabaseOnStartup": true`, so running the API in the Development environment creates both databases automatically: migrations are applied if they exist, otherwise the schema is created from the model. If you plan to manage the schema with migrations, add them **before** the first run (or drop the auto-created databases first), because a database created without migrations can't be migrated afterwards.
+
+> **Troubleshooting `500` "Cannot open database \"...\" requested by the login. The login failed." (SQL error 4060):** the database named in `Initial Catalog` doesn't exist yet, or the SQL login has no access to it. Run the migrations above (or enable `InitializeDatabaseOnStartup`). The Serilog `MSSqlServer` sink reuses the `OnionArchConn` connection string and creates that database if needed. Make sure the login in your connection string has permission to create and open the database.
 
 For Database First approach
 
