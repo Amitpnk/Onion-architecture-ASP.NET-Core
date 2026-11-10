@@ -185,10 +185,10 @@ For Code First approach (To run this application, use Code First apporach)
       ```
     + Navigate to [OA](https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/tree/develop/src/OA/) and run these commands:
       ```
-      $ dotnet ef migrations add Initial-commit-Application --context ApplicationDbContext -o Migrations/Application
-      $ dotnet ef migrations add Identity-commit-Identity --context IdentityContext -o Migrations/Identity
-      $ dotnet ef database update --context ApplicationDbContext 
-      $ dotnet ef database update --context IdentityContext 
+      $ dotnet ef migrations add Initial-commit-Application --project ../OA.Persistence --context ApplicationDbContext -o Migrations/Application
+      $ dotnet ef migrations add Identity-commit-Identity --project ../OA.Persistence --context IdentityContext -o Migrations/Identity
+      $ dotnet ef database update --project ../OA.Persistence --context ApplicationDbContext
+      $ dotnet ef database update --project ../OA.Persistence --context IdentityContext
       ```
 
 > **Quick start (Development):** `appsettings.Development.json` sets `"InitializeDatabaseOnStartup": true`, so running the API in the Development environment creates both databases automatically: migrations are applied if they exist, otherwise the schema is created from the model. If you plan to manage the schema with migrations, add them **before** the first run (or drop the auto-created databases first), because a database created without migrations can't be migrated afterwards.
