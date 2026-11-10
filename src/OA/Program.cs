@@ -48,6 +48,9 @@ app.UseCors(options =>
     .AllowAnyHeader()
     .AllowAnyMethod());
 
+// Create the databases if they don't exist (enabled via InitializeDatabaseOnStartup)
+app.InitializeDatabase(builder.Configuration);
+
 // Configure custom exception middleware
 app.ConfigureCustomExceptionMiddleware();
 
