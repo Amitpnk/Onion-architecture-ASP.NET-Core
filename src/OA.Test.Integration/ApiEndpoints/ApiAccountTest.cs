@@ -105,6 +105,69 @@ public class ApiAccountTest : TestClientProvider
     }
 
     [Test]
+    public async Task RegisterConfirmAndLogin_NewUser_GetsBasicRole()
+    {
+        var unique = Guid.NewGuid().ToString("N")[..8];
+        var email = $"new-{unique}@example.com";
+        const string password = "Password@123";
+
+        // 1. Register (the verification link is built from the Origin header)
+        var registerRequest = new HttpRequestMessage(HttpMethod.Post, "api/Account/register")
+        {
+            Content = HttpClientExtensions.SerializeAndCreateContent(new RegisterRequest
+            {
+                FirstName = "New",
+                LastName = "User",
+                Email = email,
+                UserName = $"user{unique}",
+                Password = password,
+                ConfirmPassword = password
+            })
+        };
+        registerRequest.Headers.Add("Origin", "http://localhost");
+        var register = await Client.SendAsync(registerRequest);
+        Assert.That(register.StatusCode, Is.EqualTo(HttpStatusCode.OK), await register.Content.ReadAsStringAsync());
+        var registered = await register.ReadAsAsync<ApiResponse<string>>();
+
+        // 2. Login is refused until the email is confirmed
+        var unconfirmed = await Client.PostJsonAsync("api/Account/authenticate",
+            new AuthenticationRequest { Email = email, Password = password });
+        Assert.That((await unconfirmed.ReadAsAsync<ErrorResponse>()).ErrorMessage,
+            Is.EqualTo($"Account Not Confirmed for '{email}'."));
+
+        // 3. Follow the verification link from the response
+        var verificationUrl = new Uri(registered.Message![(registered.Message.IndexOf("URL ", StringComparison.Ordinal) + 4)..]);
+        var confirm = await Client.GetAsync(verificationUrl.PathAndQuery);
+        Assert.That(confirm.StatusCode, Is.EqualTo(HttpStatusCode.OK), await confirm.Content.ReadAsStringAsync());
+
+        // 4. Now the user can log in and carries the default Basic role
+        var login = await Client.PostJsonAsync("api/Account/authenticate",
+            new AuthenticationRequest { Email = email, Password = password });
+        Assert.That(login.StatusCode, Is.EqualTo(HttpStatusCode.OK), await login.Content.ReadAsStringAsync());
+        var body = await login.ReadAsAsync<ApiResponse<AuthenticationData>>();
+        Assert.That(body.Data!.Id, Is.EqualTo(registered.Data));
+        Assert.That(body.Data.Roles, Is.EqualTo(new[] { "Basic" }));
+    }
+
+    [Test]
+    public async Task Register_ExistingEmail_ReturnsError()
+    {
+        var response = await Client.PostJsonAsync("api/Account/register", new RegisterRequest
+        {
+            FirstName = "Dup",
+            LastName = "Email",
+            Email = SuperAdminEmail,
+            UserName = $"dupe{Guid.NewGuid():N}"[..12],
+            Password = "Password@123",
+            ConfirmPassword = "Password@123"
+        });
+
+        var error = await response.ReadAsAsync<ErrorResponse>();
+        Assert.That(response.IsSuccessStatusCode, Is.False);
+        Assert.That(error.ErrorMessage, Is.EqualTo($"Email {SuperAdminEmail} is already registered."));
+    }
+
+    [Test]
     public async Task ForgotPassword_UnknownEmail_ReturnsOk_AndSendsNothing()
     {
         var response = await Client.PostJsonAsync("api/Account/forgot-password",

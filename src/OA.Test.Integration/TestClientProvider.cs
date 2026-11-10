@@ -41,13 +41,7 @@ public class TestClientProvider : IDisposable
     }
 
     /// <summary>Creates a fresh client without an Authorization header.</summary>
-    public HttpClient CreateClient()
-    {
-        var client = _factory.CreateClient();
-        // TestServer leaves Connection.RemoteIpAddress null; AccountController falls back to this header first.
-        client.DefaultRequestHeaders.Add("X-Forwarded-For", "127.0.0.1");
-        return client;
-    }
+    public HttpClient CreateClient() => _factory.CreateClient();
 
     public void Dispose()
     {
