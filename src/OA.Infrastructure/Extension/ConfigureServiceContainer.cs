@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using OA.Domain.Settings;
 using OA.Infrastructure.Mapping;
 using OA.Persistence;
@@ -88,18 +88,9 @@ public static class ConfigureServiceContainer
                 BearerFormat = "JWT",
                 Description = $"Input your Bearer token in this format - Bearer token to access this API",
             });
-            setupAction.AddSecurityRequirement(new OpenApiSecurityRequirement
+            setupAction.AddSecurityRequirement(document => new OpenApiSecurityRequirement
             {
-                    {
-                        new OpenApiSecurityScheme
-                        {
-                            Reference = new OpenApiReference
-                            {
-                                Type = ReferenceType.SecurityScheme,
-                                Id = "Bearer",
-                            },
-                        }, new List<string>()
-                    },
+                [new OpenApiSecuritySchemeReference("Bearer", document)] = new List<string>()
             });
         });
 
